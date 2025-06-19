@@ -1,130 +1,95 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { useTheme } from '@/lib/theme-context'
-import { Menu, X, Sun, Moon, Globe } from 'lucide-react'
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { ThemeToggle } from '../ui/ThemeToggle';
+import { LanguageSelector } from '../ui/LanguageSelector';
 
-export default function Header() {
-  const { t, i18n } = useTranslation()
-  const { theme, setTheme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navigation = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.about'), href: '/about' },
-    { name: t('nav.software'), href: '/#software' },
-    { name: t('nav.packages'), href: '/#packages' },
-    { name: t('nav.contact'), href: '/contact' },
-  ]
-
-  const languages = [
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  ]
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.software'), href: '#software' },
+    { name: t('nav.packages'), href: '#packages' },
+    { name: t('nav.contact'), href: '#contact' },
+  ];
 
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
-      <div className="container mx-auto px-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-800/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="MMS Logo" className="h-8 w-auto" />
-            <span className="font-bold text-xl">MMS</span>
-          </Link>
+          <div className="flex-shrink-0">
+            <a href="#" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">MMS</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                Marine Management System
+              </span>
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                href={item.href}
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
-          {/* Theme & Language Switcher */}
+          {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="relative group">
-              <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                <Globe className="h-4 w-4" />
-                <span className="text-sm">
-                  {languages.find(lang => lang.code === i18n.language)?.flag}
-                </span>
-              </Button>
-              <div className="absolute right-0 mt-2 w-32 bg-background border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => i18n.changeLanguage(lang.code)}
-                    className="w-full px-3 py-2 text-sm text-left hover:bg-accent flex items-center space-x-2"
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.name}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-
-            <Button>
+            <ThemeToggle />
+            <LanguageSelector />
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
               {t('nav.demo')}
-            </Button>
+            </button>
           </div>
 
           {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <LanguageSelector />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border"
-          >
-            <div className="py-4 space-y-4">
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
-                  className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  href={item.href}
+                  className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
-              <div className="pt-4 border-t border-border">
-                <Button className="w-full">
+              <div className="pt-4">
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
                   {t('nav.demo')}
-                </Button>
+                </button>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
     </header>
-  )
+  );
 } 
