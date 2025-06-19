@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "promises": "Vaatlerimiz",
+    "software": "Yazılımlarımız",
+    "packages": "Paketler",
+    "demo": "Demo İste",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Gemi İnşa Sektörü İçin",
+    "subtitle": "Yenilikçi ERP Çözümleri",
+    "description": "Modern, bulut tabanlı gemi inşaat yönetim sistemi ile tersane operasyonlarınızı dijitalleştirin.",
+    "cta": "Demo Talep Et",
+    "ctaSecondary": "Daha Fazla Bilgi"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "description": "Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır."
+  },
+  "vision": {
+    "title": "Vizyonumuz",
+    "description": "Müşterilerimize sektördeki en yenilikçi, özgün ve etkili ERP çözümlerini sunarak, gemi inşaat süreçlerini daha verimli, şeffaf ve sürdürülebilir hale getirmeyi amaçlıyoruz."
+  },
+  "mission": {
+    "title": "Misyonumuz",
+    "description": "MMS olarak, gemi inşaat sektöründeki karmaşık iş süreçlerini basitleştirmek ve geliştirmek amacıyla yenilikçi ERP çözümleri geliştiriyoruz."
+  },
+  "common": {
+    "learnMore": "Daha Fazla Bilgi",
+    "getStarted": "Başlayın",
+    "requestDemo": "Demo İste",
+    "contact": "İletişim",
+    "close": "Kapat",
+    "submit": "Gönder"
+  }
+} 

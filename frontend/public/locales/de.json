@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "promises": "Unsere Versprechen",
+    "software": "Unsere Software",
+    "packages": "Pakete",
+    "demo": "Demo anfordern",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Für die Schiffbauindustrie",
+    "subtitle": "Innovative ERP-Lösungen",
+    "description": "Digitalisieren Sie Ihre Werftoperationen mit modernem, cloudbasiertem Schiffbau-Managementsystem.",
+    "cta": "Demo anfordern",
+    "ctaSecondary": "Mehr erfahren"
+  },
+  "about": {
+    "title": "Über uns",
+    "description": "Unsere Gründer sind ein Team von Absolventen der Technischen Universität Istanbul aus verschiedenen Disziplinen, darunter ein Schiffbauingenieur, Computeringenieur und Elektrotechnik-Ingenieur, jeder mit bis zu 15 Jahren Erfahrung."
+  },
+  "vision": {
+    "title": "Unsere Vision",
+    "description": "Durch die Bereitstellung der innovativsten, originalsten und effektivsten ERP-Lösungen der Branche für unsere Kunden streben wir danach, die Effizienz, Transparenz und Nachhaltigkeit von Schiffbauprozessen zu verbessern."
+  },
+  "mission": {
+    "title": "Unsere Mission",
+    "description": "Bei MMS entwickeln wir innovative ERP-Lösungen zur Rationalisierung und Verbesserung komplexer Geschäftsprozesse in der Schiffbauindustrie."
+  },
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "getStarted": "Loslegen",
+    "requestDemo": "Demo anfordern",
+    "contact": "Kontakt",
+    "close": "Schließen",
+    "submit": "Senden"
+  }
+} 

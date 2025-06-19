@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Management System (MMS)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        
+
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Marine Management System Logo" />
+          </a>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#hero" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li><a href="#hakkimizda" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                <!--<li><a href="#vizyon" data-tr="Vizyonumuz" data-en="Our Vision">Vizyonumuz</a></li>
+                <li><a href="#misyon" data-tr="Misyonumuz" data-en="Our Mission">Misyonumuz</a></li>-->
+                <li><a href="#vaat" data-tr="Vaatlerimiz" data-en="Our Promises">Vaatlerimiz</a></li>
+                <li><a href="#yazilimlar" data-tr="Yazılımlarımız" data-en="Our Software">Yazılımlarımız</a></li>
+                <!--<li><a href="#cozumler" data-tr="Çözümler" data-en="Solutions">Çözümler</a></li>
+                <li><a href="#ozellikler" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+                <li><a href="#avantajlar" data-tr="Avantajlar" data-en="Advantages">Avantajlar</a></li>-->
+                <li><a href="#paketler" data-tr="Paketler" data-en="Packages">Paketler</a></li>
+                <!--<li><a href="#hedefkitle" data-tr="Hedef Kitle" data-en="Target Audience">Hedef Kitle</a></li>
+                <li><a href="#pazar" data-tr="Pazar" data-en="Market">Pazar</a></li>
+                <li><a href="#fikrimulik" data-tr="Fikri Mülkiyet" data-en="Intellectual Property">Fikri Mülkiyet</a></li>
+                <li><a href="#rakipler" data-tr="Rakipler" data-en="Competitors">Rakipler</a></li>
+                <li><a href="#gelirmodeli" data-tr="Gelir Modeli" data-en="Revenue Model">Gelir Modeli</a></li>
+                <li><a href="#teknik" data-tr="Teknik Yapılabilirlik" data-en="Technical Feasibility">Teknik Yapılabilirlik</a></li>
+                <li><a href="#ekip" data-tr="Ekip Yetkinlikleri" data-en="Team Competencies">Ekip Yetkinlikleri</a></li>
+                <li><a href="#inovasyon" data-tr="İnovasyon" data-en="Innovation">İnovasyon</a></li>
+                <li><a href="#sonuc" data-tr="Sonuç" data-en="Conclusion">Sonuç</a></li>-->
+                <li><a href="#demo" onclick="openDemoForm()" data-tr="Demo İste" data-en="Request Demo">Demo İste</a></li>
+                <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+
+            </ul>
+        </nav>
+        <div class="language-selector">
+            <select id="language-dropdown">
+                <option value="tr">Türkçe</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <button class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+    <div class="container">
+        
+            <!--<h1 data-tr="Marine Management System" data-en="Marine Management System">Marine Management System</h1>
+
+            <h2 data-tr="(MMS)" data-en="(MMS)">(MMS)</h2>-->
+
+            <p data-tr="Gemi inşa sektörü için yenilikçi ERP çözümleri." data-en="Innovative ERP solutions for the shipbuilding industry.">Gemi inşa sektörü için yenilikçi ERP çözümleri.</p>
+            <button class="btn hero-btn" onclick="openDemoForm()" data-tr="Demo Talep Et" data-en="Request a Demo">Demo Talep Et</button>
+        </div>
+    </div>
+</section>
+
+<!-- Hakkımızda -->
+<section id="hakkimizda" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h2>
+            <div class="about-content">
+                <div class="text">
+                    <p data-tr="Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır. Bu ekip, yenilikçi ve sektöre özgü bir yaklaşımla geliştirdiği ERP yazılımıyla özgün çözümler sunan bir yazılım şirketi olarak faaliyet göstermektedir. İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir." data-en="Our founders are a team of Istanbul Technical University graduates from various disciplines, including a Naval Architect, Computer Engineer, and Electrical-Electronics Engineer, each with up to 15 years of experience. This team operates as a software company, offering unique solutions with its innovative and industry-specific ERP software. Formed by young entrepreneurs focused on innovation and quality, our company aims to provide innovative and effective solutions to the needs of the sector.">Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır. Bu ekip, yenilikçi ve sektöre özgü bir yaklaşımla geliştirdiği ERP yazılımıyla özgün çözümler sunan bir yazılım şirketi olarak faaliyet göstermektedir. İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir.</p>
+                </div>
+                <img src="gemi-insaat.png" alt="Gemi İnşa Sektöründe Yeni Bir Çağ Başlıyor" width="420" height="280">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vizyon -->
+<section id="vizyon" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Vizyonumuz" data-en="Our Vision">Vizyonumuz</h2>
+            <div class="about-content">
+                <img src="vizyon.jpg" alt="Vizyonumuz" width="420" height="280">
+                <div class="text">
+                    <p data-tr="Müşterilerimize sektördeki en yenilikçi, özgün ve etkili ERP çözümlerini sunarak, gemi inşaat süreçlerini daha verimli, şeffaf ve sürdürülebilir hale getirmeyi amaçlıyoruz. Müşteri ihtiyaçlarına odaklanarak, gelişen teknolojiyi yakından takip ediyor ve iş süreçlerini optimize etmelerine destek oluyoruz." data-en="By providing our clients with the industry's most innovative, original, and effective ERP solutions, we strive to enhance the efficiency, transparency, and sustainability of shipbuilding processes. With a client-centric approach, we keep a close eye on emerging technologies, offering continuous support in optimizing their operational workflows.">Müşterilerimize sektördeki en yenilikçi, özgün ve etkili ERP çözümlerini sunarak, gemi inşaat süreçlerini daha verimli, şeffaf ve sürdürülebilir hale getirmeyi amaçlıyoruz. Müşteri ihtiyaçlarına odaklanarak, gelişen teknolojiyi yakından takip ediyor ve iş süreçlerini optimize etmelerine destek oluyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Misyon -->
+<section id="misyon" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Misyonumuz" data-en="Our Mission">Misyonumuz</h2>
+            <div class="about-content">
+                <div class="text">
+                    <p data-tr="MMS olarak, gemi inşaat sektöründeki karmaşık iş süreçlerini basitleştirmek ve geliştirmek amacıyla yenilikçi ERP çözümleri geliştiriyoruz. Müşterilerimize en üst düzeyde hizmet sunmak için teknolojik yeteneklerimizi kullanıyor ve sektöre özgü ihtiyaçlara uygun özelleştirilebilir çözümler sunuyoruz. Müşteri memnuniyetine odaklanarak, müşterilerimizin başarısını sürekli destekliyoruz." data-en="At MMS, we develop innovative ERP solutions to streamline and enhance complex business processes within the shipbuilding industry. Leveraging our technological expertise, we provide top-tier services to our clients, offering customizable solutions tailored to their specific needs. With a strong focus on customer satisfaction, we continuously support our clients' success.">MMS olarak, gemi inşaat sektöründeki karmaşık iş süreçlerini basitleştirmek ve geliştirmek amacıyla yenilikçi ERP çözümleri geliştiriyoruz. Müşterilerimize en üst düzeyde hizmet sunmak için teknolojik yeteneklerimizi kullanıyor ve sektöre özgü ihtiyaçlara uygun özelleştirilebilir çözümler sunuyoruz. Müşteri memnuniyetine odaklanarak, müşterilerimizin başarısını sürekli destekliyoruz.</p>
+                </div>
+                <img src="misyon.jpg" alt="Misyonumuz" width="420" height="280">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vaatlerimiz -->
+<section id="vaat" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Ne Vaat Ediyoruz?" data-en="What Do We Promise?">Ne Vaat Ediyoruz?</h2>
+            <div class="about-content">
+                <img src="vaat.jpg" alt="Ne Vaat Ediyoruz" width="420" height="280">
+                <div class="text">
+                    <p data-tr="Müşterilerimizin ihtiyaçlarına en uygun çözümleri sunarak, gemi inşaat sektöründe en yüksek verimliliği sağlamayı vaat ediyoruz. Sektördeki gelişmeleri yakından takip ederek, iş süreçlerinizi optimize edecek ve projelerinizin başarısını artıracak yenilikçi yazılımlar geliştiriyoruz." data-en="We promise to deliver the solutions best suited to our clients' needs, ensuring maximum efficiency in the shipbuilding industry. By staying abreast of industry advancements, we develop innovative software that optimizes your business processes and enhances project success.">Müşterilerimizin ihtiyaçlarına en uygun çözümleri sunarak, gemi inşaat sektöründe en yüksek verimliliği sağlamayı vaat ediyoruz. Sektördeki gelişmeleri yakından takip ederek, iş süreçlerinizi optimize edecek ve projelerinizin başarısını artıracak yenilikçi yazılımlar geliştiriyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Yazılımlarımız -->
+<section id="yazilimlar" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Yazılımlarımız" data-en="Our Software">Yazılımlarımız</h2>
+            <p data-tr="MMS, gemi inşa sektöründe faaliyet gösteren işletmeler için özel olarak geliştirilmiş bir (ERP) yönetim sistemidir. MMS SRM (Ship Repair and Maintance), MMS NB (New Building), MMS Yacht (Yacht Building) gibi yazılımlarımız vardır." data-en="MMS is an ERP (Enterprise Resource Planning) management system specifically developed for businesses operating in the shipbuilding industry.  We offer various software solutions such as MMS SRM (Ship Repair and Maintenance), MMS NB (New Building), and MMS Yacht (Yacht Building).">MMS, gemi inşa sektöründe faaliyet gösteren işletmeler için özel olarak geliştirilmiş bir (ERP) yönetim sistemidir. MMS SRM (Ship Repair and Maintance), MMS NB (New Building), MMS Yacht (Yacht Building) gibi yazılımlarımız vardır.</p>
+
+            <div class="yazilimlar-container">
+                <div class="yazilim-modul">
+                    <h3 class="modul-title" onclick="toggleModules('modules')" data-tr="MMS NB Modülleri" data-en="MMS NB Modules"><i class="fas fa-cubes"></i> MMS NB Modülleri</h3>
+                    <ul id="modules" class="modul-list">
+                        <li>• REMARK MODÜLÜ</li>
+                        <li>• GEMI INSA ÜRETİM YONETIMI</li>
+                        <li>• DİZAYN VE DÖKÜMAN MODÜLÜ</li>
+                        <li>• TOPLANTI MODÜLÜ</li>
+                        <li>• PROJE YÖNETİM MODÜLÜ</li>
+                        <li>• İMALAT MODULÜ</li>
+                        <li>• PLANLAMA MODÜLÜ</li>
+                        <li>• TEKNİK SATINALMA MODÜLÜ</li>
+                        <li>• SATIŞ, GARANTİ VE SERVİS MODÜLÜ</li>
+                        <li>• MALZEME YÖNETİMİ MODÜLÜ</li>
+                        <li>• TAŞERON YÖNETİM MODÜLÜ</li>
+                        <li>• TERSANE YÖNETİM MODÜLÜ</li>
+                        <li>• SATINALMA MODÜLÜ</li>
+                        <li>• KALİTE KONTROL MODÜLÜ</li>
+                        <li>• İŞ SAĞLIĞI VE GÜVENLİĞİ MODÜLÜ</li>
+                        <li>• DEPOLAMA & NAKLİYE MODÜLÜ</li>
+                        <li>• FİNANS VE MUHASEBE MODÜLÜ</li>
+                        <li>• İNSAN KAYNAKLARI MODÜLÜ</li>
+                        <li>• RİSK YÖNETİMİ MODÜLÜ</li>
+                        <li>• TEKLİF/SÖZLEŞME YÖNETİMİ</li>
+                        <li>• RAPOR YÖNETİMİ MODÜLÜ</li>
+                        <li>• İŞ AKIŞ YÖNETİMİ</li>
+                        <li>• EĞİTİM MODÜLÜ</li>
+                    </ul>
+                </div>
+
+                <div class="yazilim-modul">
+                    <h3 class="modul-title" onclick="toggleModules('srmModules')" data-tr="MMS SRM Modülleri" data-en="MMS SRM Modules"><i class="fas fa-cubes"></i> MMS SRM Modülleri</h3>
+                    <ul id="srmModules" class="modul-list">
+                        <li>• MÜŞTERİ TAKİP MODÜLÜ</li>
+                        <li>• PAZARLAMA, TEKLİF VE SÖZLEŞME YÖNETİMİ</li>
+                        <li>• PLAN-KEŞİF-PROJE YÖNETİMİ</li>
+                        <li>• TEDARİK YÖNETİMİ</li>
+                        <li>• DEPOLAMA & NAKLİYE MODÜLÜ</li>
+                        <li>• ATOLYE YÖNETİMİ</li>
+                        <li>• ALT YÜKLENİCİ YÖNETİMİ</li>
+                        <li>• ÜRETİM-İŞLETME YÖNETİMİ</li>
+                        <li>• KALİTE- KONTROL YÖNETİMİ</li>
+                        <li>• DİZAYN-DÖKÜMAN YÖNETİMİ</li>
+                        <li>• FİNANS MODÜLÜ</li>
+                        <li>• TOPLANTI MODÜLÜ</li>
+                        <li>• MALZEME YÖNETİMİ MODÜLÜ</li>
+                        <li>• TERSANE YÖNETİM MODÜLÜ</li>
+                        <li>• RİSK YÖNETİMİ MODÜLÜ</li>
+                        <li>• RAPOR YÖNETİMİ MODÜLÜ</li>
+                        <li>• İŞ AKIŞ YÖNETİMİ</li>
+                        <li>• İNSAN KAYNAKLARI MODÜLÜ</li>
+                        <li>• İŞ SAĞLIĞI VE GÜVENLİĞİ MODÜLÜ</li>
+                        <li>• EĞİTİM MODÜLÜ</li>
+
+                    </ul>
+                </div>
+
+                <div class="yazilim-modul">
+                    <h3 class="modul-title" onclick="toggleModules('yachtModules')" data-tr="MMS Yacht Modülleri" data-en="MMS Yacht Modules"><i class="fas fa-cubes"></i> MMS Yacht Modülleri</h3>
+                    <ul id="yachtModules" class="modul-list">
+                        <li>• MÜŞTERİ İLİŞKİLERİ YÖNETİMİ</li>
+                        <li>• TEKLİF/SÖZLEŞME YÖNETİMİ</li>
+                        <li>• YAT MİMARİ TAKİP MODÜLÜ</li>
+                        <li>• PROJE YÖNETİM MODÜLÜ</li>
+                        <li>• TASARIM VE MÜHENDİSLİK MODÜLÜ</li>
+                        <li>• YAT ÜRETİM YÖNETİMİ</li>
+                        <li>• ATOLYE YÖNETİMİ</li>
+                        <li>• KALİTE- KONTROL YÖNETİMİ</li>
+                        <li>• TEDARİK YÖNETİMİ</li>
+                        <li>• DEPOLAMA YÖNETİMİ</li>
+                        <li>• TERSANE YÖNETİM MODÜLÜ</li>
+                        <li>• ALT YÜKLENİCİ YÖNETİMİ</li>
+                        <li>• TOPLANTI MODÜLÜ</li>
+                        <li>• İŞ SAĞLIĞI VE GÜVENLİĞİ MODÜLÜ</li>
+                        <li>• İNSAN KAYNAKLARI MODÜLÜ</li>
+                        <li>• FİNANS MODÜLÜ</li>
+                        <li>• MALZEME YÖNETİMİ MODÜLÜ</li>
+                        <li>• İŞ AKIŞ YÖNETİMİ</li>
+                        <li>• RAPOR YÖNETİMİ MODÜLÜ</li>
+                        <li>• EĞİTİM MODÜLÜ</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cozumler" class="section bg-gray">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS'in Sunduğu Çözümler" data-en="Solutions Offered by MMS">MMS'in Sunduğu Çözümler</h2>
+            <p data-tr="Gemi inşa sektörüne özgü çözümler sunan MMS, projelerin daha verimli, kontrollü ve karlı bir şekilde yönetilmesini sağlar." data-en="MMS offers specific solutions for the shipbuilding industry, enabling more efficient, controlled, and profitable project management.">Gemi inşa sektörüne özgü çözümler sunan MMS, projelerin daha verimli, kontrollü ve karlı bir şekilde yönetilmesini sağlar.</p>
+            <div class="cozumler-container">
+                <div class="cozum">
+                    <i class="fas fa-tasks fa-2x"></i>
+                    <h3 data-tr="Entegre Süreç Yönetimi" data-en="Integrated Process Management">Entegre Süreç Yönetimi</h3>
+                    <p data-tr="Gemi inşa sürecinin farklı aşamalarını ve bileşenlerini entegre bir platformda birleştirerek koordinasyonu sağlar ve operasyonel hataları minimize eder." data-en="Integrates different stages and components of the shipbuilding process on a single platform, ensuring coordination and minimizing operational errors.">Gemi inşa sürecinin farklı aşamalarını ve bileşenlerini entegre bir platformda birleştirerek koordinasyonu sağlar ve operasyonel hataları minimize eder.</p>
+                </div>
+                <div class="cozum">
+                    <i class="fas fa-robot fa-2x"></i>
+                    <h3 data-tr="Otomasyon ve Dijitalleşme" data-en="Automation and Digitalization">Otomasyon ve Dijitalleşme</h3>
+                    <p data-tr="Manuel süreçleri otomatikleştirerek ve dijitalleştirerek zaman kayıplarını önler ve verimliliği artırır." data-en="Automates and digitalizes manual processes, preventing time loss and increasing efficiency.">Manuel süreçleri otomatikleştirerek ve dijitalleştirerek zaman kayıplarını önler ve verimliliği artırır.</p>
+                </div>
+                <div class="cozum">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h3 data-tr="Maliyet Kontrolü" data-en="Cost Control">Maliyet Kontrolü</h3>
+                    <p data-tr="Maliyetlerin etkin takibi ve yönetimi ile gereksiz harcamaların önüne geçerek karlılığı artırır." data-en="Increases profitability by preventing unnecessary expenses with effective cost tracking and management.">Maliyetlerin etkin takibi ve yönetimi ile gereksiz harcamaların önüne geçerek karlılığı artırır.</p>
+                </div>
+                <div class="cozum">
+                    <i class="fas fa-rocket fa-2x"></i>
+                    <h3 data-tr="Rekabet Gücü ve İnovasyon" data-en="Competitive Power and Innovation">Rekabet Gücü ve İnovasyon</h3>
+                    <p data-tr="Kullanıcı dostu arayüzü, gelişmiş özellikleri ve sürekli güncellenen yapısıyla işletmelere rekabet avantajı sağlar." data-en="Provides businesses with a competitive advantage through its user-friendly interface, advanced features and continuously updated structure.">Kullanıcı dostu arayüzü, gelişmiş özellikleri ve sürekli güncellenen yapısıyla işletmelere rekabet avantajı sağlar.</p>
+                </div>
+                <div class="cozum">
+                    <i class="fas fa-database fa-2x"></i>
+                    <h3 data-tr="Bilgi ve Veri Yönetimi" data-en="Information and Data Management">Bilgi ve Veri Yönetimi</h3>
+                    <p data-tr="Toplanan verilerin etkili yönetimi ve analizi ile stratejik karar alma süreçlerini destekler." data-en="Supports strategic decision-making processes through effective management and analysis of collected data.">Toplanan verilerin etkili yönetimi ve analizi ile stratejik karar alma süreçlerini destekler.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="ozellikler" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS'i Farklı Kılan Özellikler" data-en="Features that Make MMS Different">MMS'i Farklı Kılan Özellikler</h2>
+            <div class="ozellikler-container">
+                <div class="ozellik">
+                    <h3 data-tr="Sektöre Özgü Çözümler" data-en="Industry-Specific Solutions"><i class="fas fa-check-circle"></i> Sektöre Özgü Çözümler</h3>
+                    <p data-tr="Gemi inşa süreçlerine ve terminolojisine tam uyumlu, sektöre özel modüller ve iş akışları sunar." data-en="Offers industry-specific modules and workflows fully compatible with shipbuilding processes and terminology.">Gemi inşa süreçlerine ve terminolojisine tam uyumlu, sektöre özel modüller ve iş akışları sunar.</p>
+                </div>
+                <div class="ozellik">
+                    <h3 data-tr="Yerli Üretim" data-en="Domestic Production"><i class="fas fa-check-circle"></i> Yerli Üretim</h3>
+                    <p data-tr="Türkiye'deki gemi inşa sektörünün ihtiyaçlarına ve dinamiklerine göre geliştirilmiş, Türkçe dil desteği sağlayan bir yazılımdır." data-en="Developed according to the needs and dynamics of the Turkish shipbuilding industry, it is software that provides Turkish language support.">Türkiye'deki gemi inşa sektörünün ihtiyaçlarına ve dinamiklerine göre geliştirilmiş, Türkçe dil desteği sağlayan bir yazılımdır.</p>
+                </div>
+                <div class="ozellik">
+                    <h3 data-tr="Esneklik ve Ölçeklenebilirlik" data-en="Flexibility and Scalability"><i class="fas fa-check-circle"></i> Esneklik ve Ölçeklenebilirlik</h3>
+                    <p data-tr="Modüler yapısı sayesinde işletmelerin ihtiyaçlarına göre özelleştirilebilir ve ölçeklenebilir." data-en="Customizable and scalable according to the needs of businesses thanks to its modular structure.">Modüler yapısı sayesinde işletmelerin ihtiyaçlarına göre özelleştirilebilir ve ölçeklenebilir.</p>
+                </div>
+                <div class="ozellik">
+                    <h3 data-tr="Kullanıcı Dostu Arayüz" data-en="User-Friendly Interface"><i class="fas fa-check-circle"></i> Kullanıcı Dostu Arayüz</h3>
+                    <p data-tr="Gemi inşa sektöründeki kullanıcıların iş yapış şekillerine uygun, basit ve anlaşılır bir arayüze sahiptir." data-en="It has a simple and understandable interface suitable for the working methods of users in the shipbuilding industry.">Gemi inşa sektöründeki kullanıcıların iş yapış şekillerine uygun, basit ve anlaşılır bir arayüze sahiptir.</p>
+                </div>
+                <div class="ozellik">
+                    <h3 data-tr="Rekabetçi Fiyatlandırma" data-en="Competitive Pricing"><i class="fas fa-check-circle"></i> Rekabetçi Fiyatlandırma</h3>
+                    <p data-tr="Yüksek maliyetli yabancı rakiplerine kıyasla rekabetçi fiyatlandırma modeliyle öne çıkar." data-en="Stands out with its competitive pricing model compared to its expensive foreign competitors.">Yüksek maliyetli yabancı rakiplerine kıyasla rekabetçi fiyatlandırma modeliyle öne çıkar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="avantajlar" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS'in Avantajları" data-en="Advantages of MMS">MMS'in Avantajları</h2>
+            <ul class="avantajlar-list">
+                <li><i class="fas fa-check"></i> <span data-tr="Derinlemesine Sektörel Uzmanlık: MMS, gemi inşa süreçlerinin tüm detaylarını ve terminolojisini kapsayacak şekilde tasarlanmıştır." data-en="Deep Industry Expertise: MMS is designed to encompass all the details and terminology of shipbuilding processes.">Derinlemesine Sektörel Uzmanlık: MMS, gemi inşa süreçlerinin tüm detaylarını ve terminolojisini kapsayacak şekilde tasarlanmıştır.</span></li>
+                <li><i class="fas fa-check"></i> <span data-tr="Yerli Üretim ve Kolay Uyum: Türk gemi inşa sektörünün özel ihtiyaçlarını, mevzuatını ve iş yapış şekillerini göz önünde bulundurarak geliştirilmiştir." data-en="Domestic Production and Easy Adaptation: Developed considering the specific needs, regulations, and working methods of the Turkish shipbuilding industry.">Yerli Üretim ve Kolay Uyum: Türk gemi inşa sektörünün özel ihtiyaçlarını, mevzuatını ve iş yapış şekillerini göz önünde bulundurarak geliştirilmiştir.</span></li>
+                <li><i class="fas fa-check"></i> <span data-tr="Esneklik ve Ölçeklenebilirlik: İşletmelerin ihtiyaçlarına göre özelleştirilebilen ve büyüyebilen modüler bir yapıya sahiptir." data-en="Flexibility and Scalability: Has a modular structure that can be customized and scaled according to the needs of businesses.">Esneklik ve Ölçeklenebilirlik: İşletmelerin ihtiyaçlarına göre özelleştirilebilen ve büyüyebilen modüler bir yapıya sahiptir.</span></li>
+                <li><i class="fas fa-check"></i> <span data-tr="Kullanıcı Dostu Arayüz ve Kolay Kullanım: Gemi inşa sektöründeki profesyoneller tarafından kolayca benimsenebilen, basit ve anlaşılır bir kullanıcı arayüzüne sahiptir." data-en="User-Friendly Interface and Easy Use: Has a simple and understandable user interface that can be easily adopted by professionals in the shipbuilding industry.">Kullanıcı Dostu Arayüz ve Kolay Kullanım: Gemi inşa sektöründeki profesyoneller tarafından kolayca benimsenebilen, basit ve anlaşılır bir kullanıcı arayüzüne sahiptir.</span></li>
+                <li><i class="fas fa-check"></i> <span data-tr="Rekabetçi Fiyatlandırma ve Düşük Maliyet: İşletmelere rekabetçi fiyatlandırma seçenekleri ve düşük sahip olma maliyeti sunar." data-en="Competitive Pricing and Low Cost: Offers businesses competitive pricing options and a low cost of ownership.">Rekabetçi Fiyatlandırma ve Düşük Maliyet: İşletmelere rekabetçi fiyatlandırma seçenekleri ve düşük sahip olma maliyeti sunar.</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="paketler" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS Paketleri" data-en="MMS Packages">MMS Paketleri</h2>
+            <div class="paketler-container">
+                <div class="paket">
+                    <h3 data-tr="MMS Starter" data-en="MMS Starter">MMS Starter</h3>
+                    <ul>
+                        <li data-tr="Temel işlevler" data-en="Basic functions">Temel işlevler</li>
+                        <li data-tr="5 modül" data-en="5 modules">5 modül</li>
+                        <li data-tr="Uygun fiyat" data-en="Affordable price">Uygun fiyat</li>
+                    </ul>
+                    <button class="btn" data-tr="Daha Fazla Bilgi" data-en="More Information">Daha Fazla Bilgi</button>
+                </div>
+                <div class="paket">
+                    <h3 data-tr="MMS Professional" data-en="MMS Professional">MMS Professional</h3>
+                    <ul>
+                        <li data-tr="İleri düzey çözümler" data-en="Advanced solutions">İleri düzey çözümler</li>
+                        <li data-tr="12 modül" data-en="12 modules">12 modül</li>
+                        <li data-tr="Karmaşık ihtiyaçlara uygun" data-en="Suitable for complex needs">Karmaşık ihtiyaçlara uygun</li>
+                    </ul>
+                    <button class="btn" data-tr="Daha Fazla Bilgi" data-en="More Information">Daha Fazla Bilgi</button>
+                </div>
+                <div class="paket">
+                    <h3 data-tr="MMS Enterprise" data-en="MMS Enterprise">MMS Enterprise</h3>
+                    <ul>
+                        <li data-tr="En kapsamlı çözümler" data-en="The most comprehensive solutions">En kapsamlı çözümler</li>
+                        <li data-tr="20 modül" data-en="20 modules">20 modül</li>
+                        <li data-tr="Tüm işletme ihtiyaçlarına yönelik" data-en="For all business needs">Tüm işletme ihtiyaçlarına yönelik</li>
+                    </ul>
+                    <button class="btn" data-tr="Daha Fazla Bilgi" data-en="More Information">Daha Fazla Bilgi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section id="hedefkitle" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Hedef Kitle" data-en="Target Audience">Hedef Kitle</h2>
+            <p data-tr="MMS, geniş bir yelpazede gemi inşa ve denizcilik sektörü oyuncusuna hitap etmektedir:" data-en="MMS caters to a wide range of players in the shipbuilding and maritime industry:">MMS, geniş bir yelpazede gemi inşa ve denizcilik sektörü oyuncusuna hitap etmektedir:</p>
+            <ul  class="hedefkitle-list">
+                <li><i class="fas fa-ship"></i> <span data-tr="Küçük ve Orta Ölçekli Tersaneler: Operasyonlarını daha verimli yönetmek, maliyetleri düşürmek ve rekabet güçlerini artırmak isteyen tersaneler." data-en="Small and Medium-Sized Shipyards: Shipyards seeking to manage operations more efficiently, reduce costs, and enhance competitiveness.">Küçük ve Orta Ölçekli Tersaneler: Operasyonlarını daha verimli yönetmek, maliyetleri düşürmek ve rekabet güçlerini artırmak isteyen tersaneler.</span></li>
+                <li><i class="fas fa-ship"></i> <span data-tr="Büyük Ölçekli Tersaneler: Karmaşık projeleri daha etkin bir şekilde yönetmek, veri analitiği ile daha stratejik kararlar almak isteyen tersaneler." data-en="Large-Scale Shipyards: Shipyards aiming to manage complex projects more effectively and make strategic decisions using data analytics.">Büyük Ölçekli Tersaneler: Karmaşık projeleri daha etkin bir şekilde yönetmek, veri analitiği ile daha stratejik kararlar almak isteyen tersaneler.</span></li>
+                <li><i class="fas fa-tools"></i> <span data-tr="Gemi Bakım ve Onarım Tersaneleri: Bakım-onarım süreçlerini dijitalleştirmek, iş takibini kolaylaştırmak ve müşterilerine daha şeffaf bir hizmet sunmak isteyen tersaneler." data-en="Ship Maintenance and Repair Shipyards: Shipyards looking to digitize maintenance and repair processes, facilitate job tracking, and provide more transparent service to customers.">Gemi Bakım ve Onarım Tersaneleri: Bakım-onarım süreçlerini dijitalleştirmek, iş takibini kolaylaştırmak ve müşterilerine daha şeffaf bir hizmet sunmak isteyen tersaneler.</span></li>
+                <li><i class="fas fa-anchor"></i> <span data-tr="Yat ve Tekne İmalatçıları: Üretim süreçlerini optimize etmek, stok ve siparişleri daha etkin yönetmek isteyen yat ve tekne imalatçıları." data-en="Yacht and Boat Manufacturers: Yacht and boat manufacturers seeking to optimize production processes and manage stocks and orders more effectively.">Yat ve Tekne İmalatçıları: Üretim süreçlerini optimize etmek, stok ve siparişleri daha etkin yönetmek isteyen yat ve tekne imalatçıları.</span></li>
+                <li><i class="fas fa-industry"></i> <span data-tr="Denizcilik Sektörüne Hizmet Veren Diğer İşletmeler: Gemi ekipmanları tedarikçileri, lojistik firmaları, mühendislik firmaları gibi, gemi inşa ve tersane sektörüyle doğrudan veya dolaylı olarak çalışan işletmeler." data-en="Other Businesses Serving the Maritime Industry: Businesses working directly or indirectly with the shipbuilding and shipyard industries, such as ship equipment suppliers, logistics companies, and engineering firms.">Denizcilik Sektörüne Hizmet Veren Diğer İşletmeler: Gemi ekipmanları tedarikçileri, lojistik firmaları, mühendislik firmaları gibi, gemi inşa ve tersane sektörüyle doğrudan veya dolaylı olarak çalışan işletmeler.</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="pazar" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Pazar Büyüklüğü ve Büyüme Potansiyeli" data-en="Market Size and Growth Potential">Pazar Büyüklüğü ve Büyüme Potansiyeli</h2>
+            <p data-tr="MMS projesi, Türkiye'deki ve globaldeki gemi inşa ve tersane sektörünü hedeflemektedir. Bu sektör, dünya sıralamasında üst sıralarda yer alması ve sürekli büyüme potansiyeline sahip olması nedeniyle MMS için önemli bir pazar büyüklüğü sunmaktadır." data-en="The MMS project targets the shipbuilding and shipyard sectors in Turkey and globally. This sector presents a significant market size for MMS due to its high global ranking and continuous growth potential.">MMS projesi, Türkiye'deki ve globaldeki gemi inşa ve tersane sektörünü hedeflemektedir. Bu sektör, dünya sıralamasında üst sıralarda yer alması ve sürekli büyüme potansiyeline sahip olması nedeniyle MMS için önemli bir pazar büyüklüğü sunmaktadır.</p>
+            <ul class="pazar-list">
+                <li><i class="fas fa-globe-europe"></i> <span data-tr="Türkiye, dünya gemi inşa sektöründe önemli bir oyuncu konumundadır ve sektörün yıllık cirosu milyarlarca dolar seviyesindedir." data-en="Turkey is a key player in the global shipbuilding industry, with the sector's annual turnover reaching billions of dollars.">Türkiye, dünya gemi inşa sektöründe önemli bir oyuncu konumundadır ve sektörün yıllık cirosu milyarlarca dolar seviyesindedir.</span></li>
+                <li><i class="fas fa-industry"></i> <span data-tr="Türkiye'de faaliyet gösteren çok sayıda gemi inşa, onarım tersanesi ve yat tersanesi bulunmaktadır." data-en="Numerous shipbuilding, repair shipyards, and yacht shipyards operate in Turkey.">Türkiye'de faaliyet gösteren çok sayıda gemi inşa, onarım tersanesi ve yat tersanesi bulunmaktadır.</span></li>
+                <li><i class="fas fa-chart-line"></i> <span data-tr="Gemi inşa sektörü, dünya genelinde dijital dönüşüm sürecinden geçmektedir ve işletmeler rekabet güçlerini artırmak ve verimliliklerini yükseltmek için dijital çözümlere yatırım yapmaktadır." data-en="The shipbuilding industry is undergoing a global digital transformation, with businesses investing in digital solutions to enhance competitiveness and boost productivity.">Gemi inşa sektörü, dünya genelinde dijital dönüşüm sürecinden geçmektedir ve işletmeler rekabet güçlerini artırmak ve verimliliklerini yükseltmek için dijital çözümlere yatırım yapmaktadır.</span></li>
+                <li><i class="fas fa-flag-tr"></i> <span data-tr="Türkiye'de yerli üretimi teşvik eden politikalar, MMS gibi yerli yazılımlar için olumlu bir faktör oluşturmaktadır." data-en="Policies promoting domestic production in Turkey create a favorable environment for local software like MMS.">Türkiye'de yerli üretimi teşvik eden politikalar, MMS gibi yerli yazılımlar için olumlu bir faktör oluşturmaktadır.</span></li>
+            </ul>
+            <h3 data-tr="Büyüme Potansiyelini Artıran Faktörler:" data-en="Factors Increasing Growth Potential:">Büyüme Potansiyelini Artıran Faktörler:</h3>
+            <ul class="pazar-list">
+                <li><i class="fas fa-arrow-up"></i> <span data-tr="Gemi inşa sektörünün sürekli büyümesi" data-en="Continuous growth of the shipbuilding industry">Gemi inşa sektörünün sürekli büyümesi</span></li>
+                <li><i class="fas fa-arrow-up"></i> <span data-tr="Dijital dönüşüm yatırımlarının artması" data-en="Increased investment in digital transformation">Dijital dönüşüm yatırımlarının artması</span></li>
+                <li><i class="fas fa-arrow-up"></i> <span data-tr="İhracat potansiyelinin yüksek olması" data-en="High export potential">İhracat potansiyelinin yüksek olması</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="fikrimulik" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Fikri Mülkiyet Başvuru Durumu" data-en="Intellectual Property Application Status">Fikri Mülkiyet Başvuru Durumu</h2>
+            <ul class="fikrimulik-list">
+                <li><i class="fas fa-file-signature"></i> <span data-tr="Patent: MMS yazılımının çeşitli modülleri ve yenilikçi özellikleri için patent başvuruları yapılması planlanmaktadır." data-en="Patent: Patent applications are planned for various modules and innovative features of the MMS software.">Patent: MMS yazılımının çeşitli modülleri ve yenilikçi özellikleri için patent başvuruları yapılması planlanmaktadır.</span></li>
+                <li><i class="fas fa-copyright"></i> <span data-tr="Telif Hakları: Yazılımın kodları ve dokümantasyonları için telif hakkı başvurularının yapılması planlanmaktadır." data-en="Copyright: Copyright applications are planned for the software code and documentation.">Telif Hakları: Yazılımın kodları ve dokümantasyonları için telif hakkı başvurularının yapılması planlanmaktadır.</span></li>
+                <li><i class="fas fa-registered"></i> <span data-tr="Marka Tescili: MMS markasının korunması amacıyla marka tescil başvurusu yapılması planlanmaktadır." data-en="Trademark Registration: A trademark application is planned to protect the MMS brand.">Marka Tescili: MMS markasının korunması amacıyla marka tescil başvurusu yapılması planlanmaktadır.</span></li>
+                <li><i class="fas fa-balance-scale"></i> <span data-tr="Lisans Anlaşmaları: Yazılımın dağıtımı ve kullanımı için belirli lisans anlaşmalarının yapılması planlanmaktadır." data-en="License Agreements: Specific license agreements are planned for the distribution and use of the software.">Lisans Anlaşmaları: Yazılımın dağıtımı ve kullanımı için belirli lisans anlaşmalarının yapılması planlanmaktadır.</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="rakipler" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Piyasadaki Mevcut Çözümler" data-en="Existing Solutions in the Market">Piyasadaki Mevcut Çözümler</h2>
+            <h3 data-tr="Yabancı Çözümler:" data-en="Foreign Solutions:">Yabancı Çözümler:</h3>
+            <ul class="rakipler-list">
+                <li><i class="fas fa-globe"></i> <span data-tr="SAP: Genel amaçlı ERP yazılımlarını gemi inşa sektörüne uyarlayabilen modüllere sahiptir, ancak yüksek maliyeti, karmaşık yapısı ve yerelleştirme zorlukları dezavantaj oluşturabilir." data-en="SAP: Has modules that can adapt general-purpose ERP software to the shipbuilding industry, but its high cost, complex structure, and localization challenges can be disadvantages.">SAP: Genel amaçlı ERP yazılımlarını gemi inşa sektörüne uyarlayabilen modüllere sahiptir, ancak yüksek maliyeti, karmaşık yapısı ve yerelleştirme zorlukları dezavantaj oluşturabilir.</span></li>
+                <li><i class="fas fa-globe"></i> <span data-tr="Oracle: SAP gibi genel amaçlı ERP yazılımlarını sunar ve benzer dezavantajlara sahiptir." data-en="Oracle: Offers general-purpose ERP software like SAP and has similar disadvantages.">Oracle: SAP gibi genel amaçlı ERP yazılımlarını sunar ve benzer dezavantajlara sahiptir.</span></li>
+                <li><i class="fas fa-globe"></i> <span data-tr="IFS Applications: Gemi inşa sektörüne daha özelleştirilmiş çözümler sunsa da, yüksek maliyeti bir engel oluşturabilir." data-en="IFS Applications: Although it offers more customized solutions for the shipbuilding industry, its high cost can be an obstacle.">IFS Applications: Gemi inşa sektörüne daha özelleştirilmiş çözümler sunsa da, yüksek maliyeti bir engel oluşturabilir.</span></li>
+                <li><i class="fas fa-globe"></i> <span data-tr="Aveva (eski adıyla Tribon): Gemi inşa ve denizcilik sektörüne özel yazılımlar sunar, ancak ERP yetenekleri sınırlı olabilir." data-en="Aveva (formerly Tribon): Offers specialized software for the shipbuilding and maritime industry, but its ERP capabilities may be limited.">Aveva (eski adıyla Tribon): Gemi inşa ve denizcilik sektörüne özel yazılımlar sunar, ancak ERP yetenekleri sınırlı olabilir.</span></li>
+            </ul>
+            <h3 data-tr="Yerli Çözümler:" data-en="Domestic Solutions:">Yerli Çözümler:</h3>
+            <ul class="rakipler-list">
+                <li><i class="fas fa-flag-tr"></i> <span data-tr="Genel Amaçlı ERP'ler: Logo, Mikro, Netsis gibi genel amaçlı ERP'ler gemi inşa sektöründe kullanılabilir, ancak sektörün özel ihtiyaçlarını karşılamak için geniş çapta özelleştirme gerektirebilir ve yeterli entegrasyon sağlayamayabilir." data-en="General Purpose ERPs: General purpose ERPs like Logo, Mikro, and Netsis can be used in the shipbuilding industry, but may require extensive customization to meet the specific needs of the sector and may not provide sufficient integration.">Genel Amaçlı ERP'ler: Logo, Mikro, Netsis gibi genel amaçlı ERP'ler gemi inşa sektöründe kullanılabilir, ancak sektörün özel ihtiyaçlarını karşılamak için geniş çapta özelleştirme gerektirebilir ve yeterli entegrasyon sağlayamayabilir.</span></li>
+                <li><i class="fas fa-flag-tr"></i> <span data-tr="Gemi İnşaya Özel ERP: Şu anda Türkiye'de MMS gibi, gemi inşa sektörüne özel olarak geliştirilmiş bir ERP yazılımı bulunmamaktadır." data-en="Shipbuilding Specific ERP: Currently, there is no ERP software developed specifically for the shipbuilding industry in Turkey like MMS.">Gemi İnşaya Özel ERP: Şu anda Türkiye'de MMS gibi, gemi inşa sektörüne özel olarak geliştirilmiş bir ERP yazılımı bulunmamaktadır.</span></li>
+            </ul>
+            <h3 data-tr="MMS'in Rekabet Avantajı:" data-en="MMS's Competitive Advantage:">MMS'in Rekabet Avantajı:</h3>
+            <ul class="rakipler-list">
+                <li><i class="fas fa-star"></i> <span data-tr="Sektöre özgü ve yerli bir çözüm olması" data-en="Being an industry-specific and domestic solution">Sektöre özgü ve yerli bir çözüm olması</span></li>
+                <li><i class="fas fa-star"></i> <span data-tr="Kullanıcı dostu ve esnek bir yapıya sahip olması" data-en="Having a user-friendly and flexible structure">Kullanıcı dostu ve esnek bir yapıya sahip olması</span></li>
+                <li><i class="fas fa-star"></i> <span data-tr="Rekabetçi bir fiyatlandırma modeli sunması" data-en="Offering a competitive pricing model">Rekabetçi bir fiyatlandırma modeli sunması</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="gelirmodeli" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS'in Gelir Modeli" data-en="MMS's Revenue Model">MMS'in Gelir Modeli</h2>
+            <ul class="gelirmodeli-list">
+                <li><i class="fas fa-money-bill-wave"></i> <span data-tr="Yazılım Lisanslama:" data-en="Software Licensing:">Yazılım Lisanslama:</span>
+                    <ul>
+                        <li data-tr="Kullanıcı sayısına ve modül seçimine göre değişen yıllık lisans ücretleri." data-en="Annual license fees varying based on the number of users and module selection.">Kullanıcı sayısına ve modül seçimine göre değişen yıllık lisans ücretleri.</li>
+                        <li data-tr="Farklı lisans paketleri (temel, profesyonel, kurumsal) sunularak esneklik sağlanır." data-en="Flexibility is provided by offering different license packages (basic, professional, enterprise).">Farklı lisans paketleri (temel, profesyonel, kurumsal) sunularak esneklik sağlanır.</li>
+                    </ul>
+                </li>
+                <li><i class="fas fa-headset"></i> <span data-tr="Destek ve Bakım Hizmetleri: Yazılımın kullanım sürecinde ihtiyaç duyulan destek ve bakım hizmetleri, ayrı bir gelir kaynağı oluşturur." data-en="Support and Maintenance Services: Support and maintenance services required during the use of the software constitute a separate source of income.">Destek ve Bakım Hizmetleri: Yazılımın kullanım sürecinde ihtiyaç duyulan destek ve bakım hizmetleri, ayrı bir gelir kaynağı oluşturur.</span></li>
+                <li><i class="fas fa-user-tie"></i> <span data-tr="Danışmanlık Hizmetleri:" data-en="Consulting Services:">Danışmanlık Hizmetleri:</span>
+                    <ul>
+                        <li data-tr="Yazılım kurulumu, entegrasyonu, eğitimi ve desteği gibi danışmanlık hizmetleri ücretlendirilecek." data-en="Consulting services such as software installation, integration, training, and support will be charged.">Yazılım kurulumu, entegrasyonu, eğitimi ve desteği gibi danışmanlık hizmetleri ücretlendirilecek.</li>
+                        <li data-tr="Özelleştirme ve entegrasyon projeleri için ayrıca hizmet sözleşmeleri yapılacak." data-en="Separate service agreements will be made for customization and integration projects.">Özelleştirme ve entegrasyon projeleri için ayrıca hizmet sözleşmeleri yapılacak.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>-->
+
+<section id="teknik" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Teknik Yapılabilirlik" data-en="Technical Feasibility">Teknik Yapılabilirlik</h2>
+            <ul class="teknik-list">
+                <li><i class="fas fa-code"></i> <span data-tr="Kullanılan Teknolojiler: Modern ve yaygın olarak kullanılan yazılım geliştirme teknolojileri ve araçları (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence) kullanılarak geliştirilecektir." data-en="Technologies Used: Will be developed using modern and commonly used software development technologies and tools (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence).">Kullanılan Teknolojiler: Modern ve yaygın olarak kullanılan yazılım geliştirme teknolojileri ve araçları (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence) kullanılarak geliştirilecektir.</span></li>
+                <li><i class="fas fa-cloud"></i> <span data-tr="Mevcut Altyapı Uyumluluğu: Bulut tabanlı yapısı sayesinde işletmelerin karmaşık ve maliyetli donanım yatırımları yapmalarına gerek yoktur." data-en="Existing Infrastructure Compatibility: Thanks to its cloud-based structure, businesses do not need to make complex and costly hardware investments.">Mevcut Altyapı Uyumluluğu: Bulut tabanlı yapısı sayesinde işletmelerin karmaşık ve maliyetli donanım yatırımları yapmalarına gerek yoktur.</span></li>
+                <li><i class="fas fa-link"></i> <span data-tr="Entegrasyon: Diğer yazılımlarla (muhasebe, CRM, tedarik zinciri vb.) entegre olabilecek şekilde tasarlanmıştır." data-en="Integration: Designed to be integrated with other software (accounting, CRM, supply chain, etc.).">Entegrasyon: Diğer yazılımlarla (muhasebe, CRM, tedarik zinciri vb.) entegre olabilecek şekilde tasarlanmıştır.</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="ekip" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Ekip Yetkinlikleri" data-en="Team Competencies">Ekip Yetkinlikleri</h2>
+            <ul class="ekip-list">
+                <li><i class="fas fa-code"></i> <span data-tr="Yazılım Geliştirme: Deneyimli yazılım mühendisleri ve geliştiricileri" data-en="Software Development: Experienced software engineers and developers">Yazılım Geliştirme: Deneyimli yazılım mühendisleri ve geliştiricileri</span></li>
+                <li><i class="fas fa-ship"></i> <span data-tr="Gemi İnşa Sektörü Bilgisi: Sektör dinamiklerini, iş süreçlerini ve ihtiyaçlarını iyi bilen uzmanlar" data-en="Shipbuilding Industry Knowledge: Experts who are well-versed in industry dynamics, business processes, and needs">Gemi İnşa Sektörü Bilgisi: Sektör dinamiklerini, iş süreçlerini ve ihtiyaçlarını iyi bilen uzmanlar</span></li>
+                <li><i class="fas fa-database"></i> <span data-tr="Veritabanı Yönetimi: Veritabanı tasarımı, geliştirme ve yönetimi konusunda deneyimli uzmanlar" data-en="Database Management: Experts experienced in database design, development and management">Veritabanı Yönetimi: Veritabanı tasarımı, geliştirme ve yönetimi konusunda deneyimli uzmanlar</span></li>
+                <li><i class="fas fa-cloud"></i> <span data-tr="Bulut Teknolojileri: Bulut platformları ve hizmetleri konusunda deneyimli uzmanlar" data-en="Cloud Technologies: Experts experienced in cloud platforms and services">Bulut Teknolojileri: Bulut platformları ve hizmetleri konusunda deneyimli uzmanlar</span></li>
+                <li><i class="fas fa-tasks"></i> <span data-tr="Proje Yönetimi: Projeyi planlama, yönetme ve tamamlama konusunda deneyimli proje yöneticileri" data-en="Project Management: Experienced project managers in planning, managing and completing projects">Proje Yönetimi: Projeyi planlama, yönetme ve tamamlama konusunda deneyimli proje yöneticileri</span></li>
+                <li><i class="fas fa-chart-bar"></i> <span data-tr="İş Analizi: İş ihtiyaçlarını analiz etme, çözümler tasarlama ve yazılım gereksinimlerini belirleme konusunda deneyimli iş analistleri" data-en="Business Analysis: Experienced business analysts in analyzing business needs, designing solutions, and defining software requirements">İş Analizi: İş ihtiyaçlarını analiz etme, çözümler tasarlama ve yazılım gereksinimlerini belirleme konusunda deneyimli iş analistleri</span></li>
+                <li><i class="fas fa-bug"></i> <span data-tr="Test ve Kalite Güvence: Yazılımı test etme, hataları belirleme ve kalitesini sağlama konusunda deneyimli test uzmanları" data-en="Testing and Quality Assurance: Experienced test specialists in testing the software, identifying bugs, and ensuring its quality">Test ve Kalite Güvence: Yazılımı test etme, hataları belirleme ve kalitesini sağlama konusunda deneyimli test uzmanları</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="inovasyon" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="MMS'in İnovasyonu" data-en="MMS's Innovation">MMS'in İnovasyonu</h2>
+            <p data-tr="MMS'in yenilikçi yönü, sadece bir ERP yazılımı olmasının ötesine geçerek, Türk gemi inşa sektörünün dijital dönüşümünü tetikleyecek bir ekosistem yaratma potansiyeline sahip olmasından kaynaklanmaktadır." data-en="MMS's innovative aspect stems from its potential to create an ecosystem that will trigger the digital transformation of the Turkish shipbuilding industry, going beyond just being an ERP software.">MMS'in yenilikçi yönü, sadece bir ERP yazılımı olmasının ötesine geçerek, Türk gemi inşa sektörünün dijital dönüşümünü tetikleyecek bir ekosistem yaratma potansiyeline sahip olmasından kaynaklanmaktadır.</p>
+            <h3 data-tr="MMS'in İnovasyon Alanları:" data-en="MMS's Innovation Areas:">MMS'in İnovasyon Alanları:</h3>
+            <ul class="inovasyon-list">
+                <li><i class="fas fa-award"></i> <span data-tr="Türkiye'de İlk ve Tek: Türkiye'de gemi inşa sektörüne özgü geliştirilmiş ilk ve tek kapsamlı ERP çözümüdür." data-en="First and Only in Turkey: The first and only comprehensive ERP solution developed specifically for the shipbuilding industry in Turkey.">Türkiye'de İlk ve Tek: Türkiye'de gemi inşa sektörüne özgü geliştirilmiş ilk ve tek kapsamlı ERP çözümüdür.</span></li>
+                <li><i class="fas fa-cloud"></i> <span data-tr="Bulut Tabanlı Yapı: Her zaman, her yerden erişilebilirlik, kolay güncelleme, veri güvenliği ve ölçeklenebilirlik gibi avantajlar sağlar." data-en="Cloud-Based Structure: Provides advantages such as accessibility anytime, anywhere, easy updates, data security, and scalability.">Bulut Tabanlı Yapı: Her zaman, her yerden erişilebilirlik, kolay güncelleme, veri güvenliği ve ölçeklenebilirlik gibi avantajlar sağlar.</span></li>
+                <li><i class="fas fa-exchange-alt"></i> <span data-tr="Dijitalleşme ve Otomasyon: Gemi inşa süreçlerini baştan sona dijitalleştirerek ve otomatikleştirerek verimlilik artışı, maliyet düşüşü ve rekabet gücü sağlar." data-en="Digitalization and Automation: Provides increased efficiency, cost reduction, and competitive power by digitizing and automating shipbuilding processes from start to finish.">Dijitalleşme ve Otomasyon: Gemi inşa süreçlerini baştan sona dijitalleştirerek ve otomatikleştirerek verimlilik artışı, maliyet düşüşü ve rekabet gücü sağlar.</span></li>
+                <li><i class="fas fa-network-wired"></i> <span data-tr="Sektörel Ekosistem: Tedarikçiler, müşteriler ve diğer paydaşlarla daha etkin iletişim ve iş birliği yapılmasını sağlayarak sektördeki tüm paydaşları bir araya getiren bir ekosistem yaratma potansiyeline sahiptir." data-en="Sectoral Ecosystem: Has the potential to create an ecosystem that brings together all stakeholders in the sector by enabling more effective communication and collaboration with suppliers, customers, and other stakeholders.">Sektörel Ekosistem: Tedarikçiler, müşteriler ve diğer paydaşlarla daha etkin iletişim ve iş birliği yapılmasını sağlayarak sektördeki tüm paydaşları bir araya getiren bir ekosistem yaratma potansiyeline sahiptir.</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="sonuc" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="Sonuç" data-en="Conclusion">Sonuç</h2>
+            <p data-tr="MMS, gemi inşa sektörünün dinamiklerine uygun olarak geliştirilmiş, bulut tabanlı yapısıyla esneklik ve ölçeklenebilirlik sunan yenilikçi bir ERP çözümüdür. Sektördeki yerleşik yazılımların aksine, kullanıcı dostu arayüzü, gelişmiş raporlama ve analiz özellikleriyle öne çıkar. Yerli üretim olması, sektöre özel özelleştirilmiş başka yerli alternatiflerinin olmaması ve sürekli güncellenebilir yapısı, MMS'i rakiplerinden ayıran ve Türk gemi inşa sektörüne rekabet avantajı sağlayan önemli unsurlardır." data-en="MMS is an innovative, cloud-based ERP solution developed in line with the dynamics of the shipbuilding industry, offering flexibility and scalability. Unlike established software in the sector, it stands out with its user-friendly interface and advanced reporting and analysis features. Being domestically produced, lacking other customized local alternatives specific to the sector, and its continuously updatable structure are important factors that distinguish MMS from its competitors and provide a competitive advantage to the Turkish shipbuilding industry.">MMS, gemi inşa sektörünün dinamiklerine uygun olarak geliştirilmiş, bulut tabanlı yapısıyla esneklik ve ölçeklenebilirlik sunan yenilikçi bir ERP çözümüdür. Sektördeki yerleşik yazılımların aksine, kullanıcı dostu arayüzü, gelişmiş raporlama ve analiz özellikleriyle öne çıkar. Yerli üretim olması, sektöre özel özelleştirilmiş başka yerli alternatiflerinin olmaması ve sürekli güncellenebilir yapısı, MMS'i rakiplerinden ayıran ve Türk gemi inşa sektörüne rekabet avantajı sağlayan önemli unsurlardır.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Demo -->
+<section id="demo" class="section cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 data-tr="Demo Talep Edin" data-en="Request a Demo">Demo Talep Edin</h2>
+            <p data-tr="ERP yazılımımızın demo versiyonunu incelemek için hemen talepte bulunun." data-en="Request now to review the demo version of our ERP software.">ERP yazılımımızın demo versiyonunu incelemek için hemen talepte bulunun.</p>
+            <button class="btn" onclick="openDemoForm()" data-tr="Demo İste" data-en="Request Demo">Demo İste</button>
+        </div>
+    </div>
+</section>
+
+<!-- İletişim -->
+<section id="iletisim" class="section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title" data-tr="İletişim" data-en="Contact">İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-tr="Bilişim Vadisi-Kocaeli" data-en="Informatics Valley-Kocaeli">Bilişim Vadisi - Kocaeli</span></p>
+                    <p><i class="fas fa-phone"></i> +90 507 574 2666</p>
+                    <p><i class="fas fa-envelope"></i> info@marinemanagementsystem.com</p>
+                    <p><i class="fas fa-globe"></i> <a href="http://www.marinemanagementsystem.com" target="_blank">www.marinemanagementsystem.com</a></p>
+                </div>
+                <div class="map-container" id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 Marine Management System (MMS). <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+    </div>
+</footer>
+
+
+<div id="demoForm" class="form-popup">
+    <form action="mailto:info@marinemanagementsystem.com" method="post" enctype="text/plain" class="form-container">
+        <h2 data-tr="Demo İste" data-en="Request Demo">Demo İste</h2>
+        <input type="text" placeholder="Adınız" name="name" required>
+        <input type="text" placeholder="Soyadınız" name="surname" required>
+        <input type="email" placeholder="E-posta adresiniz" name="email" required>
+        <input type="tel" placeholder="Telefon numaranız" name="phone" required>
+        <textarea placeholder="Mesajınız" name="message" required></textarea>
+        <button type="submit" class="btn form-submit-btn" data-tr="Gönder" data-en="Submit">Gönder</button>
+        <button type="button" class="btn cancel-btn" onclick="closeDemoForm()" data-tr="Kapat" data-en="Close">Kapat</button>
+    </form>
+</div>
+
+<div class="icon-grid">
+    <a href="https://www.instagram.com/marinemanagementsystem/" target="_blank">
+      <img src="instagram-icon.png" alt="Instagram">
+    </a>
+    
+    </a>
+    <a href="https://www.linkedin.com/company/mms-erp" target="_blank">
+      <img src="linkedin-icon.png" alt="LinkedIn">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61560348505866" target="_blank">
+      <img src="facebook-icon.png" alt="Facebook">
+    </a>
+    <a href="https://wa.me/+905075742666" target="_blank">
+      <img src="whatsapp-icon.png" alt="WhatsApp">
+    </a>
+    <a href="https://maps.app.goo.gl/gZESRYuJidHbSQpB9" target="_blank">
+      <img src="map-icon.png" alt="Google Maps">
+    </a>
+
+    <!--<a href="https://www.youtube.com" target="_blank">
+        <img src="youtube-icon.png" alt="YouTube">-->
+  </div>
+  
+
+
+<script>
+    // Harita
+    var map = L.map('map').setView([40.78062044878368, 29.503669767558726], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    var marker = L.marker([40.78062044878368, 29.503669767558726]).addTo(map)
+        .bindPopup("<b>Bilişim Vadisi</b>").openPopup();
+
+    // Dil Değiştirme Fonksiyonu
+    function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-tr],[data-en]');
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${lang}`);
+            if (text) {
+                element.textContent = text;
+            }
+        });
+    }
+
+    // DOMContentLoaded eventi
+    document.addEventListener('DOMContentLoaded', function() {
+        var languageDropdown = document.getElementById('language-dropdown');
+        languageDropdown.addEventListener('change', function() {
+            var selectedLanguage = this.value;
+            changeLanguage(selectedLanguage);
+        });
+
+
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav ul");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    });
+
+
+
+    function openDemoForm() {
+        document.getElementById("demoForm").style.display = "block";
+    }
+
+    function closeDemoForm() {
+        document.getElementById("demoForm").style.display = "none";
+    }
+
+
+    function toggleModules(modulId) {
+        var modules = document.getElementById(modulId);
+        if (modules.style.display === "none" || modules.style.display === "") {
+            modules.style.display = "block";
+        } else {
+            modules.style.display = "none";
+        }
+    }
+
+</script>

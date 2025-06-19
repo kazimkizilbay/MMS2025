@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "promises": "Our Promises",
+    "software": "Our Software",
+    "packages": "Packages",
+    "demo": "Request Demo",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "For Shipbuilding Industry",
+    "subtitle": "Innovative ERP Solutions",
+    "description": "Digitize your shipyard operations with modern, cloud-based shipbuilding management system.",
+    "cta": "Request Demo",
+    "ctaSecondary": "Learn More"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Our founders are a team of Istanbul Technical University graduates from various disciplines, including a Naval Architect, Computer Engineer, and Electrical-Electronics Engineer, each with up to 15 years of experience."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "By providing our clients with the industry's most innovative, original, and effective ERP solutions, we strive to enhance the efficiency, transparency, and sustainability of shipbuilding processes."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "At MMS, we develop innovative ERP solutions to streamline and enhance complex business processes within the shipbuilding industry."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "requestDemo": "Request Demo",
+    "contact": "Contact",
+    "close": "Close",
+    "submit": "Submit"
+  }
+} 
