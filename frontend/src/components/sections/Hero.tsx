@@ -1,84 +1,128 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Play } from 'lucide-react';
+import { ChevronRight, Sparkles, Zap, Shield, TrendingUp } from 'lucide-react';
 
 export function Hero() {
   const { t } = useTranslation();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const openDemoForm = () => {
+    // Demo form bölümüne scroll yap
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Kısa bir gecikme sonrası demo formunu aç
+      setTimeout(() => {
+        const demoButton = contactSection.querySelector('button[data-demo-trigger]') as HTMLButtonElement;
+        if (demoButton) {
+          demoButton.click();
+        }
+      }, 800);
+    }
+  };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900" />
-      
+    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden text-white">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8 fade-in-up">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium">
-            🚢 Gemi İnşa Sektörünün Geleceği
+      {/* Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Sparkles className="absolute top-1/4 left-1/4 w-6 h-6 text-blue-400/30 animate-bounce delay-300" />
+        <Zap className="absolute top-1/3 right-1/4 w-8 h-8 text-purple-400/30 animate-bounce delay-700" />
+        <Shield className="absolute bottom-1/3 left-1/5 w-7 h-7 text-green-400/30 animate-bounce delay-1000" />
+        <TrendingUp className="absolute bottom-1/4 right-1/3 w-6 h-6 text-yellow-400/30 animate-bounce delay-1300" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+        <div className="text-center">
+          {/* Main Content */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Badge */}
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 text-blue-200 text-sm font-medium mb-8">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Marine Management System (MMS)
+            </div>
+
+            {/* Title */}
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+                Marine Management
+              </span>
+              <br />
+              <span className="text-white">System</span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+              Gemi inşa sektörü için yenilikçi ERP çözümleri.
+            </p>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {[
+                { icon: Sparkles, text: 'AI-Powered' },
+                { icon: Zap, text: 'Real-time' },
+                { icon: Shield, text: 'Secure' },
+                { icon: TrendingUp, text: 'Scalable' }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white text-sm"
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button 
+                onClick={openDemoForm}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25"
+              >
+                <span className="flex items-center">
+                  Demo Talep Et
+                  <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+              
+              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border border-white/30 hover:border-white/50">
+                Daha Fazla Bilgi
+              </button>
+            </div>
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-              {t('hero.title')}
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
-
-          {/* Description */}
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-            {t('hero.description')}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button className="group flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <span>{t('hero.cta')}</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            
-            <button className="group flex items-center space-x-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700">
-              <Play className="w-5 h-5" />
-              <span>{t('hero.cta_secondary')}</span>
-            </button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-16 max-w-2xl mx-auto stagger-children">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">15+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Yıl Deneyim</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">50+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Başarılı Proje</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">99%</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Müşteri Memnuniyeti</div>
-            </div>
+          {/* Stats Cards */}
+          <div className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {[
+              { number: '15+', label: 'Yıl Deneyim' },
+              { number: '67+', label: 'Modül' },
+              { number: '99%', label: 'Müşteri Memnuniyeti' }
+            ].map((stat, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-gray-300">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up delay-1000">
-        <div className="flex flex-col items-center space-y-2">
-          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full animate-bounce mt-2" />
-          </div>
-          <span className="text-xs text-gray-500 dark:text-gray-400">Scroll</span>
-        </div>
+      {/* Bottom Wave */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg className="w-full h-20 text-white dark:text-gray-900" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
       </div>
     </section>
   );

@@ -58,23 +58,74 @@ app.use('/api/demo', demoRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// Start server with port fallback and status logs
-const startServer = (port: number) => {
-  console.log(`💡 connecting to port ${port}...`);
-  const server = app.listen(port);
-  server.on('listening', () => {
-    console.log(`✅ connected on port ${port}`);
-    console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
-  });
-  server.on('error', (err: NodeJS.ErrnoException) => {
-    if (err.code === 'EADDRINUSE') {
-      console.warn(`⚠️ Port ${port} in use, trying port ${port + 1}...`);
-      startServer(port + 1);
-    } else {
-      console.error('Server error:', err);
-      process.exit(1);
-    }
+// Port availability checker
+const isPortAvailable = (port: number): Promise<boolean> => {
+  return new Promise((resolve) => {
+    const server = require('net').createServer();
+    server.listen(port, () => {
+      server.once('close', () => resolve(true));
+      server.close();
+    });
+    server.on('error', () => resolve(false));
   });
 };
 
-startServer(PORT); 
+// Find available port starting from preferred port
+const findAvailablePort = async (startPort: number, maxAttempts: number = 10): Promise<number> => {
+  for (let i = 0; i < maxAttempts; i++) {
+    const port = startPort + i;
+    if (await isPortAvailable(port)) {
+      return port;
+    }
+  }
+  throw new Error(`No available port found in range ${startPort}-${startPort + maxAttempts - 1}`);
+};
+
+// Start server with automatic port detection
+const startServer = async () => {
+  try {
+    const availablePort = await findAvailablePort(PORT);
+    
+    console.log(`🔍 Scanning for available ports starting from ${PORT}...`);
+    console.log(`✅ Found available port: ${availablePort}`);
+    console.log(`🚀 Starting MMS Backend Server on port ${availablePort}...`);
+    
+    const server = app.listen(availablePort, () => {
+      console.log(`\n🎉 MMS Backend Server Successfully Started!`);
+      console.log(`📡 Server URL: http://localhost:${availablePort}`);
+      console.log(`🏥 Health Check: http://localhost:${availablePort}/health`);
+      console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`🌐 CORS Origin: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
+      console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
+      console.log(`\n📋 Available API Endpoints:`);
+      console.log(`   GET  /health - Health check`);
+      console.log(`   POST /api/auth/* - Authentication routes`);
+      console.log(`   POST /api/contact/* - Contact routes`);
+      console.log(`   POST /api/demo/* - Demo routes`);
+      console.log(`\n🔄 Server is ready to accept connections...\n`);
+    });
+
+    // Graceful shutdown
+    process.on('SIGTERM', () => {
+      console.log('\n🛑 SIGTERM received, shutting down gracefully...');
+      server.close(() => {
+        console.log('✅ Server closed successfully');
+        process.exit(0);
+      });
+    });
+
+    process.on('SIGINT', () => {
+      console.log('\n🛑 SIGINT received, shutting down gracefully...');
+      server.close(() => {
+        console.log('✅ Server closed successfully');
+        process.exit(0);
+      });
+    });
+
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+startServer(); 

@@ -13,7 +13,7 @@ export function ThemeToggle() {
   ] as const;
 
   return (
-    <div className="flex items-center space-x-1 rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+    <div className="flex items-center space-x-1 rounded-lg bg-slate-100 dark:bg-slate-800 p-1">
       {themes.map(({ value, icon: Icon, label }) => (
         <button
           key={value}
@@ -22,8 +22,8 @@ export function ThemeToggle() {
             flex items-center justify-center w-8 h-8 rounded-md transition-all duration-200
             ${
               theme === value
-                ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
             }
           `}
           title={label}
