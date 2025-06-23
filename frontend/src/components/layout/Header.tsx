@@ -30,10 +30,10 @@ export function Header() {
       name: t('nav.software'),
       type: 'dropdown',
       items: [
-        { name: 'MMS NB - Yeni İnşa', href: '#software-nb' },
-        { name: 'MMS SRM - Tersane Yönetimi', href: '#software-srm' },
-        { name: 'MMS Yacht - Yat İnşa', href: '#software-yacht' },
-        { name: 'Tüm Yazılımlar', href: '#software' },
+        { name: t('software.mms_nb'), href: '#software-nb' },
+        { name: t('software.mms_srm'), href: '#software-srm' },
+        { name: t('software.mms_yacht'), href: '#software-yacht' },
+        { name: t('nav.software'), href: '#software' },
       ]
     },
     { 
@@ -73,11 +73,13 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center space-x-3">
-              <img 
-                src="/logo.png" 
-                alt="Marine Management System Logo" 
-                className="w-10 h-10 object-contain"
-              />
+              <div className="relative">
+                <img 
+                  src="/logo.png" 
+                  alt="Marine Management System Logo" 
+                  className="w-12 h-12 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                   Marine Management System

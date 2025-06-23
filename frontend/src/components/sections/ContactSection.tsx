@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Clock, Send, User, Building, MessageSquare, Instagram, Linkedin, Facebook, MessageCircle, Globe, CheckCircle, X } from 'lucide-react';
 
 export default function ContactSection() {
-  const { t } = useTranslation();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',

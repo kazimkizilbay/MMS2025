@@ -8,7 +8,6 @@ import {
   Instagram,
   Linkedin,
   MessageCircle,
-  Youtube,
   ExternalLink
 } from 'lucide-react';
 

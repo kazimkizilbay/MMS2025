@@ -4,8 +4,6 @@ import {
   Ship, 
   Wrench, 
   Anchor, 
-  ChevronDown, 
-  ChevronRight, 
   Cpu, 
   Brain,
   Zap,
@@ -126,21 +124,21 @@ export function SoftwareSection() {
   };
 
   return (
-    <section id="software" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+    <section id="software" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
       {/* Decorative Background Blobs */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-tr from-blue-200 to-purple-300 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-200 to-emerald-300 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-tr from-blue-200/30 to-purple-300/30 dark:from-blue-600/20 dark:to-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-200/30 to-emerald-300/30 dark:from-green-600/20 dark:to-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20 animate-in fade-in slide-in-from-top-2 duration-700">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6 border border-white/30">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/80 dark:bg-blue-900/50 backdrop-blur-sm text-blue-800 dark:text-blue-200 text-sm font-medium mb-6 border border-blue-200/50 dark:border-blue-700/50">
             <Cpu className="w-4 h-4 mr-2" />
             {t('software.title')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
             {t('software.title')}
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             {t('software.description')}
           </p>
         </div>
@@ -150,11 +148,6 @@ export function SoftwareSection() {
           {Object.entries(modules).map(([key, module]) => {
             const IconComponent = module.icon;
             const isActive = activeModule === key;
-            const colorClasses = {
-              blue: 'from-blue-500 to-cyan-500 border-blue-200 dark:border-blue-700',
-              purple: 'from-purple-500 to-pink-500 border-purple-200 dark:border-purple-700',
-              green: 'from-green-500 to-emerald-500 border-green-200 dark:border-green-700'
-            };
 
             return (
               <button
@@ -163,7 +156,7 @@ export function SoftwareSection() {
                 className={`flex items-center space-x-3 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                   isActive
                     ? `bg-gradient-to-r ${module.gradient} text-white shadow-xl`
-                    : `bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 hover:shadow-lg`
+                    : `bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-700 dark:text-slate-300 border-2 border-slate-200/50 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg`
                 }`}
               >
                 <IconComponent className="w-5 h-5" />

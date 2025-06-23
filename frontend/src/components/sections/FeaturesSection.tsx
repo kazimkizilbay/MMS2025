@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { CheckCircle, Globe, Cog, Layers, DollarSign } from 'lucide-react';
 
 export function FeaturesSection() {
-  const { t } = useTranslation();
 
   const features = [
     {

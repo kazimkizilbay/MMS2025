@@ -17,17 +17,17 @@ export function AboutSection() {
         <div className="mb-32">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-              Hakkımızda
+              {t('about.title')}
             </h2>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-                Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır. Bu ekip, yenilikçi ve sektöre özgü bir yaklaşımla geliştirdiği ERP yazılımıyla özgün çözümler sunan bir yazılım şirketi olarak faaliyet göstermektedir.
+                {t('about.description')}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-                İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir.
+                {t('about.highlight')}
               </p>
             </div>
             <div className="relative">
@@ -49,7 +49,7 @@ export function AboutSection() {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
                 <Eye className="w-6 h-6 text-white" />
               </div>
-                              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">Vizyonumuz</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">{t('vision.title')}</h3>
             </div>
             <div className="mb-6">
               <img 
@@ -59,7 +59,7 @@ export function AboutSection() {
               />
             </div>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-              Müşterilerimize sektördeki en yenilikçi, özgün ve etkili ERP çözümlerini sunarak, gemi inşaat süreçlerini daha verimli, şeffaf ve sürdürülebilir hale getirmeyi amaçlıyoruz. Müşteri ihtiyaçlarına odaklanarak, gelişen teknolojiyi yakından takip ediyor ve iş süreçlerini optimize etmelerine destek oluyoruz.
+              {t('vision.description')}
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export function AboutSection() {
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                 <Target className="w-6 h-6 text-white" />
               </div>
-                              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">Misyonumuz</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">{t('mission.title')}</h3>
             </div>
             <div className="mb-6">
               <img 
@@ -79,7 +79,7 @@ export function AboutSection() {
               />
             </div>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-              MMS olarak, gemi inşaat sektöründeki karmaşık iş süreçlerini basitleştirmek ve geliştirmek amacıyla yenilikçi ERP çözümleri geliştiriyoruz. Müşterilerimize en üst düzeyde hizmet sunmak için teknolojik yeteneklerimizi kullanıyor ve sektöre özgü ihtiyaçlara uygun özelleştirilebilir çözümler sunuyoruz.
+              {t('mission.description')}
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export function AboutSection() {
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg">
                 <Heart className="w-6 h-6 text-white" />
               </div>
-                              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">Ne Vaat Ediyoruz?</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 ml-4">{t('promises.title')}</h3>
             </div>
             <div className="mb-6">
               <img 
@@ -99,7 +99,7 @@ export function AboutSection() {
               />
             </div>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
-              Müşterilerimizin ihtiyaçlarına en uygun çözümleri sunarak, gemi inşaat sektöründe en yüksek verimliliği sağlamayı vaat ediyoruz. Sektördeki gelişmeleri yakından takip ederek, iş süreçlerinizi optimize edecek ve projelerinizin başarısını artıracak yenilikçi yazılımlar geliştiriyoruz.
+              {t('promises.description')}
             </p>
           </div>
         </div>
@@ -118,26 +118,26 @@ export function AboutSection() {
           {[
             {
               icon: Zap,
-              title: "Yapay Zeka Entegrasyonu",
-              description: "Gelişmiş AI algoritmaları ile tahminleme, optimizasyon ve karar destek sistemleri",
+              title: t('promises.features.0.title'),
+              description: t('promises.features.0.description'),
               gradient: "from-yellow-500 to-orange-500"
             },
             {
               icon: Shield,
-              title: "Dijital Dönüşüm",
-              description: "Süreçlerin tamamen dijitalleştirilmesi ve otomasyonu",
+              title: t('promises.features.1.title'),
+              description: t('promises.features.1.description'),
               gradient: "from-blue-500 to-purple-500"
             },
             {
               icon: Cloud,
-              title: "Bulut Teknolojisi",
-              description: "Her yerden erişim, güvenli veri saklama ve otomatik güncellemeler",
+              title: t('promises.features.2.title'),
+              description: t('promises.features.2.description'),
               gradient: "from-cyan-500 to-blue-500"
             },
             {
               icon: BarChart3,
-              title: "Akıllı Analitik",
-              description: "Gerçek zamanlı raporlama ve prediktif analizler",
+              title: t('promises.features.3.title'),
+              description: t('promises.features.3.description'),
               gradient: "from-green-500 to-emerald-500"
             }
           ].map((feature, index) => (

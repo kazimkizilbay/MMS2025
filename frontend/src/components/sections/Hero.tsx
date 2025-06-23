@@ -46,24 +46,27 @@ export function Hero() {
         <div className="text-center">
           {/* Main Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Badge */}
-                          <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
+                      {/* Badge */}
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
               <Sparkles className="w-4 h-4 mr-2" />
-              Marine Management System (MMS)
+              {t('hero.badge')}
             </div>
 
             {/* Title */}
             <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-50 mb-8 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
-                Marine Management
-            </span>
-              <br />
-                              <span className="text-slate-900 dark:text-slate-50">System</span>
+                {t('hero.title')}
+              </span>
             </h1>
 
-          {/* Description */}
+            {/* Subtitle */}
+            <p className="text-2xl lg:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
+              {t('hero.subtitle')}
+            </p>
+
+            {/* Description */}
             <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Gemi inşa sektörü için yenilikçi ERP çözümleri.
+              {t('hero.description')}
             </p>
 
             {/* Feature Pills */}
@@ -91,23 +94,23 @@ export function Hero() {
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25"
               >
                 <span className="flex items-center">
-                  Demo Talep Et
+                  {t('hero.cta')}
                   <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
-            </button>
+              </button>
             
               <button className="px-8 py-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all duration-300 border border-slate-200 dark:border-slate-700">
-                Daha Fazla Bilgi
-            </button>
+                {t('hero.cta_secondary')}
+              </button>
             </div>
           </div>
 
           {/* Stats Cards */}
           <div className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {[
-              { number: '15+', label: 'Yıl Deneyim' },
-              { number: '67+', label: 'Modül' },
-              { number: '99%', label: 'Müşteri Memnuniyeti' }
+              { number: '15+', label: t('hero.stats.experience') },
+              { number: '50+', label: t('hero.stats.projects') },
+              { number: '99%', label: t('hero.stats.satisfaction') }
             ].map((stat, index) => (
               <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300">
                 <div className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2">{stat.number}</div>
