@@ -26,7 +26,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden text-white">
+    <section id="hero" className="relative min-h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -46,23 +46,23 @@ export function Hero() {
         <div className="text-center">
           {/* Main Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Badge */}
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 text-blue-200 text-sm font-medium mb-8">
+          {/* Badge */}
+                          <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
               <Sparkles className="w-4 h-4 mr-2" />
               Marine Management System (MMS)
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-50 mb-8 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
                 Marine Management
-              </span>
+            </span>
               <br />
-              <span className="text-white">System</span>
+                              <span className="text-slate-900 dark:text-slate-50">System</span>
             </h1>
 
-            {/* Description */}
-            <p className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          {/* Description */}
+            <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
               Gemi inşa sektörü için yenilikçi ERP çözümleri.
             </p>
 
@@ -76,7 +76,7 @@ export function Hero() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white text-sm"
+                  className="flex items-center space-x-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm"
                 >
                   <item.icon className="w-4 h-4" />
                   <span>{item.text}</span>
@@ -94,11 +94,11 @@ export function Hero() {
                   Demo Talep Et
                   <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </button>
-              
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border border-white/30 hover:border-white/50">
+            </button>
+            
+              <button className="px-8 py-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all duration-300 border border-slate-200 dark:border-slate-700">
                 Daha Fazla Bilgi
-              </button>
+            </button>
             </div>
           </div>
 
@@ -109,9 +109,9 @@ export function Hero() {
               { number: '67+', label: 'Modül' },
               { number: '99%', label: 'Müşteri Memnuniyeti' }
             ].map((stat, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-gray-300">{stat.label}</div>
+              <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2">{stat.number}</div>
+                <div className="text-slate-600 dark:text-slate-300">{stat.label}</div>
               </div>
             ))}
           </div>

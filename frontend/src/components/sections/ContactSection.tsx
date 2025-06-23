@@ -147,7 +147,7 @@ ${formData.message}
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
@@ -161,7 +161,7 @@ ${formData.message}
             <Mail className="w-4 h-4 mr-2" />
             İletişim
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
             Bizimle İletişime Geçin
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -182,7 +182,7 @@ ${formData.message}
                   <div className={`w-16 h-16 ${info.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className={`w-8 h-8 ${info.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 text-center">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-3 text-center">
                     {info.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
@@ -215,19 +215,19 @@ ${formData.message}
           <div className="absolute top-1/3 right-12 w-3 h-3 bg-white/30 rounded-full animate-ping delay-500"></div>
           
           <div className="relative z-10 text-center">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6 border border-white/30">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium mb-6 border border-blue-200 dark:border-blue-700">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
               Yapay Zeka Destekli
             </div>
             
-            <h3 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <h3 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-slate-900 dark:text-slate-50">
               Türkiye'nin İlk Yapay Zeka Destekli<br/>
               <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
                 Gemi İnşa Dijital Dönüşüm Projesi
               </span>
             </h3>
             
-            <p className="text-xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl mb-8 text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Gemi inşa süreçlerinizi yapay zeka ile optimize etmeye hazır mısınız? 
               Endüstri 4.0'ın gücünü denizcilik sektörüne taşıyoruz.
             </p>
@@ -267,7 +267,7 @@ ${formData.message}
 
         {/* Social Media Links */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8">
             Sosyal Medyada Takip Edin
           </h3>
           <div className="flex justify-center gap-6 flex-wrap">
@@ -300,7 +300,7 @@ ${formData.message}
           <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-slate-50">
                   Demo Talep Formu
                 </h3>
                 <button

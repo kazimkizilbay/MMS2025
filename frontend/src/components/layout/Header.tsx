@@ -20,7 +20,7 @@ export function Header() {
       name: t('nav.about'),
       type: 'dropdown',
       items: [
-        { name: t('nav.about'), href: '#about' },
+    { name: t('nav.about'), href: '#about' },
         { name: t('nav.vision'), href: '#vision' },
         { name: t('nav.mission'), href: '#mission' },
         { name: t('nav.promises'), href: '#promises' },
@@ -94,11 +94,11 @@ export function Header() {
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 {item.type === 'single' ? (
-                  <a
-                    href={item.href}
+              <a
+                href={item.href}
                     className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm relative group"
-                  >
-                    {item.name}
+              >
+                {item.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 ) : (
@@ -162,13 +162,13 @@ export function Header() {
               {navigation.map((item) => (
                 <div key={item.name}>
                   {item.type === 'single' ? (
-                    <a
-                      href={item.href}
+                <a
+                  href={item.href}
                       className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
                   ) : (
                     <div>
                       <button

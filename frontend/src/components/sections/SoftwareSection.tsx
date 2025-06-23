@@ -126,7 +126,7 @@ export function SoftwareSection() {
   };
 
   return (
-    <section id="software" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <section id="software" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
       {/* Decorative Background Blobs */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-tr from-blue-200 to-purple-300 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-200 to-emerald-300 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
@@ -137,7 +137,7 @@ export function SoftwareSection() {
             <Cpu className="w-4 h-4 mr-2" />
             {t('software.title')}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
             {t('software.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -218,7 +218,7 @@ export function SoftwareSection() {
             <h3 className="text-4xl font-bold text-white mb-4">
               MMS Paketleri
             </h3>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
               İhtiyaçlarınıza uygun paket seçin ve dijital dönüşümünüzü başlatın
             </p>
           </div>
@@ -348,7 +348,7 @@ export function SoftwareSection() {
                   <h4 className="text-xl font-bold mb-4">Mevcut Altyapı Uyumluluğu</h4>
                   <p className="text-gray-300 leading-relaxed">
                     Bulut tabanlı yapısı sayesinde işletmelerin karmaşık ve maliyetli donanım yatırımları yapmalarına gerek yoktur.
-                  </p>
+        </p>
                 </div>
 
                 {/* Entegrasyon */}

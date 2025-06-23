@@ -94,7 +94,7 @@ const startServer = async () => {
       console.log(`\n🎉 MMS Backend Server Successfully Started!`);
       console.log(`📡 Server URL: http://localhost:${availablePort}`);
       console.log(`🏥 Health Check: http://localhost:${availablePort}/health`);
-      console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
       console.log(`🌐 CORS Origin: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
       console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
       console.log(`\n📋 Available API Endpoints:`);
@@ -124,8 +124,8 @@ const startServer = async () => {
 
   } catch (error) {
     console.error('❌ Failed to start server:', error);
-    process.exit(1);
-  }
+      process.exit(1);
+    }
 };
 
 startServer(); 

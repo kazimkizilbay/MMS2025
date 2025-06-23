@@ -38,7 +38,7 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950 relative overflow-hidden">
+    <section id="features" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
