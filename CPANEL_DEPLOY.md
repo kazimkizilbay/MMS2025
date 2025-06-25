@@ -1,260 +1,196 @@
-# CPanel Deploy Rehberi 🚀
+# CPanel Otomatik Deployment Rehberi
 
-Bu rehber, Marine Management System projesini CPanel üzerinde nasıl deploy edeceğinizi adım adım açıklar.
+Bu rehber, GitHub Actions kullanarak projenizi otomatik olarak CPanel'e deploy etmenizi sağlar.
 
-## 📋 Gereksinimler
+## 🚀 Otomatik Deployment Kurulumu
 
-- CPanel erişimi
-- Node.js desteği (CPanel'de Node.js App Manager)
-- MySQL veritabanı
-- FTP/File Manager erişimi
-- Domain/subdomain
+### 1. GitHub Secrets Ayarlama
 
-## 🎯 Frontend Deploy (React App)
+GitHub repository'nizde Settings > Secrets and Variables > Actions bölümüne gidin ve şu secrets'ları ekleyin:
 
-### 1. Build Oluşturma
-
-```bash
-cd frontend
-npm install
-npm run build
+```
+CPANEL_FTP_HOST=kayizer.com
+CPANEL_FTP_USER=marinema
+CPANEL_FTP_PASSWORD=your-cpanel-password
 ```
 
-### 2. CPanel'e Upload
+### 2. CPanel FTP Bilgileri
 
-1. **File Manager** açın
-2. `public_html/` klasörüne gidin (veya subdomain klasörüne)
-3. `dist/` klasöründeki tüm dosyaları upload edin
-4. Dosya yapısı şöyle olmalı:
-   ```
-   public_html/
-   ├── index.html
-   ├── assets/
-   ├── locales/
-   └── diğer dosyalar...
-   ```
+**FTP Host**: `kayizer.com`
+**FTP Port**: `21` (varsayılan)
+**Username**: CPanel kullanıcı adınız
+**Password**: CPanel şifreniz
 
-### 3. .htaccess Dosyası
+### 3. Deployment Yapısı
 
-`public_html/` klasöründe `.htaccess` dosyası oluşturun:
-
-```apache
-# React Router için SPA routing
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
-
-# GZIP Compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-</IfModule>
-
-# Cache Control
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-</IfModule>
+```
+CPanel Dizin Yapısı:
+├── public_html/          # Frontend (React app)
+│   ├── index.html
+│   ├── assets/
+│   └── .htaccess
+├── api/                  # Backend (Node.js API)
+│   ├── app.js
+│   ├── package.json
+│   └── routes/
+└── logs/                 # Log dosyaları
 ```
 
-## 🔧 Backend Deploy (Node.js API)
+## 🔄 Otomatik Deployment Süreci
 
-### 1. Build Oluşturma
+### Tetikleyiciler
+- `main` branch'e push
+- `main` branch'e pull request
 
-```bash
-cd backend
-npm install
-npm run build
-```
+### Adımlar
+1. **Code Checkout**: Repository kodunu indir
+2. **Node.js Setup**: Node.js 18 kurulumu
+3. **Dependencies**: Frontend ve backend bağımlılıklarını yükle
+4. **Build**: Frontend ve backend'i build et
+5. **Deploy Frontend**: `frontend/dist/` → `/public_html/`
+6. **Deploy Backend**: `backend/dist/` → `/api/`
 
-### 2. CPanel Node.js App Setup
+## 📁 Dosya Yapısı
 
-1. **CPanel** → **Node.js App** açın
-2. **Create Application** tıklayın
-3. Ayarları yapın:
-   - **Node.js Version**: 18.x veya üzeri
-   - **Application Mode**: Production
-   - **Application Root**: `api/` (veya istediğiniz klasör)
-   - **Application URL**: `yourdomain.com/api`
-   - **Application Startup File**: `dist/app.js`
+### Frontend Deployment
+- **Kaynak**: `./frontend/dist/`
+- **Hedef**: `/public_html/`
+- **İçerik**: React build dosyaları, .htaccess
 
-### 3. Dosyaları Upload
+### Backend Deployment
+- **Kaynak**: `./backend/dist/`
+- **Hedef**: `/api/`
+- **İçerik**: Compiled JavaScript files, package.json
 
-1. **File Manager** ile backend klasörüne gidin
-2. Şu dosyaları upload edin:
-   ```
-   api/
-   ├── dist/           # Build çıktıları
-   ├── node_modules/   # Dependencies (npm install ile)
-   ├── package.json
-   └── .env           # Environment variables
-   ```
+## 🔧 CPanel Node.js App Ayarları
 
-### 4. Environment Variables
+### 1. Node.js App Oluşturma
+1. CPanel > Node.js Apps
+2. "Create Application" tıklayın
+3. **Node.js Version**: 18.x
+4. **Application Root**: `api`
+5. **Application URL**: `yourdomain.com/api`
+6. **Application Startup File**: `app.js`
 
-CPanel Node.js App Manager'da Environment Variables bölümüne ekleyin:
-
+### 2. Environment Variables
 ```
 NODE_ENV=production
 PORT=3001
 FRONTEND_URL=https://yourdomain.com
 
-# Email Settings
-SMTP_HOST=mail.yourdomain.com
+# Email Configuration
+SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=noreply@yourdomain.com
-SMTP_PASS=your-email-password
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
 FROM_EMAIL=noreply@yourdomain.com
 CONTACT_EMAIL=info@yourdomain.com
 DEMO_EMAIL=demo@yourdomain.com
-
-# Database (eğer kullanacaksanız)
-DATABASE_URL=mysql://username:password@localhost:3306/database_name
 ```
 
-### 5. Dependencies Yükleme
+### 3. Package.json Dependencies
+```json
+{
+  "name": "mms-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.7",
+    "express-rate-limit": "^7.1.5"
+  }
+}
+```
 
-CPanel Terminal veya SSH ile:
+## 🌍 Domain Ayarları
 
+### 1. Frontend URL
+- **Ana Domain**: `https://yourdomain.com`
+- **Test URL**: `https://yourdomain.com/index.html`
+
+### 2. Backend API URL
+- **API Base**: `https://yourdomain.com/api`
+- **Health Check**: `https://yourdomain.com/api/health`
+
+### 3. SSL Sertifikası
+CPanel > SSL/TLS > Let's Encrypt ile ücretsiz SSL aktif edin.
+
+## 🔍 Deployment Kontrolü
+
+### 1. Frontend Kontrolü
 ```bash
-cd ~/api  # Backend klasörünüze gidin
-npm install --production
+curl -I https://yourdomain.com
+# HTTP/1.1 200 OK olmalı
 ```
 
-### 6. Uygulamayı Başlatma
-
-Node.js App Manager'da **Start** butonuna tıklayın.
-
-## 🗄️ MySQL Veritabanı (Opsiyonel)
-
-### 1. Veritabanı Oluşturma
-
-1. **CPanel** → **MySQL Databases**
-2. Yeni veritabanı oluşturun: `yourusername_mms`
-3. Kullanıcı oluşturun ve veritabanına assign edin
-
-### 2. Connection String
-
-```
-DATABASE_URL="mysql://username:password@localhost:3306/yourusername_mms"
-```
-
-## 🔍 Test ve Doğrulama
-
-### Frontend Test
-
-1. `https://yourdomain.com` adresini ziyaret edin
-2. Tüm sayfaların yüklendiğini kontrol edin
-3. Dil değiştirme çalışıyor mu?
-4. Tema değiştirme çalışıyor mu?
-
-### Backend Test
-
-1. `https://yourdomain.com/api/health` adresini test edin
-2. Yanıt: `{"status":"OK","timestamp":"...","uptime":...}`
-
-### API Endpoints Test
-
+### 2. Backend Kontrolü
 ```bash
-# Health check
 curl https://yourdomain.com/api/health
-
-# Contact form test (POST)
-curl -X POST https://yourdomain.com/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test","email":"test@test.com","subject":"Test","message":"Test message"}'
+# {"status": "OK", "timestamp": "..."} dönmeli
 ```
 
-## 🐛 Sorun Giderme
+### 3. Log Kontrolü
+CPanel > Error Logs bölümünden hata loglarını kontrol edin.
 
-### Frontend Sorunları
+## 🚨 Sorun Giderme
 
-**Problem**: Sayfa yenilendiğinde 404 hatası
-**Çözüm**: `.htaccess` dosyasının doğru yapılandırıldığından emin olun
+### 1. Build Hataları
+- GitHub Actions logs kontrol edin
+- Package.json dependencies güncel mi?
+- Node.js version uyumlu mu?
 
-**Problem**: Statik dosyalar yüklenmiyor
-**Çözüm**: Dosya yollarını ve izinleri kontrol edin
+### 2. FTP Hataları
+- FTP credentials doğru mu?
+- FTP host erişilebilir mi?
+- Dosya izinleri uygun mu?
 
-### Backend Sorunları
+### 3. Runtime Hataları
+- CPanel error logs kontrol edin
+- Environment variables set edildi mi?
+- Node.js app restart yapın
 
-**Problem**: Node.js uygulaması başlamıyor
-**Çözüm**: 
-- Environment variables doğru mu?
-- `package.json` ve `dist/app.js` var mı?
-- CPanel error loglarını kontrol edin
+## 📊 Monitoring
 
-**Problem**: Email gönderilmiyor
-**Çözüm**: SMTP ayarlarını ve CPanel email konfigürasyonunu kontrol edin
+### 1. GitHub Actions
+- Repository > Actions tab
+- Build ve deploy durumunu izleyin
+- Hata loglarını inceleyin
 
-### Genel Sorunlar
+### 2. CPanel Monitoring
+- Node.js Apps > Application status
+- Error Logs > Real-time monitoring
+- Metrics > Resource usage
 
-**Problem**: CORS hatası
-**Çözüm**: Backend'de `FRONTEND_URL` environment variable'ını doğru ayarlayın
-
-**Problem**: SSL sertifikası
-**Çözüm**: CPanel'de Let's Encrypt SSL'i aktifleştirin
-
-## 📊 Performans Optimizasyonu
+## 🔄 Manual Deployment (Yedek Yöntem)
 
 ### Frontend
-
-1. **Gzip compression** aktif
-2. **Cache headers** ayarlandı
-3. **Asset optimization** yapıldı
-
-### Backend
-
-1. **Production mode** aktif
-2. **Rate limiting** yapılandırıldı
-3. **Security headers** eklendi
-
-## 🔄 Güncelleme Süreci
-
-### Frontend Güncelleme
-
 ```bash
-# Yerel geliştirme
 cd frontend
 npm run build
-
-# CPanel'e upload
-# dist/ klasörünü public_html/'ye kopyalayın
+# dist/ klasörünü public_html/'e yükle
 ```
 
-### Backend Güncelleme
-
+### Backend
 ```bash
-# Yerel geliştirme
 cd backend
 npm run build
-
-# CPanel'e upload ve restart
-# Node.js App Manager'da "Restart" tıklayın
+# dist/ ve package.json'u api/ klasörüne yükle
 ```
 
 ## 📞 Destek
 
-Sorun yaşadığınızda:
-
-1. CPanel error loglarını kontrol edin
-2. Browser developer console'u kontrol edin
-3. Network tabında API çağrılarını kontrol edin
-4. Hosting sağlayıcınızdan destek alın
+Deployment sorunları için:
+1. GitHub Actions logs kontrol edin
+2. CPanel error logs inceleyin
+3. FTP connection test yapın
+4. Node.js app restart deneyin
 
 ---
 
-**Not**: Bu rehber genel CPanel konfigürasyonu içindir. Hosting sağlayıcınızın özel ayarları olabilir. 
+**Not**: İlk deployment'tan sonra GitHub'a her push'ta otomatik olarak site güncellenecektir. 
