@@ -207,7 +207,7 @@ export function SoftwareSection() {
 
         {/* MMS Paketleri Section */}
         <div className="mt-24 mb-16">
-          <div className="text-center mb-16">
+          <div id="packages" className="text-center mb-16">
             <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               MMS Paketleri
             </h3>
@@ -297,7 +297,7 @@ export function SoftwareSection() {
                   </li>
                   <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    20 modül
+                    20+ modül
                   </li>
                   <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />

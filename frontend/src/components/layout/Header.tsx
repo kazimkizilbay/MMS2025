@@ -1,75 +1,70 @@
-import { useState, useRef, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { LanguageSelector } from '../ui/LanguageSelector';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { t } = useTranslation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navigation = [
     { 
       name: t('nav.home'), 
-      href: '#home',
-      type: 'single'
+      href: '#hero'
     },
-    {
-      name: t('nav.about'),
-      type: 'dropdown',
-      items: [
-    { name: t('nav.about'), href: '#about' },
-        { name: t('nav.vision'), href: '#vision' },
-        { name: t('nav.mission'), href: '#mission' },
-        { name: t('nav.promises'), href: '#promises' },
-      ]
+    { 
+      name: t('nav.about'), 
+      href: '#about'
     },
-    {
-      name: t('nav.software'),
-      type: 'dropdown',
-      items: [
-        { name: t('software.mms_nb'), href: '#software-nb' },
-        { name: t('software.mms_srm'), href: '#software-srm' },
-        { name: t('software.mms_yacht'), href: '#software-yacht' },
-        { name: t('nav.software'), href: '#software' },
-      ]
+    { 
+      name: t('nav.software'), 
+      href: '#software'
     },
     { 
       name: t('nav.packages'), 
-      href: '#packages',
-      type: 'single'
+      href: '#packages'
     },
     { 
       name: t('nav.contact'), 
-      href: '#contact',
-      type: 'single'
+      href: '#contact'
     },
   ];
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setActiveDropdown(null);
-      }
+
+
+  const handleNavigation = (href: string) => {
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      const headerHeight = 80; // Header height
+      // Calculate the element's position relative to the document
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
+    
+    setIsMenuOpen(false);
+  };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  const handleDropdownToggle = (itemName: string) => {
-    setActiveDropdown(activeDropdown === itemName ? null : itemName);
+  // Open demo form: scroll to contact and trigger demo modal
+  const handleDemo = () => {
+    handleNavigation('#contact');
+    // Trigger demo modal after scroll
+    setTimeout(() => {
+      window.dispatchEvent(new Event('openDemoForm'));
+    }, 800);
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md dark:bg-slate-900/95 border-b border-gray-200 dark:border-slate-700 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center space-x-3">
@@ -77,7 +72,7 @@ export function Header() {
                 <img 
                   src="/logo.png" 
                   alt="Marine Management System Logo" 
-                  className="w-12 h-12 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                  className="w-16 h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col">
@@ -92,46 +87,16 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6" ref={dropdownRef}>
+          <nav className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
-              <div key={item.name} className="relative group">
-                {item.type === 'single' ? (
-              <a
-                href={item.href}
-                    className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm relative group"
+              <button
+                key={item.name}
+                onClick={() => handleNavigation(item.href)}
+                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm relative group"
               >
                 {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                ) : (
-                  <div className="relative">
-                    <button
-                      onClick={() => handleDropdownToggle(item.name)}
-                      className="flex items-center space-x-1 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm relative group"
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </button>
-                    
-                    {/* Dropdown Menu */}
-                    {activeDropdown === item.name && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-slate-50/95 backdrop-blur-md dark:bg-slate-800/95 rounded-lg shadow-xl border border-slate-200/50 dark:border-slate-700/50 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                        {item.items?.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              </button>
             ))}
           </nav>
 
@@ -139,7 +104,10 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
             <LanguageSelector />
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button
+              onClick={handleDemo}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
               {t('nav.demo')}
             </button>
           </div>
@@ -162,47 +130,19 @@ export function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-50/95 backdrop-blur-md dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-700/50 rounded-b-lg shadow-lg">
               {navigation.map((item) => (
-                <div key={item.name}>
-                  {item.type === 'single' ? (
-                <a
-                  href={item.href}
-                      className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                  onClick={() => setIsMenuOpen(false)}
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   {item.name}
-                </a>
-                  ) : (
-                    <div>
-                      <button
-                        onClick={() => handleDropdownToggle(item.name)}
-                        className="flex items-center justify-between w-full px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
-                      </button>
-                      {activeDropdown === item.name && (
-                        <div className="ml-4 mt-1 space-y-1">
-                          {item.items?.map((subItem) => (
-                            <a
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                              onClick={() => {
-                                setIsMenuOpen(false);
-                                setActiveDropdown(null);
-                              }}
-                            >
-                              {subItem.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                </button>
               ))}
               <div className="pt-4">
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg">
+                <button
+                  onClick={handleDemo}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                >
                   {t('nav.demo')}
                 </button>
               </div>

@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider>
       <Layout>
-        <main className="pt-16">
+        <main className="pt-20">
           <Hero />
           <AboutSection />
           <SoftwareSection />

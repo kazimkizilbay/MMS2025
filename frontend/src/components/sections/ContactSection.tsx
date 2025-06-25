@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, User, Building, MessageSquare, Instagram, Linkedin, Facebook, MessageCircle, Globe, CheckCircle, X } from 'lucide-react';
 
 export default function ContactSection() {
@@ -143,6 +143,15 @@ ${formData.message}
     setIsFormOpen(false);
     setSubmitStatus('idle');
   };
+
+  // Listen for openDemoForm event from header to open demo modal
+  useEffect(() => {
+    const listener = () => openDemoForm();
+    window.addEventListener('openDemoForm', listener);
+    return () => {
+      window.removeEventListener('openDemoForm', listener);
+    };
+  }, []);
 
   return (
     <section id="contact" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
