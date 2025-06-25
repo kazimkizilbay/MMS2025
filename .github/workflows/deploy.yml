@@ -43,6 +43,18 @@ jobs:
         cd backend
         npm run build
         
+    - name: Test FTP connection with simple file
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.CPANEL_FTP_HOST }}
+        username: ${{ secrets.CPANEL_FTP_USER }}
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /home/marinema/marinemanagementsystem.com/public_html/
+        exclude: |
+          **/*
+          !test-deployment.txt
+        
     - name: Deploy frontend to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:

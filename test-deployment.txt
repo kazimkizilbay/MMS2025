@@ -1,0 +1,8 @@
+FTP DEPLOYMENT TEST
+==================
+
+Time: $(date)
+Message: Testing if FTP deployment actually works
+Path Test: This file should appear in /home/marinema/marinemanagementsystem.com/public_html/
+
+If you see this file in CPanel, FTP deployment is working! 

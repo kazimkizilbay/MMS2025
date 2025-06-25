@@ -1,7 +1,7 @@
 # Marine Management System (MMS) 🚢
 
 **🚀 Otomatik Deployment Aktif - GitHub Actions ile CPanel'e otomatik deploy edilir**
-**🚀 LIVE DEPLOYMENT: marinemanagementsystem.com - Site Yayında! ✅**
+**🔍 DEBUGGING: Files not appearing - Investigating FTP deployment issue**
 
 Modern, çok dilli ve tema destekli gemi inşa sektörü ERP çözümü. TypeScript, React, Node.js ve MySQL ile geliştirilmiştir.
 
