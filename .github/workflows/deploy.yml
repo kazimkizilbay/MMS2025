@@ -85,8 +85,8 @@ jobs:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: unified-deploy
-        server-dir: public_html
+        local-dir: ./unified-deploy/
+        server-dir: public_html/
         dangerous-clean-slate: true
         exclude: |
           **/.git*
