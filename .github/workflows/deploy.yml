@@ -92,9 +92,6 @@ jobs:
         local-dir: ./backend/
         server-dir: nag/api/
         exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/src/**
-          **/*.ts
-          **/tsconfig.json 
+          **/*
+          !package.json
+          !package-lock.json 
