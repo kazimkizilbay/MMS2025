@@ -32,17 +32,34 @@ jobs:
       run: |
         cd frontend
         npm run build
+        echo "Frontend build completed"
+        ls -la dist/
         
     - name: Install backend dependencies
       run: |
         cd backend
         npm ci
+        echo "Backend dependencies installed"
         
     - name: Build backend
       run: |
         cd backend
         npm run build
-        ls -la dist/  # Debug: list dist contents
+        echo "Backend build completed"
+        ls -la dist/
+        echo "Contents of dist directory:"
+        find dist -type f -name "*.js" | head -10
+        
+    - name: Verify backend build
+      run: |
+        cd backend
+        if [ ! -f "dist/app.js" ]; then
+          echo "ERROR: app.js not found in dist directory"
+          echo "Dist directory contents:"
+          ls -la dist/
+          exit 1
+        fi
+        echo "✅ app.js found successfully"
         
     - name: Deploy frontend to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -77,6 +94,8 @@ jobs:
         mkdir -p deploy-package
         cp backend/package.json deploy-package/
         cp backend/package-lock.json deploy-package/
+        echo "Package files prepared"
+        ls -la deploy-package/
         
     - name: Deploy backend package files to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -89,4 +108,12 @@ jobs:
         exclude: |
           **/.git*
           **/.git*/**
-          **/node_modules/** 
+          **/node_modules/**
+          
+    - name: Deployment Summary
+      run: |
+        echo "🚀 Deployment completed successfully!"
+        echo "✅ Frontend deployed to public_html/"
+        echo "✅ Backend dist files deployed to nag/api/"
+        echo "✅ Package files deployed to nag/api/"
+        echo "Next: Restart Node.js app in CPanel" 
