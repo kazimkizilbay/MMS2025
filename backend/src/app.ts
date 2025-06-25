@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
 
 import { errorHandler } from './middleware/errorHandler';
 import { notFound } from './middleware/notFound';
@@ -40,12 +41,17 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Health check
-app.get('/health', (req, res) => {
+// Serve static files from parent directory (public_html)
+app.use(express.static(path.join(__dirname, '..')));
+
+// API Health check
+app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'OK',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development',
+    frontend_url: process.env.FRONTEND_URL || 'http://localhost:5173'
   });
 });
 
@@ -93,12 +99,12 @@ const startServer = async () => {
     const server = app.listen(availablePort, () => {
       console.log(`\n🎉 MMS Backend Server Successfully Started!`);
       console.log(`📡 Server URL: http://localhost:${availablePort}`);
-      console.log(`🏥 Health Check: http://localhost:${availablePort}/health`);
+      console.log(`🏥 Health Check: http://localhost:${availablePort}/api/health`);
     console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
       console.log(`🌐 CORS Origin: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
       console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
       console.log(`\n📋 Available API Endpoints:`);
-      console.log(`   GET  /health - Health check`);
+      console.log(`   GET  /api/health - Health check`);
       console.log(`   POST /api/auth/* - Authentication routes`);
       console.log(`   POST /api/contact/* - Contact routes`);
       console.log(`   POST /api/demo/* - Demo routes`);

@@ -72,7 +72,12 @@ jobs:
         
         echo "✅ Unified deployment ready"
         echo "📂 Directory structure:"
-        find unified-deploy -type f -name "*.html" -o -name "*.js" -o -name "*.json" | head -20
+        echo "Frontend files:"
+        ls -la unified-deploy/ | head -10
+        echo "API files:"
+        ls -la unified-deploy/api/ | head -10
+        echo "Locale files:"
+        find unified-deploy/locales -name "*.json" | head -5
         
     - name: Deploy everything to public_html
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -96,12 +101,23 @@ jobs:
         echo "├── index.html (Frontend)"
         echo "├── assets/ (Frontend CSS/JS)"
         echo "├── locales/ (Languages)"
+        echo "├── *.png, *.jpg (Images)"
+        echo "├── .htaccess (URL routing)"
         echo "└── api/ (Backend API)"
+        echo "    ├── app.js"
+        echo "    ├── .env"
+        echo "    └── package.json"
         echo ""
         echo "🌐 Website URL: https://marinemanagementsystem.com"
-        echo "🔗 API URL: https://marinemanagementsystem.com/api"
+        echo "🔗 API URL: https://marinemanagementsystem.com/api/health"
         echo ""
         echo "🔧 CPanel Node.js Settings:"
         echo "   - Application Root: public_html/api"
         echo "   - Application URL: marinemanagementsystem.com"
-        echo "   - Startup File: app.js" 
+        echo "   - Startup File: app.js"
+        echo "   - Port: 3000 (auto-detected)"
+        echo ""
+        echo "📝 Next Steps:"
+        echo "   1. CPanel → Node.js → Restart App"
+        echo "   2. Run NPM Install"
+        echo "   3. Test: /api/health endpoint" 
