@@ -37,15 +37,21 @@ jobs:
         echo "✅ Backend build completed"
         ls -la dist/
         
-    - name: Prepare backend deployment
+    - name: Prepare unified deployment
       run: |
-        mkdir -p backend-deploy
-        cp -r backend/dist/* backend-deploy/
-        cp backend/package.json backend-deploy/
-        cp backend/package-lock.json backend-deploy/
+        mkdir -p unified-deploy
         
-        # Create production .env file
-        cat > backend-deploy/.env << EOF
+        # Copy frontend files to root
+        cp -r frontend/dist/* unified-deploy/
+        
+        # Create api directory and copy backend files
+        mkdir -p unified-deploy/api
+        cp -r backend/dist/* unified-deploy/api/
+        cp backend/package.json unified-deploy/api/
+        cp backend/package-lock.json unified-deploy/api/
+        
+        # Create production .env file for API
+        cat > unified-deploy/api/.env << EOF
         NODE_ENV=production
         PORT=3000
         FRONTEND_URL=https://marinemanagementsystem.com
@@ -64,32 +70,18 @@ jobs:
         API_KEY=mms-api-key-production
         EOF
         
-        echo "✅ Backend deployment ready with .env"
-        ls -la backend-deploy/
+        echo "✅ Unified deployment ready"
+        echo "📂 Directory structure:"
+        find unified-deploy -type f -name "*.html" -o -name "*.js" -o -name "*.json" | head -20
         
-    - name: Deploy frontend to CPanel
+    - name: Deploy everything to public_html
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./frontend/dist/
-        server-dir: marinemanagementsystem.com/public_html/
-        dangerous-clean-slate: true
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/.DS_Store
-          
-    - name: Deploy backend to CPanel
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.CPANEL_FTP_HOST }}
-        username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./backend-deploy/
-        server-dir: marinemanagementsystem.com/nag/api/
+        local-dir: ./unified-deploy/
+        server-dir: public_html/
         dangerous-clean-slate: true
         exclude: |
           **/.git*
@@ -99,13 +91,17 @@ jobs:
         
     - name: Deployment Summary
       run: |
-        echo "🎉 Deployment completed!"
-        echo "📂 Frontend deployed to: marinemanagementsystem.com/public_html/"
-        echo "📂 Backend deployed to: marinemanagementsystem.com/nag/api/"
+        echo "🎉 Unified deployment completed!"
+        echo "📂 All files deployed to: public_html/"
+        echo "├── index.html (Frontend)"
+        echo "├── assets/ (Frontend CSS/JS)"
+        echo "├── locales/ (Languages)"
+        echo "└── api/ (Backend API)"
+        echo ""
         echo "🌐 Website URL: https://marinemanagementsystem.com"
         echo "🔗 API URL: https://marinemanagementsystem.com/api"
-        echo "🔧 Next: Restart Node.js app in CPanel"
-        echo "📝 CPanel Node.js Settings:"
-        echo "   - Application Root: marinemanagementsystem.com/nag/api"
+        echo ""
+        echo "🔧 CPanel Node.js Settings:"
+        echo "   - Application Root: public_html/api"
         echo "   - Application URL: marinemanagementsystem.com"
         echo "   - Startup File: app.js" 
