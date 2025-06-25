@@ -124,7 +124,7 @@ export function SoftwareSection() {
   };
 
   return (
-    <section id="software" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
+    <section id="software" className="py-24 bg-gray-50 dark:bg-slate-900 relative overflow-hidden">
       {/* Decorative Background Blobs */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-tr from-blue-200/30 to-purple-300/30 dark:from-blue-600/20 dark:to-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-green-200/30 to-emerald-300/30 dark:from-green-600/20 dark:to-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -135,10 +135,10 @@ export function SoftwareSection() {
             <Cpu className="w-4 h-4 mr-2" />
             {t('software.title')}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-8">
             {t('software.title')}
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             {t('software.description')}
           </p>
         </div>
@@ -156,7 +156,7 @@ export function SoftwareSection() {
                 className={`flex items-center space-x-3 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                   isActive
                     ? `bg-gradient-to-r ${module.gradient} text-white shadow-xl`
-                    : `bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-700 dark:text-slate-300 border-2 border-slate-200/50 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg`
+                    : `bg-white border border-gray-300 text-gray-700 dark:bg-slate-800/80 dark:border-slate-700/50 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:shadow-lg shadow-sm`
                 }`}
               >
                 <IconComponent className="w-5 h-5" />
@@ -167,7 +167,7 @@ export function SoftwareSection() {
         </div>
 
         {/* Active Module Content */}
-        <div key={activeModule} className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-2 duration-700">
+        <div key={activeModule} className="bg-white border border-gray-200 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 dark:border-gray-700 rounded-3xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-2 duration-700">
           <div className={`bg-gradient-to-r ${modules[activeModule as keyof typeof modules].gradient} p-8 text-white`}>
             <div className="flex items-center space-x-4 mb-4">
               {(() => {
@@ -190,12 +190,12 @@ export function SoftwareSection() {
                 return (
                   <div
                     key={index}
-                    className="flex items-center space-x-3 p-6 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
+                    className="flex items-center space-x-3 p-6 bg-gray-50 border border-gray-200 dark:bg-gray-800/70 dark:border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                   >
                     <div className={`w-10 h-10 bg-gradient-to-br ${modules[activeModule as keyof typeof modules].gradient} rounded-lg flex items-center justify-center shadow-lg`}>
                       <IconComponent className="w-5 h-5 text-white" />
                     </div>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    <span className="text-gray-900 dark:text-gray-300 font-medium">
                       {feature.name}
                     </span>
                   </div>
@@ -208,10 +208,10 @@ export function SoftwareSection() {
         {/* MMS Paketleri Section */}
         <div className="mt-24 mb-16">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-white mb-4">
+            <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               MMS Paketleri
             </h3>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-slate-300 max-w-3xl mx-auto">
               İhtiyaçlarınıza uygun paket seçin ve dijital dönüşümünüzü başlatın
             </p>
           </div>
@@ -224,19 +224,19 @@ export function SoftwareSection() {
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                   <Ship className="w-8 h-8 text-white" />
                 </div>
-                <h4 className="text-2xl font-bold text-white mb-4">
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   MMS Starter
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     Temel işlevler
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     5 modül
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     Uygun fiyat
                   </li>
@@ -257,19 +257,19 @@ export function SoftwareSection() {
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                   <Wrench className="w-8 h-8 text-white" />
                 </div>
-                                  <h4 className="text-2xl font-bold text-white mb-4">
-                    MMS Professional
-                  </h4>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  MMS Professional
+                </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     İleri düzey çözümler
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     12 modül
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     Karmaşık ihtiyaçlara uygun
                   </li>
@@ -287,19 +287,19 @@ export function SoftwareSection() {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                   <Anchor className="w-8 h-8 text-white" />
                 </div>
-                                  <h4 className="text-2xl font-bold text-white mb-4">
-                    MMS Enterprise
-                  </h4>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  MMS Enterprise
+                </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     En kapsamlı çözümler
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     20 modül
                   </li>
-                  <li className="flex items-center text-gray-600 dark:text-gray-300">
+                  <li className="flex items-center text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                     Tüm işletme ihtiyaçlarına yönelik
                   </li>

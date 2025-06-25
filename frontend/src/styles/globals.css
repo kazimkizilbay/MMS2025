@@ -5,11 +5,42 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Light Theme - Clean and Professional */
+    --light-bg-base: 249, 250, 251;        /* gray-50 - Ana arka plan */
+    --light-bg-surface: 255, 255, 255;     /* white - Kartlar için */
+    --light-bg-accent: 243, 244, 246;      /* gray-100 - Vurgu alanları */
+    --light-text-primary: 17, 24, 39;      /* gray-900 - Ana yazılar */
+    --light-text-secondary: 55, 65, 81;    /* gray-700 - İkincil yazılar (daha koyu) */
+    --light-border: 229, 231, 235;         /* gray-200 - Kenarlıklar */
+    
+    /* Dark Theme - Modern Navy Blue */
+    --dark-bg-base: 15, 23, 42;           /* slate-900 - Ana arka plan */
+    --dark-bg-surface: 30, 41, 59;         /* slate-800 - Kartlar için */
+    --dark-bg-accent: 51, 65, 85;          /* slate-700 - Vurgu alanları */
+    --dark-text-primary: 248, 250, 252;    /* slate-50 - Ana yazılar */
+    --dark-text-secondary: 203, 213, 225;  /* slate-300 - İkincil yazılar */
+    --dark-border: 71, 85, 105;            /* slate-600 - Kenarlıklar */
+  }
+  
   body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @apply bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50;
+    @apply bg-[rgb(var(--light-bg-base))] dark:bg-[rgb(var(--dark-bg-base))] text-[rgb(var(--light-text-primary))] dark:text-[rgb(var(--dark-text-primary))];
+  }
+  
+  /* Genel section arka planları */
+  .section-base {
+    @apply bg-[rgb(var(--light-bg-base))] dark:bg-[rgb(var(--dark-bg-base))];
+  }
+  
+  .section-surface {
+    @apply bg-[rgb(var(--light-bg-surface))] dark:bg-[rgb(var(--dark-bg-surface))];
+  }
+  
+  .section-accent {
+    @apply bg-[rgb(var(--light-bg-accent))] dark:bg-[rgb(var(--dark-bg-accent))];
   }
 }
 

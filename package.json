@@ -45,6 +45,7 @@
     "npm": ">=8.0.0"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "tailwindcss-animate": "^1.0.7"
   }
 }

@@ -145,24 +145,24 @@ ${formData.message}
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300/15 dark:bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300/15 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-8 border border-white/30">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-200 text-sm font-medium mb-8 shadow-sm">
             <Mail className="w-4 h-4 mr-2" />
             İletişim
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-8">
             Bizimle İletişime Geçin
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Gemi inşa süreçlerinizi AI ile optimize etmeye başlamak için hemen iletişime geçin.
           </p>
         </div>
@@ -183,7 +183,7 @@ ${formData.message}
                   <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-3 text-center">
                     {info.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                  <p className="text-gray-700 dark:text-gray-300 text-center leading-relaxed">
                     {info.value}
                   </p>
                 </div>
@@ -225,7 +225,7 @@ ${formData.message}
               </span>
             </h3>
             
-            <p className="text-xl mb-8 text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl mb-8 text-gray-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Gemi inşa süreçlerinizi yapay zeka ile optimize etmeye hazır mısınız? 
               Endüstri 4.0'ın gücünü denizcilik sektörüne taşıyoruz.
             </p>
@@ -282,7 +282,7 @@ ${formData.message}
                   <div className={`w-14 h-14 bg-gradient-to-br ${social.color} rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:-translate-y-1`}>
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
-                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-700 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                     {social.name}
                   </span>
                 </a>
@@ -317,7 +317,7 @@ ${formData.message}
                   <h4 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
                     Mail Uygulamanız Açıldı!
                   </h4>
-        <p className="text-gray-600 dark:text-gray-300">
+        <p className="text-gray-700 dark:text-gray-300">
                     Demo talebiniz hazırlandı. Mail uygulamanızdan göndermeyi unutmayın!
                   </p>
                 </div>
@@ -329,7 +329,7 @@ ${formData.message}
                   <h4 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
                     Gönderim Başarısız!
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  <p className="text-gray-700 dark:text-gray-300 mb-6">
                     Demo talebi gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz.
                   </p>
                   <button

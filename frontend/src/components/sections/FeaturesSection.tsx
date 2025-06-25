@@ -36,24 +36,24 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+    <section id="features" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300/15 dark:bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300/15 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/60 backdrop-blur-sm dark:bg-slate-800/60 text-blue-800 dark:text-blue-200 text-sm font-medium border border-blue-200/50 dark:border-blue-700/50 mb-8">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 dark:bg-slate-800/80 dark:border-slate-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
             <CheckCircle className="w-4 h-4 mr-2" />
             Özellikler
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-8">
             MMS'i Farklı Kılan Özellikler
           </h2>
-                      <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Gemi inşa sektörüne özel geliştirilmiş MMS, rakiplerinden farklı özellikleri ile öne çıkar ve işletmelere rekabet avantajı sağlar.
           </p>
         </div>
@@ -65,7 +65,7 @@ export function FeaturesSection() {
             return (
               <div
                 key={index}
-                className="group relative bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200/50 dark:border-slate-700/50 overflow-hidden"
+                className="group relative bg-white border border-gray-200 dark:bg-slate-800/80 dark:border-slate-700/50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
               >
                 {/* Background Gradient on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
@@ -77,10 +77,10 @@ export function FeaturesSection() {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-4">
                     {feature.title}
                   </h3>
-                                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

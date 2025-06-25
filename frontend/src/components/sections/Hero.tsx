@@ -26,20 +26,20 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gray-50 dark:bg-slate-900 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-400/8 to-purple-400/8 dark:from-blue-500/5 dark:to-purple-500/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Floating Icons */}
       <div className="absolute inset-0 pointer-events-none">
-        <Sparkles className="absolute top-1/4 left-1/4 w-6 h-6 text-blue-400/30 animate-bounce delay-300" />
-        <Zap className="absolute top-1/3 right-1/4 w-8 h-8 text-purple-400/30 animate-bounce delay-700" />
-        <Shield className="absolute bottom-1/3 left-1/5 w-7 h-7 text-green-400/30 animate-bounce delay-1000" />
-        <TrendingUp className="absolute bottom-1/4 right-1/3 w-6 h-6 text-yellow-400/30 animate-bounce delay-1300" />
+        <Sparkles className="absolute top-1/4 left-1/4 w-6 h-6 text-blue-500/40 dark:text-blue-400/30 animate-bounce delay-300" />
+        <Zap className="absolute top-1/3 right-1/4 w-8 h-8 text-purple-500/40 dark:text-purple-400/30 animate-bounce delay-700" />
+        <Shield className="absolute bottom-1/3 left-1/5 w-7 h-7 text-green-500/40 dark:text-green-400/30 animate-bounce delay-1000" />
+        <TrendingUp className="absolute bottom-1/4 right-1/3 w-6 h-6 text-orange-500/40 dark:text-yellow-400/30 animate-bounce delay-1300" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
@@ -47,25 +47,25 @@ export function Hero() {
           {/* Main Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                       {/* Badge */}
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-200 text-sm font-medium mb-8 shadow-sm">
               <Sparkles className="w-4 h-4 mr-2" />
               {t('hero.badge')}
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-50 mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-slate-50 mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-green-400 bg-clip-text text-transparent">
                 {t('hero.title')}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-2xl lg:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
+            <p className="text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-slate-300 mb-6">
               {t('hero.subtitle')}
             </p>
 
             {/* Description */}
-            <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
               {t('hero.description')}
             </p>
 
@@ -79,7 +79,7 @@ export function Hero() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm"
+                  className="flex items-center space-x-2 px-4 py-2 bg-white/80 border border-gray-200 text-gray-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 rounded-full text-sm shadow-sm backdrop-blur-sm"
                 >
                   <item.icon className="w-4 h-4" />
                   <span>{item.text}</span>
@@ -99,34 +99,86 @@ export function Hero() {
                 </span>
               </button>
             
-              <button className="px-8 py-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all duration-300 border border-slate-200 dark:border-slate-700">
+              <button className="px-8 py-4 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all duration-300 shadow-sm">
                 {t('hero.cta_secondary')}
               </button>
             </div>
           </div>
 
           {/* Stats Cards */}
-          <div className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {[
-              { number: '15+', label: t('hero.stats.experience') },
-              { number: '50+', label: t('hero.stats.projects') },
-              { number: '99%', label: t('hero.stats.satisfaction') }
-            ].map((stat, index) => (
-              <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2">{stat.number}</div>
-                <div className="text-slate-600 dark:text-slate-300">{stat.label}</div>
-              </div>
-            ))}
+              { 
+                number: '15+', 
+                label: t('hero.stats.experience'),
+                icon: TrendingUp,
+                gradient: 'from-blue-500 to-cyan-500',
+                bgGradient: 'from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20'
+              },
+              { 
+                number: '67+', 
+                label: 'Modül',
+                icon: Sparkles,
+                gradient: 'from-purple-500 to-pink-500',
+                bgGradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20'
+              },
+              { 
+                number: '99%', 
+                label: t('hero.stats.satisfaction'),
+                icon: Shield,
+                gradient: 'from-green-500 to-emerald-500',
+                bgGradient: 'from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20'
+              }
+            ].map((stat, index) => {
+              const IconComponent = stat.icon;
+              return (
+                <div key={index} className={`relative bg-gradient-to-br ${stat.bgGradient} border border-gray-200 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 shadow-lg overflow-hidden group z-10`}>
+                  {/* Background Decoration */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-2xl -z-10"></div>
+                  
+                  {/* Icon */}
+                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="text-4xl font-bold text-gray-900 dark:text-slate-50 mb-3">{stat.number}</div>
+                    <div className="text-lg font-medium text-gray-700 dark:text-slate-300">{stat.label}</div>
+                  </div>
+                  
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/10 dark:to-slate-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg className="w-full h-20 text-white dark:text-gray-900" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-        </svg>
-      </div>
+      {/* Animated Wave Background */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-40 text-white dark:text-slate-900"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="currentColor"
+          d="M0,60 C150,80 350,0 600,50 C850,100 1050,20 1200,80 L1200,120 L0,120 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="5s"
+            repeatCount="indefinite"
+            values="
+              M0,60 C150,80 350,0 600,50 C850,100 1050,20 1200,80 L1200,120 L0,120 Z;
+              M0,20 C300,140 500,10 700,120 C900,200 1100,30 1200,100 L1200,120 L0,120 Z;
+              M0,100 C250,30 450,160 650,40 C850,180 1000,60 1200,120 L1200,120 L0,120 Z;
+              M0,60 C150,80 350,0 600,50 C850,100 1050,20 1200,80 L1200,120 L0,120 Z
+            "
+          />
+        </path>
+      </svg>
     </section>
   );
 } 
