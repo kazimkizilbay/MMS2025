@@ -43,7 +43,28 @@ jobs:
         cp -r backend/dist/* backend-deploy/
         cp backend/package.json backend-deploy/
         cp backend/package-lock.json backend-deploy/
-        echo "✅ Backend deployment ready"
+        
+        # Create production .env file
+        cat > backend-deploy/.env << EOF
+        NODE_ENV=production
+        PORT=3000
+        FRONTEND_URL=https://marinemanagementsystem.com
+        DATABASE_URL="mysql://username:password@localhost:3306/mms_db"
+        SMTP_HOST=smtp.gmail.com
+        SMTP_PORT=587
+        SMTP_USER=your-email@gmail.com
+        SMTP_PASS=your-app-password
+        FROM_EMAIL=noreply@marinemanagementsystem.com
+        CONTACT_EMAIL=info@marinemanagementsystem.com
+        DEMO_EMAIL=demo@marinemanagementsystem.com
+        JWT_SECRET=mms-super-secret-jwt-key-2024-production
+        JWT_EXPIRE=30d
+        RATE_LIMIT_WINDOW_MS=900000
+        RATE_LIMIT_MAX_REQUESTS=100
+        API_KEY=mms-api-key-production
+        EOF
+        
+        echo "✅ Backend deployment ready with .env"
         ls -la backend-deploy/
         
     - name: Deploy frontend to CPanel
@@ -80,6 +101,7 @@ jobs:
       run: |
         echo "🎉 Deployment completed!"
         echo "📂 Frontend deployed to: public_html/"
-        echo "📂 Backend deployed to: nag/api/"
+        echo "📂 Backend deployed to: nag/api/ (with .env)"
         echo "🌐 Website URL: https://marinemanagementsystem.com"
-        echo "🔗 API URL: https://marinemanagementsystem.com/api" 
+        echo "🔗 API URL: https://marinemanagementsystem.com/api"
+        echo "🔧 Next: Restart Node.js app in CPanel" 
