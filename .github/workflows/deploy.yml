@@ -42,18 +42,7 @@ jobs:
       run: |
         cd backend
         npm run build
-        
-    - name: Test FTP connection with simple file
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.CPANEL_FTP_HOST }}
-        username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./
-        server-dir: public_html/
-        exclude: |
-          **/*
-          !test-deployment.txt
+        ls -la dist/  # Debug: list dist contents
         
     - name: Deploy frontend to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -70,7 +59,7 @@ jobs:
           **/.git*/**
           **/node_modules/**
           
-    - name: Deploy backend to CPanel via FTP
+    - name: Deploy backend dist files to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
@@ -78,22 +67,28 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./backend/dist/
         server-dir: nag/api/
+        dry-run: false
+        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
           
-    - name: Create temp directory for package files
-      run: |
-        mkdir -p temp-package
-        cp backend/package.json temp-package/
-        cp backend/package-lock.json temp-package/
-        
-    - name: Deploy backend package.json via FTP
+    - name: Deploy backend package files to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./temp-package/
-        server-dir: nag/api/ 
+        local-dir: ./backend/
+        server-dir: nag/api/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/src/**
+          **/dist/**
+          **/.env*
+          **/tsconfig.json
+          !package.json
+          !package-lock.json 
