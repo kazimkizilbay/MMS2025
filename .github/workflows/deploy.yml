@@ -3,8 +3,6 @@ name: Deploy to CPanel
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -23,45 +21,48 @@ jobs:
           frontend/package-lock.json
           backend/package-lock.json
     
-    - name: Install frontend dependencies
+    - name: Install and build frontend
       run: |
         cd frontend
         npm ci
-        
-    - name: Build frontend
-      run: |
-        cd frontend
         npm run build
-        echo "Frontend build completed"
+        echo "✅ Frontend build completed"
         ls -la dist/
         
-    - name: Install backend dependencies
+    - name: Install and build backend
       run: |
         cd backend
         npm ci
-        echo "Backend dependencies installed"
-        
-    - name: Build backend
-      run: |
-        cd backend
         npm run build
-        echo "Backend build completed"
+        echo "✅ Backend build completed"
         ls -la dist/
-        echo "Contents of dist directory:"
-        find dist -type f -name "*.js" | head -10
         
     - name: Verify backend build
       run: |
         cd backend
         if [ ! -f "dist/app.js" ]; then
-          echo "ERROR: app.js not found in dist directory"
-          echo "Dist directory contents:"
-          ls -la dist/
+          echo "❌ ERROR: app.js not found"
           exit 1
         fi
-        echo "✅ app.js found successfully"
+        echo "✅ app.js verified"
         
-    - name: Deploy frontend to CPanel via FTP
+    - name: Prepare backend deployment directory
+      run: |
+        # Create a clean deployment directory
+        mkdir -p backend-deploy
+        
+        # Copy all dist files
+        cp -r backend/dist/* backend-deploy/
+        
+        # Copy package files
+        cp backend/package.json backend-deploy/
+        cp backend/package-lock.json backend-deploy/
+        
+        echo "✅ Backend deployment directory prepared"
+        echo "Contents:"
+        ls -la backend-deploy/
+        
+    - name: Deploy frontend to public_html
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
@@ -69,51 +70,28 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./frontend/dist/
         server-dir: public_html/
-        dry-run: false
         exclude: |
           **/.git*
-          **/.git*/**
           **/node_modules/**
           
-    - name: Deploy backend dist files to CPanel via FTP
+    - name: Deploy backend to nag/api (SINGLE DEPLOYMENT)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./backend/dist/
-        server-dir: nag/api/
-        dry-run: false
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          
-    - name: Create package files directory
-      run: |
-        mkdir -p deploy-package
-        cp backend/package.json deploy-package/
-        cp backend/package-lock.json deploy-package/
-        echo "Package files prepared"
-        ls -la deploy-package/
-        
-    - name: Deploy backend package files to CPanel via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.CPANEL_FTP_HOST }}
-        username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./deploy-package/
+        local-dir: ./backend-deploy/
         server-dir: nag/api/
         exclude: |
           **/.git*
-          **/.git*/**
           **/node_modules/**
           
-    - name: Deployment Summary
+    - name: Deployment verification
       run: |
-        echo "🚀 Deployment completed successfully!"
-        echo "✅ Frontend deployed to public_html/"
-        echo "✅ Backend dist files deployed to nag/api/"
-        echo "✅ Package files deployed to nag/api/"
-        echo "Next: Restart Node.js app in CPanel" 
+        echo "🎉 Deployment completed!"
+        echo "📂 Frontend: public_html/"
+        echo "📂 Backend: nag/api/"
+        echo "📝 Next steps:"
+        echo "   1. Check nag/api/ for app.js"
+        echo "   2. Restart Node.js app in CPanel"
+        echo "   3. Test the website" 
