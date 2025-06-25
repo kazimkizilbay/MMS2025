@@ -43,34 +43,44 @@ jobs:
         cd backend
         npm run build
         
-    - name: Deploy frontend to CPanel via SFTP
-      uses: appleboy/scp-action@v0.1.7
+    - name: Deploy frontend to CPanel via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        host: ${{ secrets.CPANEL_FTP_HOST }}
+        server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        key: ${{ secrets.CPANEL_SSH_KEY }}
-        port: 22
-        source: "./frontend/dist/*"
-        target: "/home/marinema/public_html/"
-        strip_components: 2
-        
-    - name: Deploy backend to CPanel via SFTP  
-      uses: appleboy/scp-action@v0.1.7
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        local-dir: ./frontend/dist/
+        server-dir: /home/marinema/marinemanagementsystem.com/public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          
+    - name: Deploy backend to CPanel via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        host: ${{ secrets.CPANEL_FTP_HOST }}
+        server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        key: ${{ secrets.CPANEL_SSH_KEY }}
-        port: 22
-        source: "./backend/dist/*"
-        target: "/home/marinema/nag/api/"
-        strip_components: 2
-        
-    - name: Deploy backend package.json via SFTP
-      uses: appleboy/scp-action@v0.1.7
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        local-dir: ./backend/dist/
+        server-dir: /home/marinema/marinemanagementsystem.com/api/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          
+    - name: Deploy backend package.json via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        host: ${{ secrets.CPANEL_FTP_HOST }}
+        server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        key: ${{ secrets.CPANEL_SSH_KEY }}
-        port: 22
-        source: "./backend/package.json"
-        target: "/home/marinema/nag/api/" 
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        local-dir: ./backend/
+        server-dir: /home/marinema/marinemanagementsystem.com/api/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/src/**
+          **/*.ts
+          **/tsconfig.json 
