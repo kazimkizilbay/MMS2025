@@ -63,6 +63,8 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./frontend/dist/
         server-dir: /home/marinema/marinemanagementsystem.com/public_html/
+        dry-run: false
+        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**
