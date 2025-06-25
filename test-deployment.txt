@@ -1,3 +1,4 @@
-GitHub Actions Deployment Test - 26 Haz 2025 00:55
-Marine Management System deployment via GitHub Actions
-Faster than CPanel Git deployment! 
+Fresh Deployment - 26 Haz 2025 01:10
+All files cleaned, starting fresh deployment
+Backend files will go to: nag/api/
+Frontend files will go to: public_html/ 
