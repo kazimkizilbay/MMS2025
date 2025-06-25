@@ -48,7 +48,7 @@ jobs:
       with:
         host: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        key: ${{ secrets.CPANEL_SSH_KEY }}
         port: 22
         source: "./frontend/dist/*"
         target: "/home/marinema/public_html/"
@@ -59,7 +59,7 @@ jobs:
       with:
         host: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        key: ${{ secrets.CPANEL_SSH_KEY }}
         port: 22
         source: "./backend/dist/*"
         target: "/home/marinema/nag/api/"
@@ -70,7 +70,7 @@ jobs:
       with:
         host: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
-        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        key: ${{ secrets.CPANEL_SSH_KEY }}
         port: 22
         source: "./backend/package.json"
         target: "/home/marinema/nag/api/" 
