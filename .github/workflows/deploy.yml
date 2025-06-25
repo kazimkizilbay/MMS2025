@@ -82,7 +82,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./backend/dist/
-        server-dir: nag/api/
+        server-dir: marinemanagementsystem.com/nag/api/
         dry-run: false
         exclude: |
           **/.git*
@@ -104,7 +104,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./deploy-package/
-        server-dir: nag/api/
+        server-dir: marinemanagementsystem.com/nag/api/
         exclude: |
           **/.git*
           **/.git*/**
@@ -114,6 +114,6 @@ jobs:
       run: |
         echo "🚀 Deployment completed successfully!"
         echo "✅ Frontend deployed to public_html/"
-        echo "✅ Backend dist files deployed to nag/api/"
-        echo "✅ Package files deployed to nag/api/"
+        echo "✅ Backend dist files deployed to marinemanagementsystem.com/nag/api/"
+        echo "✅ Package files deployed to marinemanagementsystem.com/nag/api/"
         echo "Next: Restart Node.js app in CPanel" 
