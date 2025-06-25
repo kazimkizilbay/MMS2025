@@ -1,0 +1,26 @@
+---
+deployment:
+  tasks:
+    # Install frontend dependencies and build
+    - export DEPLOYPATH=/home/marinema/repositories/MMS2025
+    - cd $DEPLOYPATH/frontend
+    - npm install
+    - npm run build
+    
+    # Install backend dependencies and build
+    - cd $DEPLOYPATH/backend
+    - npm install
+    - npm run build
+    
+    # Copy frontend build to public_html
+    - cp -R $DEPLOYPATH/frontend/dist/* /home/marinema/public_html/
+    
+    # Copy backend build to api directory
+    - mkdir -p /home/marinema/marinemanagementsystem.com/nag/api
+    - cp -R $DEPLOYPATH/backend/dist/* /home/marinema/marinemanagementsystem.com/nag/api/
+    - cp $DEPLOYPATH/backend/package.json /home/marinema/marinemanagementsystem.com/nag/api/
+    - cp $DEPLOYPATH/backend/package-lock.json /home/marinema/marinemanagementsystem.com/nag/api/
+    
+    # Install production dependencies for backend
+    - cd /home/marinema/marinemanagementsystem.com/nag/api
+    - npm install --production 
