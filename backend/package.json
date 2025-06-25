@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon src/app.ts",
     "build": "tsc",
-    "prestart": "npm run build",
     "start": "node dist/app.js",
+    "prestart-dev": "npm run build",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "prisma:generate": "prisma generate",
