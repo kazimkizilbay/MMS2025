@@ -53,7 +53,6 @@ jobs:
         local-dir: ./frontend/dist/
         server-dir: public_html/
         dry-run: false
-        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**
@@ -68,27 +67,26 @@ jobs:
         local-dir: ./backend/dist/
         server-dir: nag/api/
         dry-run: false
-        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
           
+    - name: Create package files directory
+      run: |
+        mkdir -p deploy-package
+        cp backend/package.json deploy-package/
+        cp backend/package-lock.json deploy-package/
+        
     - name: Deploy backend package files to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./backend/
+        local-dir: ./deploy-package/
         server-dir: nag/api/
         exclude: |
           **/.git*
           **/.git*/**
-          **/node_modules/**
-          **/src/**
-          **/dist/**
-          **/.env*
-          **/tsconfig.json
-          !package.json
-          !package-lock.json 
+          **/node_modules/** 
