@@ -50,7 +50,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /home/marinema/marinemanagementsystem.com/public_html/
+        server-dir: /marinemanagementsystem.com/public_html/
         exclude: |
           **/*
           !test-deployment.txt
@@ -62,7 +62,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./frontend/dist/
-        server-dir: /home/marinema/marinemanagementsystem.com/public_html/
+        server-dir: /marinemanagementsystem.com/public_html/
         dry-run: false
         dangerous-clean-slate: true
         exclude: |
@@ -77,7 +77,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./backend/dist/
-        server-dir: /home/marinema/marinemanagementsystem.com/nag/api/
+        server-dir: /marinemanagementsystem.com/nag/api/
         exclude: |
           **/.git*
           **/.git*/**
@@ -90,7 +90,7 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         local-dir: ./backend/
-        server-dir: /home/marinema/marinemanagementsystem.com/nag/api/
+        server-dir: /marinemanagementsystem.com/nag/api/
         exclude: |
           **/.git*
           **/.git*/**
