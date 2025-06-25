@@ -51,7 +51,7 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         port: 22
         source: "./frontend/dist/*"
-        target: "/public_html/"
+        target: "/home/marinema/public_html/"
         strip_components: 2
         
     - name: Deploy backend to CPanel via SFTP  
@@ -62,7 +62,7 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         port: 22
         source: "./backend/dist/*"
-        target: "/api/"
+        target: "/home/marinema/api/"
         strip_components: 2
         
     - name: Deploy backend package.json via SFTP
@@ -73,4 +73,4 @@ jobs:
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         port: 22
         source: "./backend/package.json"
-        target: "/api/" 
+        target: "/home/marinema/api/" 
