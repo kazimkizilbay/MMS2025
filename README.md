@@ -1,7 +1,7 @@
 # Marine Management System (MMS) 🚢
 
 **🚀 Otomatik Deployment Aktif - GitHub Actions ile CPanel'e otomatik deploy edilir**
-**📍 Deploy Status: IP adresli FTP bağlantısı (85.235.74.127) - FINAL SUCCESS! 🎯**
+**🚀 LIVE DEPLOYMENT: marinemanagementsystem.com - Site Yayında! ✅**
 
 Modern, çok dilli ve tema destekli gemi inşa sektörü ERP çözümü. TypeScript, React, Node.js ve MySQL ile geliştirilmiştir.
 
