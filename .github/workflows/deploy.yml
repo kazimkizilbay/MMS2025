@@ -42,7 +42,7 @@ jobs:
         mkdir -p unified-deploy
         
         # Copy frontend files to root
-        cp -r frontend/dist/* unified-deploy/
+        cp -a frontend/dist/. unified-deploy/
         
         # Create api directory and copy backend files
         mkdir -p unified-deploy/api
@@ -85,8 +85,8 @@ jobs:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./unified-deploy/
-        server-dir: public_html/
+        local-dir: unified-deploy
+        server-dir: public_html
         dangerous-clean-slate: true
         exclude: |
           **/.git*
