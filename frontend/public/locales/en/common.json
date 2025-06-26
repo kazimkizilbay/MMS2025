@@ -25,9 +25,65 @@
   },
   "about": {
     "title": "About Us",
+    "subtitle": "About Us",
+    "approach": "Our Approach",
     "description": "Our founders consist of a Naval Architect and Computer and Electrical-Electronics Engineers, graduates of Istanbul Technical University from different disciplines with up to 15 years of experience in their fields. This team operates as a technology company that offers original solutions with AI-powered ERP software developed with an innovative and sector-specific approach.",
-    "highlight": "Our company, formed by the collaboration of young entrepreneurs focused on innovation and quality, aims to provide innovative and effective solutions to the needs in the sector."
+    "highlight": "Our company, formed by the collaboration of young entrepreneurs focused on innovation and quality, aims to provide innovative and effective solutions to the needs in the sector.",
+    "stats": {
+      "experience": "Years Experience",
+      "modules": "Modules",
+      "satisfaction": "Customer Satisfaction"
+    },
+    "technological_promises": {
+      "title": "Our Technological Promises",
+      "subtitle": "Building the future today with our solutions equipped with modern technologies"
+    },
+    "solutions": {
+      "title": "Solutions Offered by MMS",
+      "subtitle": "MMS, which offers industry-specific solutions for the shipbuilding sector, ensures that projects are managed more efficiently, controlled and profitably.",
+      "items": [
+        {
+          "title": "Integrated Process Management",
+          "description": "Ensures coordination and minimizes operational errors by combining different stages and components of the shipbuilding process on an integrated platform."
+        },
+        {
+          "title": "Automation and Digitalization",
+          "description": "Prevents time losses and increases efficiency by automating and digitalizing manual processes."
+        },
+        {
+          "title": "Cost Control",
+          "description": "Increases profitability by preventing unnecessary expenses through effective tracking and management of costs."
+        },
+        {
+          "title": "Competitive Advantage and Innovation",
+          "description": "Provides businesses with competitive advantage through its user-friendly interface, advanced features and continuously updated structure."
+        },
+        {
+          "title": "Information and Data Management",
+          "description": "Supports strategic decision-making processes through effective management and analysis of collected data."
+              }
+    ]
   },
+  "footer": {
+    "description": "Innovative AI-powered ERP solutions for the shipbuilding industry. Optimize your shipbuilding processes with modern technology.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "services_items": [
+      "AI-Powered ERP Solutions",
+      "Digital Transformation Consulting",
+      "Shipbuilding Software",
+      "Cloud Technology Services",
+      "24/7 Technical Support"
+    ],
+    "newsletter": {
+      "title": "Stay Informed",
+      "subtitle": "Subscribe to our newsletter to stay updated on innovations.",
+      "placeholder": "Your email address",
+      "button": "Subscribe"
+    },
+    "followUs": "Follow Us"
+  }
+},
   "vision": {
     "title": "Our Vision",
     "description": "We aim to make shipbuilding processes more efficient, transparent and sustainable by providing our customers with the most innovative, original and effective AI-powered ERP solutions in the sector. Focusing on customer needs, we closely follow developing technology and support them in optimizing their business processes."
@@ -189,37 +245,66 @@
   },
   "features": {
     "title": "Features That Make MMS Different",
+    "subtitle": "MMS, developed specifically for the shipbuilding industry, stands out with its distinctive features and provides competitive advantage to businesses.",
     "list": [
       {
-        "title": "Artificial Intelligence Integration",
-        "description": "The industry's first AI-powered ERP solution",
-        "icon": "🤖"
+        "title": "Industry-Specific Solutions",
+        "description": "Offers sector-specific modules and workflows fully compatible with shipbuilding processes and terminology."
       },
       {
-        "title": "Industry-Specific Solutions", 
-        "description": "Modules fully compatible with shipbuilding processes",
-        "icon": "🚢"
+        "title": "Domestic Production",
+        "description": "Software developed according to the needs and dynamics of Turkey's shipbuilding industry, providing Turkish language support."
       },
       {
-        "title": "Domestic and National",
-        "description": "Developed in Turkey, Turkish language supported",
-        "icon": "🇹🇷"
+        "title": "Flexibility and Scalability",
+        "description": "Can be customized and scaled according to business needs thanks to its modular structure."
       },
       {
-        "title": "Cloud Technology",
-        "description": "Access from anywhere with modern cloud infrastructure",
-        "icon": "☁️"
+        "title": "User-Friendly Interface",
+        "description": "Features an intuitive and easy-to-use interface that simplifies business processes for users in the shipbuilding industry."
+      },
+      {
+        "title": "Competitive Pricing",
+        "description": "Stands out with competitive pricing models compared to high-cost foreign competitors."
       }
     ]
   },
   "contact": {
     "title": "Contact",
+    "subtitle": "Get in Touch",
     "description": "Get in touch with us and start optimizing your shipbuilding processes with AI.",
+    "form": {
+      "email": "Email",
+      "phone": "Phone",
+      "emailPlaceholder": "Your email address",
+      "phonePlaceholder": "Your phone number"
+    },
     "info": {
-      "address": "Bilişim Vadisi - Kocaeli",
-      "phone": "+90 507 574 2666",
-      "email": "info@marinemanagementsystem.com",
-      "website": "www.marinemanagementsystem.com"
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "workingHours": "Working Hours",
+      "addressText": "Bilişim Vadisi - Kocaeli",
+      "phoneText": "+90 507 574 2666",
+      "emailText": "info@marinemanagementsystem.com",
+      "website": "www.marinemanagementsystem.com",
+      "workingHoursText": "Monday - Friday: 09:00 - 18:00"
+    },
+    "hero": {
+      "title": "Turkey's First AI-Powered",
+      "subtitle": "Shipbuilding Digital Transformation Project",
+      "description": "Ready to optimize your shipbuilding processes with artificial intelligence? We bring the power of Industry 4.0 to the maritime sector.",
+      "features": [
+        "AI-Powered Analysis",
+        "Industry-Specific",
+        "Domestic & National",
+        "Real-Time"
+      ],
+      "cta": "Request Demo",
+      "ctaSecondary": "Learn More"
+    },
+    "social": {
+      "title": "Follow Us on Social Media"
     }
   },
   "theme": {

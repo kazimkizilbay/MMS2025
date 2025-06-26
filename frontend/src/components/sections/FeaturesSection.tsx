@@ -1,39 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import { CheckCircle, Globe, Cog, Layers, DollarSign } from 'lucide-react';
 
 export function FeaturesSection() {
+  const { t } = useTranslation();
 
-  const features = [
-    {
-      icon: CheckCircle,
-      title: "Sektöre Özgü Çözümler",
-      description: "Gemi inşa süreçlerine ve terminolojisine tam uyumlu, sektöre özel modüller ve iş akışları sunar.",
-      gradient: "from-green-500 to-emerald-500"
-    },
-    {
-      icon: Globe,
-      title: "Yerli Üretim",
-      description: "Türkiye'deki gemi inşa sektörünün ihtiyaçlarına ve dinamiklerine göre geliştirilmiş, Türkçe dil desteği sağlayan bir yazılımdır.",
-      gradient: "from-red-500 to-red-600"
-    },
-    {
-      icon: Layers,
-      title: "Esneklik ve Ölçeklenebilirlik",
-      description: "Modüler yapısı sayesinde işletmelerin ihtiyaçlarına göre özelleştirilebilir ve ölçeklenebilir.",
-      gradient: "from-blue-500 to-purple-500"
-    },
-    {
-      icon: Cog,
-      title: "Kullanıcı Dostu Arayüz",
-      description: "Gemi inşa sektöründeki kullanıcıların iş yapış şekillerine uygun, basit ve anlaşılır bir arayüze sahiptir.",
-      gradient: "from-orange-500 to-red-500"
-    },
-    {
-      icon: DollarSign,
-      title: "Rekabetçi Fiyatlandırma",
-      description: "Yüksek maliyetli yabancı rakiplerine kıyasla rekabetçi fiyatlandırma modellyle öne çıkar.",
-      gradient: "from-yellow-500 to-orange-500"
-    }
+  const featureIcons = [CheckCircle, Globe, Layers, Cog, DollarSign];
+  const gradients = [
+    "from-green-500 to-emerald-500",
+    "from-red-500 to-red-600",
+    "from-blue-500 to-purple-500",
+    "from-orange-500 to-red-500",
+    "from-yellow-500 to-orange-500"
   ];
+
+  const features = (t('features.list', { returnObjects: true }) as Array<{title: string, description: string}>).map((feature, index) => ({
+    ...feature,
+    icon: featureIcons[index] || CheckCircle,
+    gradient: gradients[index] || gradients[0]
+  }));
 
   return (
     <section id="features" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
@@ -48,13 +32,13 @@ export function FeaturesSection() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 dark:bg-slate-800/80 dark:border-slate-700 text-blue-800 dark:text-blue-200 text-sm font-medium mb-8">
             <CheckCircle className="w-4 h-4 mr-2" />
-            Özellikler
+            {t('features.badge', { defaultValue: 'Özellikler' })}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-8">
-            MMS'i Farklı Kılan Özellikler
+            {t('features.title')}
           </h2>
           <p className="text-xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Gemi inşa sektörüne özel geliştirilmiş MMS, rakiplerinden farklı özellikleri ile öne çıkar ve işletmelere rekabet avantajı sağlar.
+            {t('features.subtitle')}
           </p>
         </div>
 

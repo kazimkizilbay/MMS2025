@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Clock, Send, User, Building, MessageSquare, Instagram, Linkedin, Facebook, MessageCircle, Globe, CheckCircle, X } from 'lucide-react';
 
 export default function ContactSection() {
+  const { t } = useTranslation();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -17,32 +19,32 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'E-posta',
-      value: 'info@marinemanagementsystem.com',
+      title: t('contact.info.email'),
+      value: t('contact.info.emailText'),
       bgColor: 'bg-gradient-to-br from-blue-500 to-cyan-500',
       iconColor: 'text-white',
-      link: 'mailto:info@marinemanagementsystem.com'
+      link: `mailto:${t('contact.info.emailText')}`
     },
     {
       icon: Phone,
-      title: 'Telefon',
-      value: '+90 507 574 2666',
+      title: t('contact.info.phone'),
+      value: t('contact.info.phoneText'),
       bgColor: 'bg-gradient-to-br from-green-500 to-emerald-500',
       iconColor: 'text-white',
-      link: 'tel:+905075742666'
+      link: `tel:${t('contact.info.phoneText').replace(/\s/g, '')}`
     },
     {
       icon: MapPin,
-      title: 'Adres',
-      value: 'Bilişim Vadisi - Kocaeli',
+      title: t('contact.info.address'),
+      value: t('contact.info.addressText'),
       bgColor: 'bg-gradient-to-br from-purple-500 to-pink-500',
       iconColor: 'text-white',
       link: 'https://maps.app.goo.gl/gZESRYuJidHbSQpB9'
     },
     {
       icon: Clock,
-      title: 'Çalışma Saatleri',
-      value: 'Pazartesi - Cuma: 09:00 - 18:00',
+      title: t('contact.info.workingHours'),
+      value: t('contact.info.workingHoursText'),
       bgColor: 'bg-gradient-to-br from-orange-500 to-red-500',
       iconColor: 'text-white'
     }
@@ -166,13 +168,13 @@ ${formData.message}
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-200 text-sm font-medium mb-8 shadow-sm">
             <Mail className="w-4 h-4 mr-2" />
-            İletişim
+            {t('contact.title')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-8">
-            Bizimle İletişime Geçin
+            {t('contact.subtitle')}
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Gemi inşa süreçlerinizi AI ile optimize etmeye başlamak için hemen iletişime geçin.
+            {t('contact.description')}
           </p>
         </div>
 
@@ -224,35 +226,30 @@ ${formData.message}
           <div className="relative z-10 text-center">
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium mb-6 border border-blue-200 dark:border-blue-700">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-              Yapay Zeka Destekli
+              {t('contact.hero.badge', { defaultValue: 'Yapay Zeka Destekli' })}
             </div>
             
             <h3 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-slate-900 dark:text-slate-50">
-              Türkiye'nin İlk Yapay Zeka Destekli<br/>
+              {t('contact.hero.title')}<br/>
               <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                Gemi İnşa Dijital Dönüşüm Projesi
+                {t('contact.hero.subtitle')}
               </span>
             </h3>
             
             <p className="text-xl mb-8 text-gray-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Gemi inşa süreçlerinizi yapay zeka ile optimize etmeye hazır mısınız? 
-              Endüstri 4.0'ın gücünü denizcilik sektörüne taşıyoruz.
+              {t('contact.hero.description')}
             </p>
             
             {/* Key Features Pills */}
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
-                🤖 AI Destekli Analiz
-              </div>
-              <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
-                🚢 Sektöre Özel
-              </div>
-              <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
-                🇹🇷 Yerli & Milli
-              </div>
-              <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
-                ⚡ Gerçek Zamanlı
-              </div>
+              {(t('contact.hero.features', { returnObjects: true }) as string[]).map((feature, index) => {
+                const icons = ['🤖', '🚢', '🇹🇷', '⚡'];
+                return (
+                  <div key={index} className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
+                    {icons[index]} {feature}
+                  </div>
+                );
+              })}
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -262,11 +259,11 @@ ${formData.message}
                 className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2"
               >
                 <span>🚀</span>
-                Demo Talep Et
+                {t('contact.hero.cta')}
               </button>
               <button className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 flex items-center justify-center gap-2">
                 <span>📋</span>
-                Daha Fazla Bilgi
+                {t('contact.hero.ctaSecondary')}
               </button>
             </div>
           </div>
@@ -275,7 +272,7 @@ ${formData.message}
         {/* Social Media Links */}
         <div className="text-center">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8">
-            Sosyal Medyada Takip Edin
+            {t('contact.social.title')}
           </h3>
           <div className="flex justify-center gap-6 flex-wrap">
             {socialLinks.map((social, index) => {
@@ -399,7 +396,7 @@ ${formData.message}
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="email@example.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                         required
                       />
                     </div>
@@ -417,7 +414,7 @@ ${formData.message}
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Telefon numaranız"
+                        placeholder={t('contact.form.phonePlaceholder')}
                         required
                       />
                     </div>

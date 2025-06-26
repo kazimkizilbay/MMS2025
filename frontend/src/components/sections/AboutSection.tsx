@@ -18,7 +18,7 @@ export function AboutSection() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-200 text-sm font-medium mb-8 shadow-sm">
               <Target className="w-4 h-4 mr-2" />
-              Hakkımızda
+              {t('about.title')}
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-50 mb-6">
               {t('about.title')}
@@ -33,7 +33,7 @@ export function AboutSection() {
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-3">Hakkımızda</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-3">{t('about.subtitle')}</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                       {t('about.description')}
                     </p>
@@ -45,7 +45,7 @@ export function AboutSection() {
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-3">Yaklaşımımız</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-3">{t('about.approach')}</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                       {t('about.highlight')}
                     </p>
@@ -57,15 +57,15 @@ export function AboutSection() {
               <div className="grid grid-cols-3 gap-6 pt-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">15+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Yıl Deneyim</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{t('about.stats.experience')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">67+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Modül</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{t('about.stats.modules')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">99%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Müşteri Memnuniyeti</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{t('about.stats.satisfaction')}</div>
                 </div>
               </div>
             </div>
@@ -157,10 +157,10 @@ export function AboutSection() {
         {/* Teknolojik Vaatlerimiz */}
         <div className="text-center mb-16">
           <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-50 mb-8">
-            Teknolojik Vaatlerimiz
+            {t('about.technological_promises.title')}
           </h3>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            Modern teknolojilerle donatılmış çözümlerimizle geleceği bugünden inşa ediyoruz
+            {t('about.technological_promises.subtitle')}
           </p>
         </div>
 
@@ -210,44 +210,20 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <div className="text-center mb-16">
           <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-50 mb-8">
-            MMS'in Sunduğu Çözümler
+            {t('about.solutions.title')}
           </h3>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
-            Gemi inşa sektörüne özgü çözümler sunan MMS, projelerin daha verimli, kontrollü ve karlı bir şekilde yönetilmesini sağlar.
+            {t('about.solutions.subtitle')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              icon: "📋",
-              title: "Entegre Süreç Yönetimi",
-              description: "Gemi inşa sürecinin farklı aşamalarını ve bileşenlerini entegre bir platformda birleştirerek koordinasyonu sağlar ve operasyonel hataları minimize eder."
-            },
-            {
-              icon: "🤖",
-              title: "Otomasyon ve Dijitalleşme",
-              description: "Manuel süreçleri otomatikleştirerek ve dijitalleştirerek zaman kayıplarını önler ve verimliliği artırır."
-            },
-            {
-              icon: "📊",
-              title: "Maliyet Kontrolü",
-              description: "Maliyetlerin etkin takibi ve yönetimi ile gereksiz harcamaların önüne geçerek karlılığı artırır."
-            },
-            {
-              icon: "🚀",
-              title: "Rekabet Gücü ve İnovasyon",
-              description: "Kullanıcı dostu arayüzü, gelişmiş özellikleri ve sürekli güncellenen yapısıyla işletmelere rekabet avantajı sağlar."
-            },
-            {
-              icon: "💾",
-              title: "Bilgi ve Veri Yönetimi",
-              description: "Toplanan verilerin etkili yönetimi ve analizi ile stratejik karar alma süreçlerini destekler."
-            }
-          ].map((solution, index) => (
+          {(t('about.solutions.items', { returnObjects: true }) as Array<{title: string, description: string}>).map((solution, index) => {
+            const icons = ["📋", "🤖", "📊", "🚀", "💾"];
+            return (
             <div key={index} className="group bg-white border border-gray-200 dark:bg-slate-800/80 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 shadow-sm">
               <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                {solution.icon}
+                {icons[index]}
               </div>
               <h4 className="text-xl font-bold text-gray-900 dark:text-slate-50 mb-4">
                 {solution.title}
@@ -256,7 +232,8 @@ export function AboutSection() {
                 {solution.description}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

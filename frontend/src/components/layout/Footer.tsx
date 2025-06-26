@@ -55,13 +55,7 @@ export function Footer() {
     { name: t('nav.contact'), href: '#contact' }
   ];
 
-  const services = [
-    'AI-Destekli ERP Çözümleri',
-    'Dijital Dönüşüm Danışmanlığı', 
-    'Gemi İnşa Yazılımları',
-    'Bulut Teknolojisi Hizmetleri',
-    '7/24 Teknik Destek'
-  ];
+  const services = t('footer.services_items', { returnObjects: true }) as string[];
 
   return (
     <footer className="bg-slate-900 text-slate-50">
@@ -82,32 +76,31 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Gemi inşa sektörü için yapay zeka destekli yenilikçi ERP çözümleri. 
-              Modern teknoloji ile gemi inşaat süreçlerinizi optimize edin.
+              {t('footer.description')}
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <span className="text-gray-300">{t('contact.info.address')}</span>
+                <span className="text-gray-300">{t('contact.info.addressText')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="tel:+905075742666" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  {t('contact.info.phone')}
+                <a href={`tel:${t('contact.info.phoneText').replace(/\s/g, '')}`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                  {t('contact.info.phoneText')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="mailto:info@marinemanagementsystem.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  {t('contact.info.email')}
+                <a href={`mailto:${t('contact.info.emailText')}`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                  {t('contact.info.emailText')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Globe className="w-5 h-5 text-blue-400 flex-shrink-0" />
                 <a 
-                  href="http://www.marinemanagementsystem.com" 
+                  href={`http://${t('contact.info.website')}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition-colors flex items-center space-x-1"
@@ -121,7 +114,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Hızlı Linkler</h4>
+            <h4 className="text-lg font-semibold mb-6">{t('footer.quickLinks')}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -139,7 +132,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Hizmetlerimiz</h4>
+            <h4 className="text-lg font-semibold mb-6">{t('footer.services')}</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index} className="text-gray-300 flex items-start space-x-2">
@@ -155,7 +148,7 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
-              <h4 className="text-lg font-semibold mb-4">Bizi Takip Edin</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.followUs')}</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
@@ -177,15 +170,15 @@ export function Footer() {
 
             {/* Newsletter */}
             <div className="text-center md:text-right">
-              <h4 className="text-lg font-semibold mb-4">Haberdar Olun</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.newsletter.title')}</h4>
               <div className="flex max-w-sm">
                 <input
                   type="email"
-                  placeholder="E-posta adresiniz"
+                  placeholder={t('footer.newsletter.placeholder')}
                   className="flex-1 px-4 py-2 bg-slate-800 border border-slate-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-50 placeholder-slate-400"
                 />
                 <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-r-lg font-medium transition-all duration-300 transform hover:scale-105">
-                  Abone Ol
+                  {t('footer.newsletter.button')}
                 </button>
               </div>
             </div>

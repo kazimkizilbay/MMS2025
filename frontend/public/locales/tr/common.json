@@ -25,8 +25,45 @@
   },
   "about": {
     "title": "Hakkımızda",
+    "subtitle": "Hakkımızda",
+    "approach": "Yaklaşımımız",
     "description": "Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır. Bu ekip, yenilikçi ve sektöre özgü bir yaklaşımla geliştirdiği AI-destekli ERP yazılımıyla özgün çözümler sunan bir teknoloji şirketi olarak faaliyet göstermektedir.",
-    "highlight": "İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir."
+    "highlight": "İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir.",
+    "stats": {
+      "experience": "Yıl Deneyim",
+      "modules": "Modül",
+      "satisfaction": "Müşteri Memnuniyeti"
+    },
+    "technological_promises": {
+      "title": "Teknolojik Vaatlerimiz",
+      "subtitle": "Modern teknolojilerle donatılmış çözümlerimizle geleceği bugünden inşa ediyoruz"
+    },
+    "solutions": {
+      "title": "MMS'in Sunduğu Çözümler",
+      "subtitle": "Gemi inşa sektörüne özgü çözümler sunan MMS, projelerin daha verimli, kontrollü ve karlı bir şekilde yönetilmesini sağlar.",
+      "items": [
+        {
+          "title": "Entegre Süreç Yönetimi",
+          "description": "Gemi inşa sürecinin farklı aşamalarını ve bileşenlerini entegre bir platformda birleştirerek koordinasyonu sağlar ve operasyonel hataları minimize eder."
+        },
+        {
+          "title": "Otomasyon ve Dijitalleşme",
+          "description": "Manuel süreçleri otomatikleştirerek ve dijitalleştirerek zaman kayıplarını önler ve verimliliği artırır."
+        },
+        {
+          "title": "Maliyet Kontrolü",
+          "description": "Maliyetlerin etkin takibi ve yönetimi ile gereksiz harcamaların önüne geçerek karlılığı artırır."
+        },
+        {
+          "title": "Rekabet Gücü ve İnovasyon",
+          "description": "Kullanıcı dostu arayüzü, gelişmiş özellikleri ve sürekli güncellenen yapısıyla işletmelere rekabet avantajı sağlar."
+        },
+        {
+          "title": "Bilgi ve Veri Yönetimi",
+          "description": "Toplanan verilerin etkili yönetimi ve analizi ile stratejik karar alma süreçlerini destekler."
+        }
+      ]
+    }
   },
   "vision": {
     "title": "Vizyonumuz",
@@ -241,37 +278,66 @@
   },
   "features": {
     "title": "MMS'i Farklı Kılan Özellikler",
+    "subtitle": "Gemi inşa sektörüne özel geliştirilmiş MMS, rakiplerinden farklı özellikleri ile öne çıkar ve işletmelere rekabet avantajı sağlar.",
     "list": [
       {
-        "title": "Yapay Zeka Entegrasyonu",
-        "description": "Sektörün ilk AI-destekli ERP çözümü",
-        "icon": "🤖"
+        "title": "Sektöre Özgü Çözümler",
+        "description": "Gemi inşa süreçlerine ve terminolojisine tam uyumlu, sektöre özel modüller ve iş akışları sunar."
       },
       {
-        "title": "Sektöre Özgü Çözümler", 
-        "description": "Gemi inşa süreçlerine tam uyumlu modüller",
-        "icon": "🚢"
+        "title": "Yerli Üretim",
+        "description": "Türkiye'deki gemi inşa sektörünün ihtiyaçlarına ve dinamiklerine göre geliştirilmiş, Türkçe dil desteği sağlayan bir yazılımdır."
       },
       {
-        "title": "Yerli ve Milli",
-        "description": "Türkiye'de geliştirilen, Türkçe destekli",
-        "icon": "🇹🇷"
+        "title": "Esneklik ve Ölçeklenebilirlik",
+        "description": "Modüler yapısı sayesinde işletmelerin ihtiyaçlarına göre özelleştirilebilir ve ölçeklenebilir."
       },
       {
-        "title": "Bulut Teknolojisi",
-        "description": "Modern bulut altyapısı ile her yerden erişim",
-        "icon": "☁️"
+        "title": "Kullanıcı Dostu Arayüz",
+        "description": "Gemi inşa sektöründeki kullanıcıların iş süreçlerini kolaylaştıran, sezgisel ve kullanımı kolay bir arayüze sahiptir."
+      },
+      {
+        "title": "Rekabetçi Fiyatlandırma",
+        "description": "Yüksek maliyetli yabancı rakiplerine kıyasla rekabetçi fiyatlandırma modellyle öne çıkar."
       }
     ]
   },
   "contact": {
     "title": "İletişim",
+    "subtitle": "Bizimle İletişime Geçin",
     "description": "Bizimle iletişime geçin ve gemi inşa süreçlerinizi AI ile optimize etmeye başlayın.",
+    "form": {
+      "email": "E-posta",
+      "phone": "Telefon",
+      "emailPlaceholder": "E-posta adresiniz",
+      "phonePlaceholder": "Telefon numaranız"
+    },
     "info": {
-      "address": "Bilişim Vadisi - Kocaeli",
-      "phone": "+90 507 574 2666",
-      "email": "info@marinemanagementsystem.com",
-      "website": "www.marinemanagementsystem.com"
+      "email": "E-posta",
+      "phone": "Telefon", 
+      "address": "Adres",
+      "workingHours": "Çalışma Saatleri",
+      "addressText": "Bilişim Vadisi - Kocaeli",
+      "phoneText": "+90 507 574 2666",
+      "emailText": "info@marinemanagementsystem.com",
+      "website": "www.marinemanagementsystem.com",
+      "workingHoursText": "Pazartesi - Cuma: 09:00 - 18:00"
+    },
+    "hero": {
+      "title": "Türkiye'nin İlk Yapay Zeka Destekli",
+      "subtitle": "Gemi İnşa Dijital Dönüşüm Projesi",
+      "description": "Gemi inşa süreçlerinizi yapay zeka ile optimize etmeye hazır mısınız? Endüstri 4.0'ın gücünü denizcilik sektörüne taşıyoruz.",
+      "features": [
+        "AI Destekli Analiz",
+        "Sektöre Özel",
+        "Yerli & Milli",
+        "Gerçek Zamanlı"
+      ],
+      "cta": "Demo Talep Et",
+      "ctaSecondary": "Daha Fazla Bilgi"
+    },
+    "social": {
+      "title": "Sosyal Medyada Takip Edin"
     }
   },
   "theme": {
@@ -294,5 +360,32 @@
     "learn_more": "Daha Fazla Bilgi",
     "get_started": "Başlayın",
     "request_demo": "Demo Talep Et"
+  },
+  "footer": {
+    "description": "Gemi inşa sektörü için yapay zeka destekli yenilikçi ERP çözümleri. Modern teknoloji ile gemi inşaat süreçlerinizi optimize edin.",
+    "quickLinks": "Hızlı Linkler",
+    "services": "Hizmetlerimiz",
+    "services_items": [
+      "AI-Destekli ERP Çözümleri",
+      "Dijital Dönüşüm Danışmanlığı",
+      "Gemi İnşa Yazılımları",
+      "Bulut Teknolojisi Hizmetleri",
+      "7/24 Teknik Destek"
+    ],
+    "newsletter": {
+      "title": "Haberdar Olun",
+      "subtitle": "Yeniliklerden haberdar olmak için bültenimize abone olun.",
+      "placeholder": "E-posta adresiniz",
+      "button": "Abone Ol"
+    },
+    "followUs": "Bizi Takip Edin"
+  },
+  "features": {
+    "badge": "Özellikler"
+  },
+  "contact": {
+    "hero": {
+      "badge": "Yapay Zeka Destekli"
+    }
   }
 } 
