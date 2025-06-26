@@ -41,14 +41,29 @@ jobs:
       run: |
         mkdir -p unified-deploy
         
+        echo "🔍 BEFORE COPY - Frontend dist contents:"
+        find frontend/dist -type f | head -20
+        echo "Total frontend files:"
+        find frontend/dist -type f | wc -l
+        
         # Copy ALL files including hidden files and nested directories
         rsync -av frontend/dist/ unified-deploy/
+        
+        echo "🔍 AFTER FRONTEND COPY - Unified deploy contents:"
+        find unified-deploy -type f | head -20
+        echo "Total copied frontend files:"
+        find unified-deploy -type f | wc -l
         
         # Create api directory and copy backend files
         mkdir -p unified-deploy/api
         rsync -av backend/dist/ unified-deploy/api/
         cp backend/package.json unified-deploy/api/
         cp backend/package-lock.json unified-deploy/api/
+        
+        echo "🔍 FINAL CHECK - All unified deploy contents:"
+        find unified-deploy -type f | sort
+        echo "Final total files:"
+        find unified-deploy -type f | wc -l
         
         # Create production .env file for API
         cat > unified-deploy/api/.env << EOF
