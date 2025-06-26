@@ -284,6 +284,7 @@
     }
   },
   "features": {
+    "badge": "Özellikler",
     "title": "MMS'i Farklı Kılan Özellikler",
     "subtitle": "Gemi inşa sektörüne özel geliştirilmiş MMS, rakiplerinden farklı özellikleri ile öne çıkar ve işletmelere rekabet avantajı sağlar.",
     "list": [
@@ -386,8 +387,5 @@
       "button": "Abone Ol"
     },
     "followUs": "Bizi Takip Edin"
-  },
-  "features": {
-    "badge": "Özellikler"
   }
 } 

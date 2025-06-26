@@ -251,6 +251,7 @@
     }
   },
   "features": {
+    "badge": "Features",
     "title": "Features That Make MMS Different",
     "subtitle": "MMS, developed specifically for the shipbuilding industry, stands out with its distinctive features and provides competitive advantage to businesses.",
     "list": [

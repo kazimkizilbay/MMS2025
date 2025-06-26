@@ -251,6 +251,7 @@
     }
   },
   "features": {
+    "badge": "Eigenschaften",
     "title": "Eigenschaften, die MMS unterscheiden",
     "subtitle": "MMS, speziell für die Schiffbauindustrie entwickelt, hebt sich durch seine besonderen Eigenschaften hervor und bietet Unternehmen Wettbewerbsvorteile.",
     "list": [
