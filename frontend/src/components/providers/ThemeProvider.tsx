@@ -13,7 +13,11 @@ export function ThemeProvider({
   storageKey = 'mms-theme',
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    () => {
+      const savedTheme = localStorage.getItem(storageKey) as Theme;
+      // Eğer kullanıcı açıkça light mode seçtiyse onu kullan, yoksa dark mode varsayılan
+      return savedTheme === 'light' ? 'light' : 'dark';
+    }
   );
 
   const [actualTheme, setActualTheme] = useState<'light' | 'dark'>('dark');
