@@ -3,13 +3,11 @@ import { Theme, ThemeContext, ThemeContextType } from '../../lib/theme';
 
 interface ThemeProviderProps {
   children: ReactNode;
-  defaultTheme?: Theme;
   storageKey?: string;
 }
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'dark',
   storageKey = 'mms-theme',
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
