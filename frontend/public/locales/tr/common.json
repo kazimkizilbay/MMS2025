@@ -17,8 +17,15 @@
     "cta": "Demo Talep Et",
     "cta_secondary": "Daha Fazla Bilgi",
     "badge": "🚢 Gemi İnşa Sektörünün Geleceği",
+    "features": {
+      "ai": "AI-Destekli",
+      "realtime": "Gerçek Zamanlı",
+      "secure": "Güvenli",
+      "scalable": "Ölçeklenebilir"
+    },
     "stats": {
       "experience": "15+ Yıl Deneyim",
+      "modules": "Modül",
       "projects": "50+ Başarılı Proje", 
       "satisfaction": "99% Müşteri Memnuniyeti"
     }

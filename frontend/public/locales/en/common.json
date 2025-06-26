@@ -17,8 +17,15 @@
     "cta": "Request Demo",
     "cta_secondary": "Learn More",
     "badge": "🚢 The Future of Shipbuilding Industry",
+    "features": {
+      "ai": "AI-Powered",
+      "realtime": "Real-time",
+      "secure": "Secure",
+      "scalable": "Scalable"
+    },
     "stats": {
       "experience": "15+ Years Experience",
+      "modules": "Modules",
       "projects": "50+ Successful Projects", 
       "satisfaction": "99% Customer Satisfaction"
     }

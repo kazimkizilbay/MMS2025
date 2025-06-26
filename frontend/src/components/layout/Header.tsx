@@ -67,19 +67,19 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center space-x-3">
+            <a href="#" className="flex items-center space-x-2 sm:space-x-3">
               <div className="relative">
                 <img 
                   src="/logo.png" 
                   alt="Marine Management System Logo" 
-                  className="w-16 h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
+                <span className="text-base sm:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                   Marine Management System
                 </span>
-                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hidden sm:block">
                   AI-Powered Digital Transformation
                 </span>
               </div>
@@ -114,11 +114,13 @@ export function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <LanguageSelector />
+            <div className="flex items-center space-x-1">
+              <ThemeToggle />
+              <LanguageSelector />
+            </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2"
+              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 ml-2"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -127,21 +129,21 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-50/95 backdrop-blur-md dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-700/50 rounded-b-lg shadow-lg">
               {navigation.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavigation(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="mobile-nav-item block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   {item.name}
                 </button>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 border-t border-slate-200/50 dark:border-slate-700/50 mt-4">
                 <button
                   onClick={handleDemo}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
                 >
                   {t('nav.demo')}
                 </button>

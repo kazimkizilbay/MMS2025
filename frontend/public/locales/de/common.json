@@ -17,8 +17,15 @@
     "cta": "Demo anfordern",
     "cta_secondary": "Mehr erfahren",
     "badge": "🚢 Die Zukunft der Schiffbauindustrie",
+    "features": {
+      "ai": "KI-gestützt",
+      "realtime": "Echtzeit",
+      "secure": "Sicher",
+      "scalable": "Skalierbar"
+    },
     "stats": {
       "experience": "15+ Jahre Erfahrung",
+      "modules": "Module",
       "projects": "50+ Erfolgreiche Projekte", 
       "satisfaction": "99% Kundenzufriedenheit"
     }
@@ -81,9 +88,9 @@
       "placeholder": "Ihre E-Mail-Adresse",
       "button": "Abonnieren"
     },
-    "followUs": "Folgen Sie uns"
-  }
-},
+          "followUs": "Folgen Sie uns"
+    }
+  },
   "vision": {
     "title": "Unsere Vision",
     "description": "Wir wollen Schiffbauprozesse effizienter, transparenter und nachhaltiger gestalten, indem wir unseren Kunden die innovativsten, originellsten und effektivsten KI-gestützten ERP-Lösungen der Branche bieten. Mit Fokus auf Kundenbedürfnisse verfolgen wir die sich entwickelnde Technologie genau und unterstützen sie bei der Optimierung ihrer Geschäftsprozesse."

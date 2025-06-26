@@ -72,10 +72,10 @@ export function Hero() {
             {/* Feature Pills */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               {[
-                { icon: Sparkles, text: 'AI-Powered' },
-                { icon: Zap, text: 'Real-time' },
-                { icon: Shield, text: 'Secure' },
-                { icon: TrendingUp, text: 'Scalable' }
+                { icon: Sparkles, text: t('hero.features.ai') },
+                { icon: Zap, text: t('hero.features.realtime') },
+                { icon: Shield, text: t('hero.features.secure') },
+                { icon: TrendingUp, text: t('hero.features.scalable') }
               ].map((item, index) => (
                 <div
                   key={index}
@@ -117,7 +117,7 @@ export function Hero() {
               },
               { 
                 number: '67+', 
-                label: 'Modül',
+                label: t('hero.stats.modules'),
                 icon: Sparkles,
                 gradient: 'from-purple-500 to-pink-500',
                 bgGradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20'
