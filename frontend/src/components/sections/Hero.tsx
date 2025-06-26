@@ -53,24 +53,24 @@ export function Hero() {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-slate-50 mb-6 sm:mb-8 leading-tight px-4 sm:px-0">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-slate-50 mb-4 sm:mb-6 md:mb-8 leading-tight px-4 sm:px-0">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-green-400 bg-clip-text text-transparent">
                 {t('hero.title')}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-slate-300 mb-4 sm:mb-6 px-4 sm:px-0">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-slate-300 mb-3 sm:mb-4 md:mb-6 px-4 sm:px-0">
               {t('hero.subtitle')}
             </p>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12 leading-relaxed px-4 sm:px-0">
               {t('hero.description')}
             </p>
 
             {/* Feature Pills */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
               {[
                 { icon: Sparkles, text: t('hero.features.ai') },
                 { icon: Zap, text: t('hero.features.realtime') },
@@ -79,10 +79,10 @@ export function Hero() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-2 px-4 py-2 bg-white/80 border border-gray-200 text-gray-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 rounded-full text-sm shadow-sm backdrop-blur-sm"
+                  className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 md:px-4 py-1 sm:py-2 bg-white/80 border border-gray-200 text-gray-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 rounded-full text-xs sm:text-sm shadow-sm backdrop-blur-sm"
                 >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.text}</span>
+                  <item.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="whitespace-nowrap">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -106,7 +106,7 @@ export function Hero() {
           </div>
 
           {/* Stats Cards */}
-          <div className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-4 sm:px-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {[
               { 
                 number: '15+', 
@@ -132,19 +132,19 @@ export function Hero() {
             ].map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <div key={index} className={`relative bg-gradient-to-br ${stat.bgGradient} border border-gray-200 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 shadow-lg overflow-hidden group z-10`}>
+                <div key={index} className={`relative bg-gradient-to-br ${stat.bgGradient} border border-gray-200 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 shadow-lg overflow-hidden group z-10`}>
                   {/* Background Decoration */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-2xl -z-10"></div>
+                  <div className="absolute top-0 right-0 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-2xl -z-10"></div>
                   
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className={`w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-gradient-to-r ${stat.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-white" />
                   </div>
                   
                   {/* Content */}
                   <div className="relative z-10">
-                    <div className="text-4xl font-bold text-gray-900 dark:text-slate-50 mb-3">{stat.number}</div>
-                    <div className="text-lg font-medium text-gray-700 dark:text-slate-300">{stat.label}</div>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-50 mb-2 sm:mb-3">{stat.number}</div>
+                    <div className="text-sm sm:text-base md:text-lg font-medium text-gray-700 dark:text-slate-300 leading-tight">{stat.label}</div>
                   </div>
                   
                   {/* Hover Effect */}

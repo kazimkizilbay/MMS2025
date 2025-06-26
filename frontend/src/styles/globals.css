@@ -257,18 +257,19 @@
   /* Better mobile typography */
   body {
     font-size: 16px; /* Prevent zoom on iOS */
+    line-height: 1.5;
   }
   
   h1 {
-    @apply text-3xl;
+    @apply text-2xl leading-tight;
   }
   
   h2 {
-    @apply text-2xl;
+    @apply text-xl leading-tight;
   }
   
   h3 {
-    @apply text-xl;
+    @apply text-lg leading-tight;
   }
   
   /* Better touch targets */
@@ -285,6 +286,12 @@
   /* Prevent horizontal scroll */
   html, body {
     overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Mobile sections spacing */
+  section {
+    @apply py-12;
   }
   
   /* Mobile header improvements */
@@ -299,6 +306,31 @@
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+  
+  /* Mobile hero optimizations */
+  #hero {
+    min-height: 100vh;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Mobile cards */
+  .mobile-card {
+    @apply p-4 rounded-2xl;
+  }
+  
+  /* Mobile text sizing */
+  .mobile-title {
+    @apply text-2xl leading-tight;
+  }
+  
+  .mobile-subtitle {
+    @apply text-lg leading-tight;
+  }
+  
+  .mobile-description {
+    @apply text-base leading-relaxed;
   }
 }
 
