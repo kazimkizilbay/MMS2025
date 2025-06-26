@@ -113,11 +113,10 @@ export function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-            <div className="flex items-center space-x-2 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg p-1 backdrop-blur-sm">
-              <ThemeToggle />
-              <LanguageSelector />
-            </div>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <LanguageSelector />
+            <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg backdrop-blur-sm"
