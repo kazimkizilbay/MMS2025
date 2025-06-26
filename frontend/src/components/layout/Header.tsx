@@ -72,11 +72,11 @@ export function Header() {
                 <img 
                   src="/logo.png" 
                   alt="Marine Management System Logo" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm sm:text-base md:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
+                <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                   Marine Management System
                 </span>
                 <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hidden md:block">
