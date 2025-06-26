@@ -41,12 +41,12 @@ jobs:
       run: |
         mkdir -p unified-deploy
         
-        # Copy frontend files to root
-        cp -a frontend/dist/. unified-deploy/
+        # Copy ALL files including hidden files and nested directories
+        rsync -av frontend/dist/ unified-deploy/
         
         # Create api directory and copy backend files
         mkdir -p unified-deploy/api
-        cp -r backend/dist/* unified-deploy/api/
+        rsync -av backend/dist/ unified-deploy/api/
         cp backend/package.json unified-deploy/api/
         cp backend/package-lock.json unified-deploy/api/
         
@@ -73,11 +73,17 @@ jobs:
         echo "✅ Unified deployment ready"
         echo "📂 Directory structure:"
         echo "Frontend files:"
-        ls -la unified-deploy/ | head -10
+        ls -la unified-deploy/ | head -15
         echo "API files:"
         ls -la unified-deploy/api/ | head -10
         echo "Locale files:"
-        find unified-deploy/locales -name "*.json" | head -5
+        find unified-deploy/locales -name "*.json" 2>/dev/null || echo "No locales found"
+        echo "Static assets:"
+        find unified-deploy -name "*.png" -o -name "*.jpg" -o -name "*.svg" | head -10
+        echo "Hidden files:"
+        find unified-deploy -name ".*" | head -5
+        echo "Total files to deploy:"
+        find unified-deploy -type f | wc -l
         
     - name: Deploy everything to public_html
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
