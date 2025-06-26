@@ -30,8 +30,30 @@ jobs:
         
         # CRITICAL: Ensure ALL static assets are in dist
         echo "📁 Copying static assets from public to dist..."
-        cp -r public/* dist/ 2>/dev/null || true
-        cp public/.htaccess dist/.htaccess 2>/dev/null || true
+        
+        # Debug: Show what's in public directory
+        echo "📂 Contents of public directory:"
+        ls -la public/
+        
+        # Debug: Show what's in dist directory BEFORE copy
+        echo "📂 Contents of dist directory BEFORE copy:"
+        ls -la dist/
+        
+        # Copy ALL files from public to dist, including hidden files
+        echo "📋 Copying files..."
+        cp -r public/. dist/
+        
+        # Debug: Show what's in dist directory AFTER copy
+        echo "📂 Contents of dist directory AFTER copy:"
+        ls -la dist/
+        
+        # Also check for nested directories
+        echo "📂 Checking locales directory:"
+        ls -la dist/locales/ || echo "No locales directory"
+        if [ -d dist/locales/tr ]; then
+          echo "📂 Contents of locales/tr:"
+          ls -la dist/locales/tr/
+        fi
         
         echo "📊 Frontend dist contents:"
         find dist -type f | sort
@@ -53,8 +75,8 @@ jobs:
         
         # Copy ALL frontend files to root of deploy package
         echo "📦 Copying frontend files..."
-        cp -r frontend/dist/* deploy-package/
-        cp -r frontend/dist/.* deploy-package/ 2>/dev/null || true
+        # Use rsync to ensure ALL files are copied including hidden ones
+        rsync -av frontend/dist/ deploy-package/
         
         # Create api directory and copy backend files
         echo "📦 Copying backend files..."
