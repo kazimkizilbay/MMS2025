@@ -68,7 +68,7 @@
       "nb": {
         "title": "MMS NB Modülleri",
         "description": "Yeni gemi inşa süreçleri için kapsamlı AI-destekli modüller",
-        "list": [
+        "features": [
           "AI Destekli Proje Yönetimi",
           "Akıllı Üretim Planlama",
           "Tahminleme ve Optimizasyon",
@@ -76,13 +76,32 @@
           "Otomatik Kalite Kontrol",
           "Akıllı Tedarik Zinciri",
           "Gerçek Zamanlı İzleme",
-          "Predictive Maintenance"
+          "Predictive Maintenance",
+          "Remark Modülü",
+          "Dizayn ve Döküman Modülü",
+          "Toplantı Modülü",
+          "İmalat Modülü",
+          "Teknik Satınalma Modülü",
+          "Satış, Garanti ve Servis Modülü",
+          "Malzeme Yönetimi Modülü",
+          "Taşeron Yönetim Modülü",
+          "Tersane Yönetim Modülü",
+          "Satınalma Modülü",
+          "İş Sağlığı ve Güvenliği Modülü",
+          "Depolama & Nakliye Modülü",
+          "Finans ve Muhasebe Modülü",
+          "İnsan Kaynakları Modülü",
+          "Risk Yönetimi Modülü",
+          "Teklif/Sözleşme Yönetimi",
+          "Rapor Yönetimi Modülü",
+          "İş Akış Yönetimi",
+          "Eğitim Modülü"
         ]
       },
       "srm": {
         "title": "MMS SRM Modülleri", 
         "description": "Gemi bakım ve onarım süreçleri için AI-destekli çözümler",
-        "list": [
+        "features": [
           "Akıllı Bakım Planlama",
           "Predictive Analytics",
           "Otomatik Arıza Tespiti",
@@ -90,13 +109,26 @@
           "AI Destekli Kaynak Optimizasyonu",
           "Akıllı Stok Yönetimi",
           "Gerçek Zamanlı Performans İzleme",
-          "Otomatik Raporlama"
+          "Otomatik Raporlama",
+          "Müşteri Takip Modülü",
+          "Pazarlama, Teklif ve Sözleşme Yönetimi",
+          "Plan-Keşif-Proje Yönetimi",
+          "Tedarik Yönetimi",
+          "Atölye Yönetimi",
+          "Alt Yüklenici Yönetimi",
+          "Üretim-İşletme Yönetimi",
+          "Kalite-Kontrol Yönetimi",
+          "Dizayn-Döküman Yönetimi",
+          "Finans Modülü",
+          "Toplantı Modülü",
+          "Tersane Yönetim Modülü",
+          "İş Sağlığı ve Güvenliği Modülü"
         ]
       },
       "yacht": {
         "title": "MMS Yacht Modülleri",
         "description": "Yat inşa süreçleri için özel AI-destekli modüller", 
-        "list": [
+        "features": [
           "Kişiselleştirilmiş Tasarım AI",
           "Lüks Müşteri Deneyimi Yönetimi",
           "Akıllı Proje Takibi",
@@ -104,30 +136,107 @@
           "AI Destekli Malzeme Seçimi",
           "Dijital Showroom",
           "Gerçek Zamanlı Üretim İzleme",
-          "Predictive Delivery"
+          "Predictive Delivery",
+          "Müşteri İlişkileri Yönetimi",
+          "Teklif/Sözleşme Yönetimi",
+          "Yat Mimari Takip Modülü",
+          "Tasarım ve Mühendislik Modülü",
+          "Yat Üretim Yönetimi",
+          "Atölye Yönetimi",
+          "Tedarik Yönetimi",
+          "Depolama Yönetimi",
+          "Alt Yüklenici Yönetimi",
+          "Finans Modülü",
+          "İş Sağlığı ve Güvenliği Modülü"
         ]
       }
     }
   },
   "packages": {
     "title": "MMS Paketleri",
+    "subtitle": "İhtiyaçlarınıza uygun paket seçin ve dijital dönüşümünüzü başlatın",
+    "popular": "Popüler",
     "starter": {
       "title": "MMS Starter",
       "description": "Küçük işletmeler için temel AI-destekli çözümler",
-      "features": ["5 Temel Modül", "Bulut Erişim", "Temel AI Özellikleri", "7/24 Destek"],
-      "price": "Uygun Fiyat"
+      "features": [
+        "Temel işlevler",
+        "5 modül",
+        "Uygun fiyat"
+      ],
+      "cta": "Daha Fazla Bilgi"
     },
     "professional": {
       "title": "MMS Professional", 
       "description": "Orta ölçekli işletmeler için gelişmiş AI çözümleri",
-      "features": ["12 Gelişmiş Modül", "AI Analytics", "Predictive Maintenance", "Özel Entegrasyon"],
-      "price": "Orta Segment"
+      "features": [
+        "İleri düzey çözümler",
+        "12 modül",
+        "Karmaşık ihtiyaçlara uygun"
+      ],
+      "cta": "Daha Fazla Bilgi"
     },
     "enterprise": {
       "title": "MMS Enterprise",
       "description": "Büyük işletmeler için tam AI-destekli dijital dönüşüm",
-      "features": ["20+ Modül", "Tam AI Suite", "Dijital İkiz", "Özel AI Modelleri"],
-      "price": "Kurumsal Çözüm"
+      "features": [
+        "En kapsamlı çözümler",
+        "20+ modül",
+        "Tüm işletme ihtiyaçlarına yönelik"
+      ],
+      "cta": "Daha Fazla Bilgi"
+    }
+  },
+  "technical": {
+    "title": "Teknik Yapılabilirlik",
+    "technologies": {
+      "title": "Kullanılan Teknolojiler",
+      "description": "Modern ve yaygın olarak kullanılan yazılım geliştirme teknolojileri ve araçları (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence) kullanılarak geliştirilecektir."
+    },
+    "infrastructure": {
+      "title": "Mevcut Altyapı Uyumluluğu",
+      "description": "Bulut tabanlı yapısı sayesinde işletmelerin karmaşık ve maliyetli donanım yatırımları yapmalarına gerek yoktur."
+    },
+    "integration": {
+      "title": "Entegrasyon",
+      "description": "Diğer yazılımlarla (muhasebe, CRM, tedarik zinciri vb.) entegre olabilecek şekilde tasarlanmıştır."
+    },
+    "team": {
+      "title": "Ekip Yetkinlikleri",
+      "skills": [
+        {
+          "title": "Yazılım Geliştirme",
+          "description": "Deneyimli yazılım mühendisleri ve geliştiricileri"
+        },
+        {
+          "title": "Gemi İnşa Sektörü Bilgisi",
+          "description": "Sektör dinamiklerini, iş süreçlerini ve ihtiyaçlarını iyi bilen uzmanlar"
+        },
+        {
+          "title": "Veritabanı Yönetimi",
+          "description": "Veritabanı tasarımı, geliştirme ve yönetimi konusunda deneyimli uzmanlar"
+        },
+        {
+          "title": "Bulut Teknolojileri",
+          "description": "Bulut platformları ve hizmetleri konusunda deneyimli uzmanlar"
+        },
+        {
+          "title": "Proje Yönetimi",
+          "description": "Projeyi planlama, yönetme ve tamamlama konusunda deneyimli proje yöneticileri"
+        },
+        {
+          "title": "İş Analizi",
+          "description": "İş ihtiyaçlarını analiz etme, çözümler tasarlama ve yazılım gereksinimlerini belirleme konusunda deneyimli iş analistleri"
+        },
+        {
+          "title": "Test ve Kalite Güvence",
+          "description": "Yazılımı test etme, hataları belirleme ve kalitesini sağlama konusunda deneyimli test uzmanları"
+        },
+        {
+          "title": "Sistem Yönetimi",
+          "description": "Sistem kurulumu, yapılandırması ve bakımı konusunda deneyimli sistem yöneticileri"
+        }
+      ]
     }
   },
   "features": {

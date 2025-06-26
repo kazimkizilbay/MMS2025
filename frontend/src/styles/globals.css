@@ -253,6 +253,39 @@
   .stagger-children > * {
     animation-duration: 0.6s;
   }
+  
+  /* Better mobile typography */
+  body {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  h3 {
+    @apply text-xl;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile spacing */
+  .container {
+    @apply px-4;
+  }
+  
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+  }
 }
 
 /* Dark mode improvements */
