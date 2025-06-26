@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "vision": "Our Vision",
+    "mission": "Our Mission",
+    "promises": "Our Promises",
+    "software": "Our Software",
+    "packages": "Packages",
+    "demo": "Request Demo",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Marine Management System",
+    "subtitle": "AI-Powered Digital Transformation",
+    "description": "Innovative AI-powered ERP solutions for the shipbuilding industry. Optimize your shipbuilding processes with modern technology. Discover our comprehensive solutions for efficiency, transparency and sustainability.",
+    "cta": "Request Demo",
+    "cta_secondary": "Learn More",
+    "badge": "🚢 The Future of Shipbuilding Industry",
+    "stats": {
+      "experience": "15+ Years Experience",
+      "projects": "50+ Successful Projects", 
+      "satisfaction": "99% Customer Satisfaction"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Our founders consist of a Naval Architect and Computer and Electrical-Electronics Engineers, graduates of Istanbul Technical University from different disciplines with up to 15 years of experience in their fields. This team operates as a technology company that offers original solutions with AI-powered ERP software developed with an innovative and sector-specific approach.",
+    "highlight": "Our company, formed by the collaboration of young entrepreneurs focused on innovation and quality, aims to provide innovative and effective solutions to the needs in the sector."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "We aim to make shipbuilding processes more efficient, transparent and sustainable by providing our customers with the most innovative, original and effective AI-powered ERP solutions in the sector. Focusing on customer needs, we closely follow developing technology and support them in optimizing their business processes."
+  },
+  "mission": {
+    "title": "Our Mission", 
+    "description": "As MMS, we develop innovative AI-powered ERP solutions to simplify and improve complex business processes in the shipbuilding industry. We use our technological capabilities to provide the highest level of service to our customers and offer customizable solutions suitable for sector-specific needs."
+  },
+  "promises": {
+    "title": "What Do We Promise?",
+    "description": "We promise to achieve the highest efficiency in the shipbuilding industry by providing the most suitable solutions to our customers' needs. By closely following the developments in the sector, we develop innovative software that will optimize your business processes and increase the success of your projects.",
+    "features": [
+      {
+        "title": "Artificial Intelligence Integration",
+        "description": "Advanced AI algorithms for prediction, optimization and decision support systems"
+      },
+      {
+        "title": "Digital Transformation",
+        "description": "Complete digitalization and automation of processes"
+      },
+      {
+        "title": "Cloud Technology",
+        "description": "Access from anywhere, secure data storage and automatic updates"
+      },
+      {
+        "title": "Smart Analytics",
+        "description": "Real-time reporting and predictive analytics"
+      }
+    ]
+  },
+  "software": {
+    "title": "Our Software",
+    "description": "MMS is an AI-powered digital transformation and ERP management system specifically developed for businesses operating in the shipbuilding industry.",
+    "mms_nb": "MMS NB (New Building)",
+    "mms_srm": "MMS SRM (Ship Repair & Maintenance)", 
+    "mms_yacht": "MMS Yacht (Yacht Building)",
+    "modules": {
+      "nb": {
+        "title": "MMS NB Modules",
+        "description": "Comprehensive AI-powered modules for new shipbuilding processes",
+        "list": [
+          "AI-Powered Project Management",
+          "Smart Production Planning",
+          "Prediction and Optimization",
+          "Digital Twin Technology",
+          "Automated Quality Control",
+          "Smart Supply Chain",
+          "Real-Time Monitoring",
+          "Predictive Maintenance"
+        ]
+      },
+      "srm": {
+        "title": "MMS SRM Modules", 
+        "description": "AI-powered solutions for ship maintenance and repair processes",
+        "list": [
+          "Smart Maintenance Planning",
+          "Predictive Analytics",
+          "Automated Fault Detection",
+          "Digital Customer Management",
+          "AI-Powered Resource Optimization",
+          "Smart Inventory Management",
+          "Real-Time Performance Monitoring",
+          "Automated Reporting"
+        ]
+      },
+      "yacht": {
+        "title": "MMS Yacht Modules",
+        "description": "Special AI-powered modules for yacht building processes", 
+        "list": [
+          "Personalized Design AI",
+          "Luxury Customer Experience Management",
+          "Smart Project Tracking",
+          "Automated Quality Assurance",
+          "AI-Powered Material Selection",
+          "Digital Showroom",
+          "Real-Time Production Monitoring",
+          "Predictive Delivery"
+        ]
+      }
+    }
+  },
+  "packages": {
+    "title": "MMS Packages",
+    "starter": {
+      "title": "MMS Starter",
+      "description": "Basic AI-powered solutions for small businesses",
+      "features": ["5 Basic Modules", "Cloud Access", "Basic AI Features", "24/7 Support"],
+      "price": "Affordable Price"
+    },
+    "professional": {
+      "title": "MMS Professional", 
+      "description": "Advanced AI solutions for medium-sized businesses",
+      "features": ["12 Advanced Modules", "AI Analytics", "Predictive Maintenance", "Custom Integration"],
+      "price": "Mid-Range"
+    },
+    "enterprise": {
+      "title": "MMS Enterprise",
+      "description": "Complete AI-powered digital transformation for large enterprises",
+      "features": ["20+ Modules", "Full AI Suite", "Digital Twin", "Custom AI Models"],
+      "price": "Enterprise Solution"
+    }
+  },
+  "features": {
+    "title": "Features That Make MMS Different",
+    "list": [
+      {
+        "title": "Artificial Intelligence Integration",
+        "description": "The industry's first AI-powered ERP solution",
+        "icon": "🤖"
+      },
+      {
+        "title": "Industry-Specific Solutions", 
+        "description": "Modules fully compatible with shipbuilding processes",
+        "icon": "🚢"
+      },
+      {
+        "title": "Domestic and National",
+        "description": "Developed in Turkey, Turkish language supported",
+        "icon": "🇹🇷"
+      },
+      {
+        "title": "Cloud Technology",
+        "description": "Access from anywhere with modern cloud infrastructure",
+        "icon": "☁️"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with us and start optimizing your shipbuilding processes with AI.",
+    "info": {
+      "address": "Bilişim Vadisi - Kocaeli",
+      "phone": "+90 507 574 2666",
+      "email": "info@marinemanagementsystem.com",
+      "website": "www.marinemanagementsystem.com"
+    }
+  },
+  "theme": {
+    "light": "Light Theme",
+    "dark": "Dark Theme",
+    "system": "System"
+  },
+  "language": {
+    "turkish": "Türkçe",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "learn_more": "Learn More",
+    "get_started": "Get Started",
+    "request_demo": "Request Demo"
+  }
+} 

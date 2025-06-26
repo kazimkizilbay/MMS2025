@@ -91,7 +91,7 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
+# public - Commented out for MMS2025 project as we need public assets
 
 # Storybook build outputs
 .out

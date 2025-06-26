@@ -41,7 +41,8 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static files from parent directory (public_html)
+// Serve static files from public_html root (parent of api directory)
+// This handles requests like /logo.png, /vite.svg, /locales/tr/common.json
 app.use(express.static(path.join(__dirname, '..')));
 
 // API Health check

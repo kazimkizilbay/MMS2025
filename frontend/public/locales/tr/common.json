@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "vision": "Vizyonumuz",
+    "mission": "Misyonumuz",
+    "promises": "Vaatlerimiz",
+    "software": "Yazılımlarımız",
+    "packages": "Paketler",
+    "demo": "Demo İste",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Marine Management System",
+    "subtitle": "Yapay Zeka Destekli Dijital Dönüşüm",
+    "description": "Gemi inşa sektörü için yenilikçi, AI-destekli ERP çözümleri. Modern teknoloji ile gemi inşaat süreçlerinizi optimize edin. Verimlilik, şeffaflık ve sürdürülebilirlik için kapsamlı çözümlerimizi keşfedin.",
+    "cta": "Demo Talep Et",
+    "cta_secondary": "Daha Fazla Bilgi",
+    "badge": "🚢 Gemi İnşa Sektörünün Geleceği",
+    "stats": {
+      "experience": "15+ Yıl Deneyim",
+      "projects": "50+ Başarılı Proje", 
+      "satisfaction": "99% Müşteri Memnuniyeti"
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "description": "Kurucularımız, farklı disiplinlerden gelen ve kendi alanlarında 15 yıla varan deneyime sahip İstanbul Teknik Üniversitesi mezunu bir Gemi Mühendisi ile Bilgisayar ve Elektrik-Elektronik Mühendislerinden oluşmaktadır. Bu ekip, yenilikçi ve sektöre özgü bir yaklaşımla geliştirdiği AI-destekli ERP yazılımıyla özgün çözümler sunan bir teknoloji şirketi olarak faaliyet göstermektedir.",
+    "highlight": "İnovasyona ve kaliteye odaklanan genç girişimcilerin bir araya gelmesiyle oluşan şirketimiz, sektördeki ihtiyaçlara yenilikçi ve etkili çözümler sunmayı hedeflemektedir."
+  },
+  "vision": {
+    "title": "Vizyonumuz",
+    "description": "Müşterilerimize sektördeki en yenilikçi, özgün ve etkili AI-destekli ERP çözümlerini sunarak, gemi inşaat süreçlerini daha verimli, şeffaf ve sürdürülebilir hale getirmeyi amaçlıyoruz. Müşteri ihtiyaçlarına odaklanarak, gelişen teknolojiyi yakından takip ediyor ve iş süreçlerini optimize etmelerine destek oluyoruz."
+  },
+  "mission": {
+    "title": "Misyonumuz", 
+    "description": "MMS olarak, gemi inşaat sektöründeki karmaşık iş süreçlerini basitleştirmek ve geliştirmek amacıyla yapay zeka destekli yenilikçi ERP çözümleri geliştiriyoruz. Müşterilerimize en üst düzeyde hizmet sunmak için teknolojik yeteneklerimizi kullanıyor ve sektöre özgü ihtiyaçlara uygun özelleştirilebilir çözümler sunuyoruz."
+  },
+  "promises": {
+    "title": "Ne Vaat Ediyoruz?",
+    "description": "Müşterilerimizin ihtiyaçlarına en uygun çözümleri sunarak, gemi inşaat sektöründe en yüksek verimliliği sağlamayı vaat ediyoruz. Sektördeki gelişmeleri yakından takip ederek, iş süreçlerinizi optimize edecek ve projelerinizin başarısını artıracak yenilikçi yazılımlar geliştiriyoruz.",
+    "features": [
+      {
+        "title": "Yapay Zeka Entegrasyonu",
+        "description": "Gelişmiş AI algoritmaları ile tahminleme, optimizasyon ve karar destek sistemleri"
+      },
+      {
+        "title": "Dijital Dönüşüm",
+        "description": "Süreçlerin tamamen dijitalleştirilmesi ve otomasyonu"
+      },
+      {
+        "title": "Bulut Teknolojisi",
+        "description": "Her yerden erişim, güvenli veri saklama ve otomatik güncellemeler"
+      },
+      {
+        "title": "Akıllı Analitik",
+        "description": "Gerçek zamanlı raporlama ve prediktif analizler"
+      }
+    ]
+  },
+  "software": {
+    "title": "Yazılımlarımız",
+    "description": "MMS, gemi inşa sektöründe faaliyet gösteren işletmeler için özel olarak geliştirilmiş yapay zeka destekli bir dijital dönüşüm ve ERP yönetim sistemidir.",
+    "mms_nb": "MMS NB (New Building)",
+    "mms_srm": "MMS SRM (Ship Repair & Maintenance)", 
+    "mms_yacht": "MMS Yacht (Yacht Building)",
+    "modules": {
+      "nb": {
+        "title": "MMS NB Modülleri",
+        "description": "Yeni gemi inşa süreçleri için kapsamlı AI-destekli modüller",
+        "list": [
+          "AI Destekli Proje Yönetimi",
+          "Akıllı Üretim Planlama",
+          "Tahminleme ve Optimizasyon",
+          "Dijital İkiz Teknolojisi",
+          "Otomatik Kalite Kontrol",
+          "Akıllı Tedarik Zinciri",
+          "Gerçek Zamanlı İzleme",
+          "Predictive Maintenance"
+        ]
+      },
+      "srm": {
+        "title": "MMS SRM Modülleri", 
+        "description": "Gemi bakım ve onarım süreçleri için AI-destekli çözümler",
+        "list": [
+          "Akıllı Bakım Planlama",
+          "Predictive Analytics",
+          "Otomatik Arıza Tespiti",
+          "Dijital Müşteri Yönetimi",
+          "AI Destekli Kaynak Optimizasyonu",
+          "Akıllı Stok Yönetimi",
+          "Gerçek Zamanlı Performans İzleme",
+          "Otomatik Raporlama"
+        ]
+      },
+      "yacht": {
+        "title": "MMS Yacht Modülleri",
+        "description": "Yat inşa süreçleri için özel AI-destekli modüller", 
+        "list": [
+          "Kişiselleştirilmiş Tasarım AI",
+          "Lüks Müşteri Deneyimi Yönetimi",
+          "Akıllı Proje Takibi",
+          "Otomatik Kalite Güvence",
+          "AI Destekli Malzeme Seçimi",
+          "Dijital Showroom",
+          "Gerçek Zamanlı Üretim İzleme",
+          "Predictive Delivery"
+        ]
+      }
+    }
+  },
+  "packages": {
+    "title": "MMS Paketleri",
+    "starter": {
+      "title": "MMS Starter",
+      "description": "Küçük işletmeler için temel AI-destekli çözümler",
+      "features": ["5 Temel Modül", "Bulut Erişim", "Temel AI Özellikleri", "7/24 Destek"],
+      "price": "Uygun Fiyat"
+    },
+    "professional": {
+      "title": "MMS Professional", 
+      "description": "Orta ölçekli işletmeler için gelişmiş AI çözümleri",
+      "features": ["12 Gelişmiş Modül", "AI Analytics", "Predictive Maintenance", "Özel Entegrasyon"],
+      "price": "Orta Segment"
+    },
+    "enterprise": {
+      "title": "MMS Enterprise",
+      "description": "Büyük işletmeler için tam AI-destekli dijital dönüşüm",
+      "features": ["20+ Modül", "Tam AI Suite", "Dijital İkiz", "Özel AI Modelleri"],
+      "price": "Kurumsal Çözüm"
+    }
+  },
+  "features": {
+    "title": "MMS'i Farklı Kılan Özellikler",
+    "list": [
+      {
+        "title": "Yapay Zeka Entegrasyonu",
+        "description": "Sektörün ilk AI-destekli ERP çözümü",
+        "icon": "🤖"
+      },
+      {
+        "title": "Sektöre Özgü Çözümler", 
+        "description": "Gemi inşa süreçlerine tam uyumlu modüller",
+        "icon": "🚢"
+      },
+      {
+        "title": "Yerli ve Milli",
+        "description": "Türkiye'de geliştirilen, Türkçe destekli",
+        "icon": "🇹🇷"
+      },
+      {
+        "title": "Bulut Teknolojisi",
+        "description": "Modern bulut altyapısı ile her yerden erişim",
+        "icon": "☁️"
+      }
+    ]
+  },
+  "contact": {
+    "title": "İletişim",
+    "description": "Bizimle iletişime geçin ve gemi inşa süreçlerinizi AI ile optimize etmeye başlayın.",
+    "info": {
+      "address": "Bilişim Vadisi - Kocaeli",
+      "phone": "+90 507 574 2666",
+      "email": "info@marinemanagementsystem.com",
+      "website": "www.marinemanagementsystem.com"
+    }
+  },
+  "theme": {
+    "light": "Açık Tema",
+    "dark": "Koyu Tema",
+    "system": "Sistem"
+  },
+  "language": {
+    "turkish": "Türkçe",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "close": "Kapat",
+    "learn_more": "Daha Fazla Bilgi",
+    "get_started": "Başlayın",
+    "request_demo": "Demo Talep Et"
+  }
+} 

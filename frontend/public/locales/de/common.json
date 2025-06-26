@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "vision": "Unsere Vision",
+    "mission": "Unsere Mission",
+    "promises": "Unsere Versprechen",
+    "software": "Unsere Software",
+    "packages": "Pakete",
+    "demo": "Demo anfordern",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Marine Management System",
+    "subtitle": "KI-gestützte digitale Transformation",
+    "description": "Innovative KI-gestützte ERP-Lösungen für die Schiffbauindustrie. Optimieren Sie Ihre Schiffbauprozesse mit moderner Technologie. Entdecken Sie unsere umfassenden Lösungen für Effizienz, Transparenz und Nachhaltigkeit.",
+    "cta": "Demo anfordern",
+    "cta_secondary": "Mehr erfahren",
+    "badge": "🚢 Die Zukunft der Schiffbauindustrie",
+    "stats": {
+      "experience": "15+ Jahre Erfahrung",
+      "projects": "50+ Erfolgreiche Projekte", 
+      "satisfaction": "99% Kundenzufriedenheit"
+    }
+  },
+  "about": {
+    "title": "Über uns",
+    "description": "Unsere Gründer bestehen aus einem Schiffbauingenieur und Computer- und Elektrotechnik-Ingenieuren, Absolventen der Technischen Universität Istanbul aus verschiedenen Disziplinen mit bis zu 15 Jahren Erfahrung in ihren Bereichen. Dieses Team agiert als Technologieunternehmen, das mit KI-gestützter ERP-Software, die mit einem innovativen und branchenspezifischen Ansatz entwickelt wurde, originelle Lösungen bietet.",
+    "highlight": "Unser Unternehmen, das durch die Zusammenarbeit junger Unternehmer entstanden ist, die sich auf Innovation und Qualität konzentrieren, zielt darauf ab, innovative und effektive Lösungen für die Bedürfnisse der Branche zu bieten."
+  },
+  "vision": {
+    "title": "Unsere Vision",
+    "description": "Wir wollen Schiffbauprozesse effizienter, transparenter und nachhaltiger gestalten, indem wir unseren Kunden die innovativsten, originellsten und effektivsten KI-gestützten ERP-Lösungen der Branche bieten. Mit Fokus auf Kundenbedürfnisse verfolgen wir die sich entwickelnde Technologie genau und unterstützen sie bei der Optimierung ihrer Geschäftsprozesse."
+  },
+  "mission": {
+    "title": "Unsere Mission", 
+    "description": "Als MMS entwickeln wir innovative KI-gestützte ERP-Lösungen zur Vereinfachung und Verbesserung komplexer Geschäftsprozesse in der Schiffbauindustrie. Wir nutzen unsere technologischen Fähigkeiten, um unseren Kunden den höchsten Service zu bieten und anpassbare Lösungen für branchenspezifische Bedürfnisse anzubieten."
+  },
+  "promises": {
+    "title": "Was versprechen wir?",
+    "description": "Wir versprechen, die höchste Effizienz in der Schiffbauindustrie zu erreichen, indem wir die am besten geeigneten Lösungen für die Bedürfnisse unserer Kunden bieten. Durch die enge Verfolgung der Entwicklungen in der Branche entwickeln wir innovative Software, die Ihre Geschäftsprozesse optimiert und den Erfolg Ihrer Projekte steigert.",
+    "features": [
+      {
+        "title": "Künstliche Intelligenz Integration",
+        "description": "Fortschrittliche KI-Algorithmen für Vorhersage, Optimierung und Entscheidungsunterstützungssysteme"
+      },
+      {
+        "title": "Digitale Transformation",
+        "description": "Vollständige Digitalisierung und Automatisierung von Prozessen"
+      },
+      {
+        "title": "Cloud-Technologie",
+        "description": "Zugriff von überall, sichere Datenspeicherung und automatische Updates"
+      },
+      {
+        "title": "Intelligente Analytik",
+        "description": "Echtzeitberichterstattung und prädiktive Analysen"
+      }
+    ]
+  },
+  "software": {
+    "title": "Unsere Software",
+    "description": "MMS ist ein KI-gestütztes digitales Transformations- und ERP-Managementsystem, das speziell für Unternehmen entwickelt wurde, die in der Schiffbauindustrie tätig sind.",
+    "mms_nb": "MMS NB (Neubau)",
+    "mms_srm": "MMS SRM (Schiffsreparatur & -wartung)", 
+    "mms_yacht": "MMS Yacht (Yachtbau)",
+    "modules": {
+      "nb": {
+        "title": "MMS NB Module",
+        "description": "Umfassende KI-gestützte Module für Neubau-Schiffbauprozesse",
+        "list": [
+          "KI-gestütztes Projektmanagement",
+          "Intelligente Produktionsplanung",
+          "Vorhersage und Optimierung",
+          "Digital Twin Technologie",
+          "Automatisierte Qualitätskontrolle",
+          "Intelligente Lieferkette",
+          "Echtzeitüberwachung",
+          "Predictive Maintenance"
+        ]
+      },
+      "srm": {
+        "title": "MMS SRM Module", 
+        "description": "KI-gestützte Lösungen für Schiffswartungs- und Reparaturprozesse",
+        "list": [
+          "Intelligente Wartungsplanung",
+          "Predictive Analytics",
+          "Automatisierte Fehlererkennung",
+          "Digitales Kundenmanagement",
+          "KI-gestützte Ressourcenoptimierung",
+          "Intelligente Lagerverwaltung",
+          "Echtzeitüberwachung der Leistung",
+          "Automatisierte Berichterstattung"
+        ]
+      },
+      "yacht": {
+        "title": "MMS Yacht Module",
+        "description": "Spezielle KI-gestützte Module für Yachtbauprozesse", 
+        "list": [
+          "Personalisierte Design-KI",
+          "Luxus-Kundenerfahrungsmanagement",
+          "Intelligente Projektverfolgung",
+          "Automatisierte Qualitätssicherung",
+          "KI-gestützte Materialauswahl",
+          "Digitaler Showroom",
+          "Echtzeitüberwachung der Produktion",
+          "Predictive Delivery"
+        ]
+      }
+    }
+  },
+  "packages": {
+    "title": "MMS Pakete",
+    "starter": {
+      "title": "MMS Starter",
+      "description": "Grundlegende KI-gestützte Lösungen für kleine Unternehmen",
+      "features": ["5 Grundmodule", "Cloud-Zugriff", "Basis-KI-Features", "24/7 Support"],
+      "price": "Erschwinglicher Preis"
+    },
+    "professional": {
+      "title": "MMS Professional", 
+      "description": "Erweiterte KI-Lösungen für mittelständische Unternehmen",
+      "features": ["12 Erweiterte Module", "KI-Analytik", "Predictive Maintenance", "Individuelle Integration"],
+      "price": "Mittleres Segment"
+    },
+    "enterprise": {
+      "title": "MMS Enterprise",
+      "description": "Vollständige KI-gestützte digitale Transformation für Großunternehmen",
+      "features": ["20+ Module", "Vollständige KI-Suite", "Digital Twin", "Individuelle KI-Modelle"],
+      "price": "Unternehmenslösung"
+    }
+  },
+  "features": {
+    "title": "Eigenschaften, die MMS unterscheiden",
+    "list": [
+      {
+        "title": "Künstliche Intelligenz Integration",
+        "description": "Die erste KI-gestützte ERP-Lösung der Branche",
+        "icon": "🤖"
+      },
+      {
+        "title": "Branchenspezifische Lösungen", 
+        "description": "Module, die vollständig mit Schiffbauprozessen kompatibel sind",
+        "icon": "🚢"
+      },
+      {
+        "title": "Einheimisch und National",
+        "description": "In der Türkei entwickelt, türkische Sprache unterstützt",
+        "icon": "🇹🇷"
+      },
+      {
+        "title": "Cloud-Technologie",
+        "description": "Zugriff von überall mit moderner Cloud-Infrastruktur",
+        "icon": "☁️"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie uns und beginnen Sie mit der Optimierung Ihrer Schiffbauprozesse mit KI.",
+    "info": {
+      "address": "Bilişim Vadisi - Kocaeli",
+      "phone": "+90 507 574 2666",
+      "email": "info@marinemanagementsystem.com",
+      "website": "www.marinemanagementsystem.com"
+    }
+  },
+  "theme": {
+    "light": "Helles Theme",
+    "dark": "Dunkles Theme",
+    "system": "System"
+  },
+  "language": {
+    "turkish": "Türkçe",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "learn_more": "Mehr erfahren",
+    "get_started": "Loslegen",
+    "request_demo": "Demo anfordern"
+  }
+} 
