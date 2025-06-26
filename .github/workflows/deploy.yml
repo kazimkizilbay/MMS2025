@@ -120,4 +120,24 @@ jobs:
         echo "📝 Next Steps:"
         echo "   1. CPanel → Node.js → Restart App"
         echo "   2. Run NPM Install"
-        echo "   3. Test: /api/health endpoint" 
+        echo "   3. Test: /api/health endpoint"
+        
+    - name: Verify Deployment
+      run: |
+        echo "🔍 Testing deployed files..."
+        sleep 30  # Wait for deployment to propagate
+        
+        # Test static assets
+        echo "Testing logo.png..."
+        curl -I https://marinemanagementsystem.com/logo.png || echo "❌ logo.png not found"
+        
+        echo "Testing vite.svg..."
+        curl -I https://marinemanagementsystem.com/vite.svg || echo "❌ vite.svg not found"
+        
+        echo "Testing translation files..."
+        curl -I https://marinemanagementsystem.com/locales/tr/common.json || echo "❌ tr/common.json not found"
+        
+        echo "Testing API health..."
+        curl -I https://marinemanagementsystem.com/api/health || echo "❌ API not responding"
+        
+        echo "✅ Verification complete" 
