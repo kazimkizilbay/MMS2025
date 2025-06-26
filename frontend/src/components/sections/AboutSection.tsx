@@ -4,6 +4,12 @@ import { Target, Eye, Heart, Zap, Shield, Cloud, BarChart3, Brain } from 'lucide
 export function AboutSection() {
   const { t } = useTranslation();
 
+  // Helper function to safely get object array from translation
+  const getTranslationObjectArray = (key: string, fallback: Array<{title: string, description: string}> = []): Array<{title: string, description: string}> => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
   return (
     <section id="about" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Background Decoration */}
@@ -218,7 +224,7 @@ export function AboutSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(t('about.solutions.items', { returnObjects: true }) as Array<{title: string, description: string}>).map((solution, index) => {
+          {getTranslationObjectArray('about.solutions.items', []).map((solution, index) => {
             const icons = ["📋", "🤖", "📊", "🚀", "💾"];
             return (
             <div key={index} className="group bg-white border border-gray-200 dark:bg-slate-800/80 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 shadow-sm">

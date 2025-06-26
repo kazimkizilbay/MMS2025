@@ -14,6 +14,12 @@ import {
 export function Footer() {
   const { t } = useTranslation();
 
+  // Helper function to safely get array from translation
+  const getTranslationArray = (key: string, fallback: string[] = []): string[] => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
   const socialLinks = [
     {
       name: 'Instagram',
@@ -55,7 +61,7 @@ export function Footer() {
     { name: t('nav.contact'), href: '#contact' }
   ];
 
-  const services = t('footer.services_items', { returnObjects: true }) as string[];
+  const services = getTranslationArray('footer.services_items', []);
 
   return (
     <footer className="bg-slate-900 text-slate-50">

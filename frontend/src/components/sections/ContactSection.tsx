@@ -16,6 +16,12 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // Helper function to safely get array from translation
+  const getTranslationArray = (key: string, fallback: string[] = []): string[] => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -242,7 +248,7 @@ ${formData.message}
             
             {/* Key Features Pills */}
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {(t('contact.hero.features', { returnObjects: true }) as string[]).map((feature, index) => {
+              {getTranslationArray('contact.hero.features', []).map((feature, index) => {
                 const icons = ['🤖', '🚢', '🇹🇷', '⚡'];
                 return (
                   <div key={index} className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">

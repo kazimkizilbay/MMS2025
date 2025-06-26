@@ -4,6 +4,12 @@ import { CheckCircle, Globe, Cog, Layers, DollarSign } from 'lucide-react';
 export function FeaturesSection() {
   const { t } = useTranslation();
 
+  // Helper function to safely get object array from translation
+  const getTranslationObjectArray = (key: string, fallback: Array<{title: string, description: string}> = []): Array<{title: string, description: string}> => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
   const featureIcons = [CheckCircle, Globe, Layers, Cog, DollarSign];
   const gradients = [
     "from-green-500 to-emerald-500",
@@ -13,7 +19,7 @@ export function FeaturesSection() {
     "from-yellow-500 to-orange-500"
   ];
 
-  const features = (t('features.list', { returnObjects: true }) as Array<{title: string, description: string}>).map((feature, index) => ({
+  const features = getTranslationObjectArray('features.list', []).map((feature, index) => ({
     ...feature,
     icon: featureIcons[index] || CheckCircle,
     gradient: gradients[index] || gradients[0]

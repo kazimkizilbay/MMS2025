@@ -33,6 +33,18 @@ export function SoftwareSection() {
     yacht: [Brain, Users, Target, CheckCircle, Cog, Cpu, BarChart3, Truck, Users, FileText, FileText, Cog, Cog, Cog, Truck, Truck, Users, DollarSign, Shield]
   };
 
+  // Helper function to safely get array from translation
+  const getTranslationArray = (key: string, fallback: string[] = []): string[] => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
+  // Helper function to safely get object array from translation
+  const getTranslationObjectArray = (key: string, fallback: Array<{title: string, description: string}> = []): Array<{title: string, description: string}> => {
+    const result = t(key, { returnObjects: true });
+    return Array.isArray(result) ? result : fallback;
+  };
+
   const modules = {
     nb: {
       title: t('software.modules.nb.title'),
@@ -40,7 +52,7 @@ export function SoftwareSection() {
       icon: Ship,
       color: 'blue',
       gradient: 'from-blue-500 to-cyan-500',
-      features: (t('software.modules.nb.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+      features: getTranslationArray('software.modules.nb.features', []).map((name: string, index: number) => ({
         name,
         icon: moduleIcons.nb[index] || FileText
       }))
@@ -51,7 +63,7 @@ export function SoftwareSection() {
       icon: Wrench,
       color: 'purple',
       gradient: 'from-purple-500 to-pink-500',
-      features: (t('software.modules.srm.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+      features: getTranslationArray('software.modules.srm.features', []).map((name: string, index: number) => ({
         name,
         icon: moduleIcons.srm[index] || FileText
       }))
@@ -62,7 +74,7 @@ export function SoftwareSection() {
       icon: Anchor,
       color: 'green',
       gradient: 'from-green-500 to-emerald-500',
-      features: (t('software.modules.yacht.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+      features: getTranslationArray('software.modules.yacht.features', []).map((name: string, index: number) => ({
         name,
         icon: moduleIcons.yacht[index] || FileText
       }))
@@ -174,7 +186,7 @@ export function SoftwareSection() {
                   {t('packages.starter.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  {(t('packages.starter.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                  {getTranslationArray('packages.starter.features', []).map((feature, index) => (
                     <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       {feature}
@@ -201,7 +213,7 @@ export function SoftwareSection() {
                   {t('packages.professional.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  {(t('packages.professional.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                  {getTranslationArray('packages.professional.features', []).map((feature, index) => (
                     <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       {feature}
@@ -225,7 +237,7 @@ export function SoftwareSection() {
                   {t('packages.enterprise.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  {(t('packages.enterprise.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                  {getTranslationArray('packages.enterprise.features', []).map((feature, index) => (
                     <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                       {feature}
@@ -288,7 +300,7 @@ export function SoftwareSection() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h4 className="text-2xl font-bold mb-6 text-center">{t('technical.team.title')}</h4>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {(t('technical.team.skills', { returnObjects: true }) as Array<{title: string, description: string}>).map((skill, index) => {
+                  {getTranslationObjectArray('technical.team.skills', []).map((skill, index) => {
                     const icons = [Cpu, Users, FileText, Shield, Target, BarChart3, CheckCircle, Settings];
                     const Icon = icons[index] || Cpu;
                     const gradients = [
