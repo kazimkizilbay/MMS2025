@@ -27,7 +27,16 @@ jobs:
         npm ci
         npm run build
         echo "✅ Frontend build completed"
-        ls -la dist/
+        
+    - name: "🕵️‍♀️ Verify Frontend Build"
+      run: |
+        echo "--- Contents of frontend/public ---"
+        ls -laR frontend/public/
+        echo "-------------------------------------"
+        echo "--- Contents of frontend/dist ---"
+        ls -laR frontend/dist/
+        echo "-----------------------------------"
+        echo "Total files in dist: $(find frontend/dist -type f | wc -l)"
         
     - name: Install and build backend
       run: |
@@ -65,7 +74,15 @@ jobs:
         echo "Final total files:"
         find unified-deploy -type f | wc -l
         
-        # Create production .env file for API
+    - name: "🕵️‍♀️ Verify Unified Directory"
+      run: |
+        echo "--- Contents of unified-deploy ---"
+        ls -laR unified-deploy/
+        echo "------------------------------------"
+        echo "Total files in unified-deploy: $(find unified-deploy -type f | wc -l)"
+
+    - name: Create production .env file for API
+      run: |
         cat > unified-deploy/api/.env << EOF
         NODE_ENV=production
         PORT=3000
