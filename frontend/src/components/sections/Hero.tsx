@@ -53,19 +53,19 @@ export function Hero() {
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-slate-50 mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-slate-50 mb-6 sm:mb-8 leading-tight px-4 sm:px-0">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-green-400 bg-clip-text text-transparent">
                 {t('hero.title')}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-slate-300 mb-6">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-slate-300 mb-4 sm:mb-6 px-4 sm:px-0">
               {t('hero.subtitle')}
             </p>
 
             {/* Description */}
-            <p className="text-xl lg:text-2xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0">
               {t('hero.description')}
             </p>
 

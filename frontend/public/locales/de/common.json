@@ -68,7 +68,7 @@
       "nb": {
         "title": "MMS NB Module",
         "description": "Umfassende KI-gestützte Module für Neubau-Schiffbauprozesse",
-        "list": [
+        "features": [
           "KI-gestütztes Projektmanagement",
           "Intelligente Produktionsplanung",
           "Vorhersage und Optimierung",
@@ -76,13 +76,32 @@
           "Automatisierte Qualitätskontrolle",
           "Intelligente Lieferkette",
           "Echtzeitüberwachung",
-          "Predictive Maintenance"
+          "Predictive Maintenance",
+          "Bemerkungsmodul",
+          "Design- und Dokumentenmodul",
+          "Besprechungsmodul",
+          "Fertigungsmodul",
+          "Technisches Beschaffungsmodul",
+          "Verkaufs-, Garantie- und Servicemodul",
+          "Materialverwaltungsmodul",
+          "Subunternehmerverwaltungsmodul",
+          "Werftmanagementmodul",
+          "Beschaffungsmodul",
+          "Arbeitsschutzmodul",
+          "Lager- & Transportmodul",
+          "Finanz- und Buchhaltungsmodul",
+          "Personalmodul",
+          "Risikomanagementmodul",
+          "Angebots-/Vertragsmanagement",
+          "Berichtsverwaltungsmodul",
+          "Workflow-Management",
+          "Schulungsmodul"
         ]
       },
       "srm": {
         "title": "MMS SRM Module", 
         "description": "KI-gestützte Lösungen für Schiffswartungs- und Reparaturprozesse",
-        "list": [
+        "features": [
           "Intelligente Wartungsplanung",
           "Predictive Analytics",
           "Automatisierte Fehlererkennung",
@@ -90,13 +109,26 @@
           "KI-gestützte Ressourcenoptimierung",
           "Intelligente Lagerverwaltung",
           "Echtzeitüberwachung der Leistung",
-          "Automatisierte Berichterstattung"
+          "Automatisierte Berichterstattung",
+          "Kundenverfolgungsmodul",
+          "Marketing-, Angebots- und Vertragsmanagement",
+          "Plan-Vermessung-Projektmanagement",
+          "Lieferkettenmanagement",
+          "Werkstattmanagement",
+          "Subunternehmerverwaltung",
+          "Produktions-Betriebsmanagement",
+          "Qualitäts-Kontrollmanagement",
+          "Design-Dokumentenmanagement",
+          "Finanzmodul",
+          "Besprechungsmodul",
+          "Werftmanagementmodul",
+          "Arbeitsschutzmodul"
         ]
       },
       "yacht": {
         "title": "MMS Yacht Module",
         "description": "Spezielle KI-gestützte Module für Yachtbauprozesse", 
-        "list": [
+        "features": [
           "Personalisierte Design-KI",
           "Luxus-Kundenerfahrungsmanagement",
           "Intelligente Projektverfolgung",
@@ -104,30 +136,55 @@
           "KI-gestützte Materialauswahl",
           "Digitaler Showroom",
           "Echtzeitüberwachung der Produktion",
-          "Predictive Delivery"
+          "Predictive Delivery",
+          "Kundenbeziehungsmanagement",
+          "Angebots-/Vertragsmanagement",
+          "Yacht-Architektur-Verfolgungsmodul",
+          "Design- und Engineeringmodul",
+          "Yacht-Produktionsmanagement",
+          "Werkstattmanagement",
+          "Lieferkettenmanagement",
+          "Lagerverwaltung",
+          "Subunternehmerverwaltung",
+          "Finanzmodul",
+          "Arbeitsschutzmodul"
         ]
       }
     }
   },
   "packages": {
     "title": "MMS Pakete",
+    "subtitle": "Wählen Sie das Paket, das Ihren Bedürfnissen entspricht, und starten Sie Ihre digitale Transformation",
+    "popular": "Beliebt",
     "starter": {
       "title": "MMS Starter",
       "description": "Grundlegende KI-gestützte Lösungen für kleine Unternehmen",
-      "features": ["5 Grundmodule", "Cloud-Zugriff", "Basis-KI-Features", "24/7 Support"],
-      "price": "Erschwinglicher Preis"
+      "features": [
+        "Grundfunktionen",
+        "5 Module",
+        "Erschwinglicher Preis"
+      ],
+      "cta": "Mehr erfahren"
     },
     "professional": {
       "title": "MMS Professional", 
       "description": "Erweiterte KI-Lösungen für mittelständische Unternehmen",
-      "features": ["12 Erweiterte Module", "KI-Analytik", "Predictive Maintenance", "Individuelle Integration"],
-      "price": "Mittleres Segment"
+      "features": [
+        "Erweiterte Lösungen",
+        "12 Module",
+        "Für komplexe Anforderungen geeignet"
+      ],
+      "cta": "Mehr erfahren"
     },
     "enterprise": {
       "title": "MMS Enterprise",
       "description": "Vollständige KI-gestützte digitale Transformation für Großunternehmen",
-      "features": ["20+ Module", "Vollständige KI-Suite", "Digital Twin", "Individuelle KI-Modelle"],
-      "price": "Unternehmenslösung"
+      "features": [
+        "Umfassendste Lösungen",
+        "20+ Module",
+        "Für alle Geschäftsanforderungen"
+      ],
+      "cta": "Mehr erfahren"
     }
   },
   "features": {
@@ -185,5 +242,57 @@
     "learn_more": "Mehr erfahren",
     "get_started": "Loslegen",
     "request_demo": "Demo anfordern"
+  },
+  "technical": {
+    "title": "Technische Machbarkeit",
+    "technologies": {
+      "title": "Verwendete Technologien",
+      "description": "Es wird mit modernen und weit verbreiteten Softwareentwicklungstechnologien und -tools (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence) entwickelt."
+    },
+    "infrastructure": {
+      "title": "Kompatibilität mit bestehender Infrastruktur",
+      "description": "Dank seiner Cloud-basierten Struktur müssen Unternehmen keine komplexen und kostspieligen Hardware-Investitionen tätigen."
+    },
+    "integration": {
+      "title": "Integration",
+      "description": "Entwickelt zur Integration mit anderer Software (Buchhaltung, CRM, Lieferkette usw.)."
+    },
+    "team": {
+      "title": "Team-Kompetenzen",
+      "skills": [
+        {
+          "title": "Softwareentwicklung",
+          "description": "Erfahrene Softwareingenieure und Entwickler"
+        },
+        {
+          "title": "Schiffbauindustrie-Kenntnisse",
+          "description": "Experten, die Branchendynamik, Geschäftsprozesse und Bedürfnisse gut kennen"
+        },
+        {
+          "title": "Datenbankmanagement",
+          "description": "Erfahrene Experten in Datenbankdesign, -entwicklung und -verwaltung"
+        },
+        {
+          "title": "Cloud-Technologien",
+          "description": "Erfahrene Experten für Cloud-Plattformen und -Dienste"
+        },
+        {
+          "title": "Projektmanagement",
+          "description": "Erfahrene Projektmanager in Planung, Verwaltung und Abschluss des Projekts"
+        },
+        {
+          "title": "Geschäftsanalyse",
+          "description": "Erfahrene Geschäftsanalysten in der Analyse von Geschäftsanforderungen, Entwicklung von Lösungen und Bestimmung von Softwareanforderungen"
+        },
+        {
+          "title": "Test und Qualitätssicherung",
+          "description": "Erfahrene Testexperten beim Testen von Software, Identifizierung von Fehlern und Sicherstellung der Qualität"
+        },
+        {
+          "title": "Systemverwaltung",
+          "description": "Erfahrene Systemadministratoren bei Systeminstallation, -konfiguration und -wartung"
+        }
+      ]
+    }
   }
 } 

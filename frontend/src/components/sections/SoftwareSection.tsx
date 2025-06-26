@@ -26,6 +26,13 @@ export function SoftwareSection() {
   const { t } = useTranslation();
   const [activeModule, setActiveModule] = useState('nb');
 
+  // Icon mappings for modules
+  const moduleIcons = {
+    nb: [Brain, Cog, TrendingUp, Cpu, CheckCircle, Truck, BarChart3, Settings, FileText, FileText, Users, Cog, Truck, Shield, Truck, Users, Ship, DollarSign, Shield, Truck, DollarSign, Users, AlertTriangle, FileText, BarChart3, Target, Users],
+    srm: [Calendar, Brain, AlertTriangle, Users, TrendingUp, Truck, BarChart3, FileText, Users, Target, FileText, Truck, Cog, Users, Cog, CheckCircle, FileText, DollarSign, Users, Ship, Shield],
+    yacht: [Brain, Users, Target, CheckCircle, Cog, Cpu, BarChart3, Truck, Users, FileText, FileText, Cog, Cog, Cog, Truck, Truck, Users, DollarSign, Shield]
+  };
+
   const modules = {
     nb: {
       title: t('software.modules.nb.title'),
@@ -33,35 +40,10 @@ export function SoftwareSection() {
       icon: Ship,
       color: 'blue',
       gradient: 'from-blue-500 to-cyan-500',
-      features: [
-        { name: 'AI Destekli Proje Yönetimi', icon: Brain },
-        { name: 'Akıllı Üretim Planlama', icon: Cog },
-        { name: 'Tahminleme ve Optimizasyon', icon: TrendingUp },
-        { name: 'Dijital İkiz Teknolojisi', icon: Cpu },
-        { name: 'Otomatik Kalite Kontrol', icon: CheckCircle },
-        { name: 'Akıllı Tedarik Zinciri', icon: Truck },
-        { name: 'Gerçek Zamanlı İzleme', icon: BarChart3 },
-        { name: 'Predictive Maintenance', icon: Settings },
-        { name: 'Remark Modülü', icon: FileText },
-        { name: 'Dizayn ve Döküman Modülü', icon: FileText },
-        { name: 'Toplantı Modülü', icon: Users },
-        { name: 'İmalat Modülü', icon: Cog },
-        { name: 'Teknik Satınalma Modülü', icon: Truck },
-        { name: 'Satış, Garanti ve Servis Modülü', icon: Shield },
-        { name: 'Malzeme Yönetimi Modülü', icon: Truck },
-        { name: 'Taşeron Yönetim Modülü', icon: Users },
-        { name: 'Tersane Yönetim Modülü', icon: Ship },
-        { name: 'Satınalma Modülü', icon: DollarSign },
-        { name: 'İş Sağlığı ve Güvenliği Modülü', icon: Shield },
-        { name: 'Depolama & Nakliye Modülü', icon: Truck },
-        { name: 'Finans ve Muhasebe Modülü', icon: DollarSign },
-        { name: 'İnsan Kaynakları Modülü', icon: Users },
-        { name: 'Risk Yönetimi Modülü', icon: AlertTriangle },
-        { name: 'Teklif/Sözleşme Yönetimi', icon: FileText },
-        { name: 'Rapor Yönetimi Modülü', icon: BarChart3 },
-        { name: 'İş Akış Yönetimi', icon: Target },
-        { name: 'Eğitim Modülü', icon: Users }
-      ]
+      features: (t('software.modules.nb.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+        name,
+        icon: moduleIcons.nb[index] || FileText
+      }))
     },
     srm: {
       title: t('software.modules.srm.title'),
@@ -69,29 +51,10 @@ export function SoftwareSection() {
       icon: Wrench,
       color: 'purple',
       gradient: 'from-purple-500 to-pink-500',
-      features: [
-        { name: 'Akıllı Bakım Planlama', icon: Calendar },
-        { name: 'Predictive Analytics', icon: Brain },
-        { name: 'Otomatik Arıza Tespiti', icon: AlertTriangle },
-        { name: 'Dijital Müşteri Yönetimi', icon: Users },
-        { name: 'AI Destekli Kaynak Optimizasyonu', icon: TrendingUp },
-        { name: 'Akıllı Stok Yönetimi', icon: Truck },
-        { name: 'Gerçek Zamanlı Performans İzleme', icon: BarChart3 },
-        { name: 'Otomatik Raporlama', icon: FileText },
-        { name: 'Müşteri Takip Modülü', icon: Users },
-        { name: 'Pazarlama, Teklif ve Sözleşme Yönetimi', icon: Target },
-        { name: 'Plan-Keşif-Proje Yönetimi', icon: FileText },
-        { name: 'Tedarik Yönetimi', icon: Truck },
-        { name: 'Atölye Yönetimi', icon: Cog },
-        { name: 'Alt Yüklenici Yönetimi', icon: Users },
-        { name: 'Üretim-İşletme Yönetimi', icon: Cog },
-        { name: 'Kalite-Kontrol Yönetimi', icon: CheckCircle },
-        { name: 'Dizayn-Döküman Yönetimi', icon: FileText },
-        { name: 'Finans Modülü', icon: DollarSign },
-        { name: 'Toplantı Modülü', icon: Users },
-        { name: 'Tersane Yönetim Modülü', icon: Ship },
-        { name: 'İş Sağlığı ve Güvenliği Modülü', icon: Shield }
-      ]
+      features: (t('software.modules.srm.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+        name,
+        icon: moduleIcons.srm[index] || FileText
+      }))
     },
     yacht: {
       title: t('software.modules.yacht.title'),
@@ -99,27 +62,10 @@ export function SoftwareSection() {
       icon: Anchor,
       color: 'green',
       gradient: 'from-green-500 to-emerald-500',
-      features: [
-        { name: 'Kişiselleştirilmiş Tasarım AI', icon: Brain },
-        { name: 'Lüks Müşteri Deneyimi Yönetimi', icon: Users },
-        { name: 'Akıllı Proje Takibi', icon: Target },
-        { name: 'Otomatik Kalite Güvence', icon: CheckCircle },
-        { name: 'AI Destekli Malzeme Seçimi', icon: Cog },
-        { name: 'Dijital Showroom', icon: Cpu },
-        { name: 'Gerçek Zamanlı Üretim İzleme', icon: BarChart3 },
-        { name: 'Predictive Delivery', icon: Truck },
-        { name: 'Müşteri İlişkileri Yönetimi', icon: Users },
-        { name: 'Teklif/Sözleşme Yönetimi', icon: FileText },
-        { name: 'Yat Mimari Takip Modülü', icon: FileText },
-        { name: 'Tasarım ve Mühendislik Modülü', icon: Cog },
-        { name: 'Yat Üretim Yönetimi', icon: Cog },
-        { name: 'Atölye Yönetimi', icon: Cog },
-        { name: 'Tedarik Yönetimi', icon: Truck },
-        { name: 'Depolama Yönetimi', icon: Truck },
-        { name: 'Alt Yüklenici Yönetimi', icon: Users },
-        { name: 'Finans Modülü', icon: DollarSign },
-        { name: 'İş Sağlığı ve Güvenliği Modülü', icon: Shield }
-      ]
+      features: (t('software.modules.yacht.features', { returnObjects: true }) as string[]).map((name: string, index: number) => ({
+        name,
+        icon: moduleIcons.yacht[index] || FileText
+      }))
     }
   };
 
@@ -209,10 +155,10 @@ export function SoftwareSection() {
         <div className="mt-24 mb-16">
           <div id="packages" className="text-center mb-16">
             <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              MMS Paketleri
+              {t('packages.title')}
             </h3>
             <p className="text-xl text-gray-700 dark:text-slate-300 max-w-3xl mx-auto">
-              İhtiyaçlarınıza uygun paket seçin ve dijital dönüşümünüzü başlatın
+              {t('packages.subtitle')}
             </p>
           </div>
 
@@ -225,24 +171,18 @@ export function SoftwareSection() {
                   <Ship className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  MMS Starter
+                  {t('packages.starter.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Temel işlevler
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    5 modül
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Uygun fiyat
-                  </li>
+                  {(t('packages.starter.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
                 <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  Daha Fazla Bilgi
+                  {t('packages.starter.cta')}
                 </button>
               </div>
             </div>
@@ -251,31 +191,25 @@ export function SoftwareSection() {
             <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"></div>
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold">
-                Popüler
+                {t('packages.popular')}
               </div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                   <Wrench className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  MMS Professional
+                  {t('packages.professional.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    İleri düzey çözümler
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    12 modül
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Karmaşık ihtiyaçlara uygun
-                  </li>
+                  {(t('packages.professional.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
                 <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  Daha Fazla Bilgi
+                  {t('packages.professional.cta')}
                 </button>
               </div>
             </div>
@@ -288,24 +222,18 @@ export function SoftwareSection() {
                   <Anchor className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  MMS Enterprise
+                  {t('packages.enterprise.title')}
                 </h4>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    En kapsamlı çözümler
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    20+ modül
-                  </li>
-                  <li className="flex items-center text-gray-700 dark:text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Tüm işletme ihtiyaçlarına yönelik
-                  </li>
+                  {(t('packages.enterprise.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
                 <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-2xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  Daha Fazla Bilgi
+                  {t('packages.enterprise.cta')}
                 </button>
               </div>
             </div>
@@ -318,7 +246,7 @@ export function SoftwareSection() {
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative z-10">
               <h3 className="text-4xl font-bold mb-12 text-center">
-                Teknik Yapılabilirlik
+                {t('technical.title')}
               </h3>
               
               <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -327,9 +255,9 @@ export function SoftwareSection() {
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center mb-4">
                     <Cpu className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-xl font-bold mb-4">Kullanılan Teknolojiler</h4>
+                  <h4 className="text-xl font-bold mb-4">{t('technical.technologies.title')}</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    Modern ve yaygın olarak kullanılan yazılım geliştirme teknolojileri ve araçları (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence) kullanılarak geliştirilecektir.
+                    {t('technical.technologies.description')}
                   </p>
                 </div>
 
@@ -338,10 +266,10 @@ export function SoftwareSection() {
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center mb-4">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-xl font-bold mb-4">Mevcut Altyapı Uyumluluğu</h4>
+                  <h4 className="text-xl font-bold mb-4">{t('technical.infrastructure.title')}</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    Bulut tabanlı yapısı sayesinde işletmelerin karmaşık ve maliyetli donanım yatırımları yapmalarına gerek yoktur.
-        </p>
+                    {t('technical.infrastructure.description')}
+                  </p>
                 </div>
 
                 {/* Entegrasyon */}
@@ -349,79 +277,46 @@ export function SoftwareSection() {
                   <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-xl flex items-center justify-center mb-4">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-xl font-bold mb-4">Entegrasyon</h4>
+                  <h4 className="text-xl font-bold mb-4">{t('technical.integration.title')}</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    Diğer yazılımlarla (muhasebe, CRM, tedarik zinciri vb.) entegre olabilecek şekilde tasarlanmıştır.
+                    {t('technical.integration.description')}
                   </p>
                 </div>
               </div>
 
               {/* Ekip Yetkinlikleri */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h4 className="text-2xl font-bold mb-6 text-center">Ekip Yetkinlikleri</h4>
+                <h4 className="text-2xl font-bold mb-6 text-center">{t('technical.team.title')}</h4>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <Cpu className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Yazılım Geliştirme</h5>
-                    <p className="text-sm text-gray-300">Deneyimli yazılım mühendisleri ve geliştiricileri</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Gemi İnşa Sektörü Bilgisi</h5>
-                    <p className="text-sm text-gray-300">Sektör dinamiklerini, iş süreçlerini ve ihtiyaçlarını iyi bilen uzmanlar</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <FileText className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Veritabanı Yönetimi</h5>
-                    <p className="text-sm text-gray-300">Veritabanı tasarımı, geliştirme ve yönetimi konusunda deneyimli uzmanlar</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <Shield className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Bulut Teknolojileri</h5>
-                    <p className="text-sm text-gray-300">Bulut platformları ve hizmetleri konusunda deneyimli uzmanlar</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <Target className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Proje Yönetimi</h5>
-                    <p className="text-sm text-gray-300">Projeyi planlama, yönetme ve tamamlama konusunda deneyimli proje yöneticileri</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <BarChart3 className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">İş Analizi</h5>
-                    <p className="text-sm text-gray-300">İş ihtiyaçlarını analiz etme, çözümler tasarlama ve yazılım gereksinimlerini belirleme konusunda deneyimli iş analistleri</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <CheckCircle className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Test ve Kalite Güvence</h5>
-                    <p className="text-sm text-gray-300">Yazılımı test etme, hataları belirleme ve kalitesini sağlama konusunda deneyimli test uzmanları</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-xl flex items-center justify-center mb-3 mx-auto">
-                      <Settings className="w-6 h-6 text-white" />
-                    </div>
-                    <h5 className="font-semibold mb-2">Sistem Yönetimi</h5>
-                    <p className="text-sm text-gray-300">Sistem kurulumu, yapılandırması ve bakımı konusunda deneyimli sistem yöneticileri</p>
-                  </div>
+                  {(t('technical.team.skills', { returnObjects: true }) as Array<{title: string, description: string}>).map((skill, index) => {
+                    const icons = [Cpu, Users, FileText, Shield, Target, BarChart3, CheckCircle, Settings];
+                    const Icon = icons[index] || Cpu;
+                    const gradients = [
+                      'from-blue-400 to-cyan-400',
+                      'from-purple-400 to-pink-400',
+                      'from-green-400 to-emerald-400',
+                      'from-orange-400 to-red-400',
+                      'from-yellow-400 to-orange-400',
+                      'from-pink-400 to-red-400',
+                      'from-indigo-400 to-purple-400',
+                      'from-cyan-400 to-blue-400'
+                    ];
+                    
+                    return (
+                      <div key={index} className="text-center">
+                        <div className={`w-12 h-12 bg-gradient-to-br ${gradients[index]} rounded-xl flex items-center justify-center mb-3 mx-auto`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h5 className="font-semibold mb-2">{skill.title}</h5>
+                        <p className="text-sm text-gray-300">{skill.description}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
 
       </div>
     </section>

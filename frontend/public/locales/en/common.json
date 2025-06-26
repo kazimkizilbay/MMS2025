@@ -68,7 +68,7 @@
       "nb": {
         "title": "MMS NB Modules",
         "description": "Comprehensive AI-powered modules for new shipbuilding processes",
-        "list": [
+        "features": [
           "AI-Powered Project Management",
           "Smart Production Planning",
           "Prediction and Optimization",
@@ -76,13 +76,32 @@
           "Automated Quality Control",
           "Smart Supply Chain",
           "Real-Time Monitoring",
-          "Predictive Maintenance"
+          "Predictive Maintenance",
+          "Remark Module",
+          "Design and Document Module",
+          "Meeting Module",
+          "Manufacturing Module",
+          "Technical Procurement Module",
+          "Sales, Warranty and Service Module",
+          "Material Management Module",
+          "Subcontractor Management Module",
+          "Shipyard Management Module",
+          "Procurement Module",
+          "Occupational Health and Safety Module",
+          "Storage & Transportation Module",
+          "Finance and Accounting Module",
+          "Human Resources Module",
+          "Risk Management Module",
+          "Tender/Contract Management",
+          "Report Management Module",
+          "Workflow Management",
+          "Training Module"
         ]
       },
       "srm": {
         "title": "MMS SRM Modules", 
         "description": "AI-powered solutions for ship maintenance and repair processes",
-        "list": [
+        "features": [
           "Smart Maintenance Planning",
           "Predictive Analytics",
           "Automated Fault Detection",
@@ -90,13 +109,26 @@
           "AI-Powered Resource Optimization",
           "Smart Inventory Management",
           "Real-Time Performance Monitoring",
-          "Automated Reporting"
+          "Automated Reporting",
+          "Customer Tracking Module",
+          "Marketing, Tender and Contract Management",
+          "Plan-Survey-Project Management",
+          "Supply Management",
+          "Workshop Management",
+          "Subcontractor Management",
+          "Production-Operation Management",
+          "Quality-Control Management",
+          "Design-Document Management",
+          "Finance Module",
+          "Meeting Module",
+          "Shipyard Management Module",
+          "Occupational Health and Safety Module"
         ]
       },
       "yacht": {
         "title": "MMS Yacht Modules",
         "description": "Special AI-powered modules for yacht building processes", 
-        "list": [
+        "features": [
           "Personalized Design AI",
           "Luxury Customer Experience Management",
           "Smart Project Tracking",
@@ -104,30 +136,55 @@
           "AI-Powered Material Selection",
           "Digital Showroom",
           "Real-Time Production Monitoring",
-          "Predictive Delivery"
+          "Predictive Delivery",
+          "Customer Relations Management",
+          "Tender/Contract Management",
+          "Yacht Architecture Tracking Module",
+          "Design and Engineering Module",
+          "Yacht Production Management",
+          "Workshop Management",
+          "Supply Management",
+          "Storage Management",
+          "Subcontractor Management",
+          "Finance Module",
+          "Occupational Health and Safety Module"
         ]
       }
     }
   },
   "packages": {
     "title": "MMS Packages",
+    "subtitle": "Choose the package that suits your needs and start your digital transformation",
+    "popular": "Popular",
     "starter": {
       "title": "MMS Starter",
       "description": "Basic AI-powered solutions for small businesses",
-      "features": ["5 Basic Modules", "Cloud Access", "Basic AI Features", "24/7 Support"],
-      "price": "Affordable Price"
+      "features": [
+        "Basic features",
+        "5 modules",
+        "Affordable price"
+      ],
+      "cta": "Learn More"
     },
     "professional": {
       "title": "MMS Professional", 
       "description": "Advanced AI solutions for medium-sized businesses",
-      "features": ["12 Advanced Modules", "AI Analytics", "Predictive Maintenance", "Custom Integration"],
-      "price": "Mid-Range"
+      "features": [
+        "Advanced solutions",
+        "12 modules",
+        "Suitable for complex needs"
+      ],
+      "cta": "Learn More"
     },
     "enterprise": {
       "title": "MMS Enterprise",
       "description": "Complete AI-powered digital transformation for large enterprises",
-      "features": ["20+ Modules", "Full AI Suite", "Digital Twin", "Custom AI Models"],
-      "price": "Enterprise Solution"
+      "features": [
+        "Most comprehensive solutions",
+        "20+ modules",
+        "For all business needs"
+      ],
+      "cta": "Learn More"
     }
   },
   "features": {
@@ -185,5 +242,57 @@
     "learn_more": "Learn More",
     "get_started": "Get Started",
     "request_demo": "Request Demo"
+  },
+  "technical": {
+    "title": "Technical Feasibility",
+    "technologies": {
+      "title": "Technologies Used",
+      "description": "It will be developed using modern and widely used software development technologies and tools (Java, Python, JavaScript, MySQL, PostgreSQL, AWS, Azure, Google Cloud, Git, Jira, Confluence)."
+    },
+    "infrastructure": {
+      "title": "Existing Infrastructure Compatibility",
+      "description": "Thanks to its cloud-based structure, businesses do not need to make complex and costly hardware investments."
+    },
+    "integration": {
+      "title": "Integration",
+      "description": "Designed to integrate with other software (accounting, CRM, supply chain, etc.)."
+    },
+    "team": {
+      "title": "Team Competencies",
+      "skills": [
+        {
+          "title": "Software Development",
+          "description": "Experienced software engineers and developers"
+        },
+        {
+          "title": "Shipbuilding Industry Knowledge",
+          "description": "Experts who know sector dynamics, business processes and needs well"
+        },
+        {
+          "title": "Database Management",
+          "description": "Experienced experts in database design, development and management"
+        },
+        {
+          "title": "Cloud Technologies",
+          "description": "Experienced experts in cloud platforms and services"
+        },
+        {
+          "title": "Project Management",
+          "description": "Experienced project managers in planning, managing and completing the project"
+        },
+        {
+          "title": "Business Analysis",
+          "description": "Experienced business analysts in analyzing business needs, designing solutions and determining software requirements"
+        },
+        {
+          "title": "Test and Quality Assurance",
+          "description": "Experienced test experts in testing software, identifying errors and ensuring quality"
+        },
+        {
+          "title": "System Management",
+          "description": "Experienced system administrators in system installation, configuration and maintenance"
+        }
+      ]
+    }
   }
 } 
