@@ -27,18 +27,15 @@ jobs:
         npm ci
         npm run build
         echo "✅ Frontend build completed"
-        echo "--- Manually copying public files to dist ---"
-        rsync -av public/ dist/
         
-    - name: "🕵️‍♀️ Verify Frontend Build"
-      run: |
-        echo "--- Contents of frontend/public ---"
-        ls -laR frontend/public/
-        echo "-------------------------------------"
-        echo "--- Contents of frontend/dist ---"
-        ls -laR frontend/dist/
-        echo "-----------------------------------"
-        echo "Total files in dist: $(find frontend/dist -type f | wc -l)"
+        # CRITICAL: Ensure ALL static assets are in dist
+        echo "📁 Copying static assets from public to dist..."
+        cp -r public/* dist/ 2>/dev/null || true
+        cp public/.htaccess dist/.htaccess 2>/dev/null || true
+        
+        echo "📊 Frontend dist contents:"
+        find dist -type f | sort
+        echo "Total frontend files: $(find dist -type f | wc -l)"
         
     - name: Install and build backend
       run: |
@@ -46,46 +43,28 @@ jobs:
         npm ci
         npm run build
         echo "✅ Backend build completed"
+        echo "📊 Backend dist contents:"
         ls -la dist/
         
-    - name: Prepare unified deployment
+    - name: Prepare deployment package
       run: |
-        mkdir -p unified-deploy
+        # Create deployment directory
+        mkdir -p deploy-package
         
-        echo "🔍 BEFORE COPY - Frontend dist contents:"
-        find frontend/dist -type f | head -20
-        echo "Total frontend files:"
-        find frontend/dist -type f | wc -l
-        
-        # Copy ALL files including hidden files and nested directories
-        rsync -av frontend/dist/ unified-deploy/
-        
-        echo "🔍 AFTER FRONTEND COPY - Unified deploy contents:"
-        find unified-deploy -type f | head -20
-        echo "Total copied frontend files:"
-        find unified-deploy -type f | wc -l
+        # Copy ALL frontend files to root of deploy package
+        echo "📦 Copying frontend files..."
+        cp -r frontend/dist/* deploy-package/
+        cp -r frontend/dist/.* deploy-package/ 2>/dev/null || true
         
         # Create api directory and copy backend files
-        mkdir -p unified-deploy/api
-        rsync -av backend/dist/ unified-deploy/api/
-        cp backend/package.json unified-deploy/api/
-        cp backend/package-lock.json unified-deploy/api/
+        echo "📦 Copying backend files..."
+        mkdir -p deploy-package/api
+        cp -r backend/dist/* deploy-package/api/
+        cp backend/package.json deploy-package/api/
+        cp backend/package-lock.json deploy-package/api/
         
-        echo "🔍 FINAL CHECK - All unified deploy contents:"
-        find unified-deploy -type f | sort
-        echo "Final total files:"
-        find unified-deploy -type f | wc -l
-        
-    - name: "🕵️‍♀️ Verify Unified Directory"
-      run: |
-        echo "--- Contents of unified-deploy ---"
-        ls -laR unified-deploy/
-        echo "------------------------------------"
-        echo "Total files in unified-deploy: $(find unified-deploy -type f | wc -l)"
-
-    - name: Create production .env file for API
-      run: |
-        cat > unified-deploy/api/.env << EOF
+        # Create production .env file
+        cat > deploy-package/api/.env << EOF
         NODE_ENV=production
         PORT=3000
         FRONTEND_URL=https://marinemanagementsystem.com
@@ -104,28 +83,26 @@ jobs:
         API_KEY=mms-api-key-production
         EOF
         
-        echo "✅ Unified deployment ready"
-        echo "📂 Directory structure:"
-        echo "Frontend files:"
-        ls -la unified-deploy/ | head -15
-        echo "API files:"
-        ls -la unified-deploy/api/ | head -10
-        echo "Locale files:"
-        find unified-deploy/locales -name "*.json" 2>/dev/null || echo "No locales found"
-        echo "Static assets:"
-        find unified-deploy -name "*.png" -o -name "*.jpg" -o -name "*.svg" | head -10
-        echo "Hidden files:"
-        find unified-deploy -name ".*" | head -5
-        echo "Total files to deploy:"
-        find unified-deploy -type f | wc -l
+        echo "📊 Final deployment package contents:"
+        find deploy-package -type f | sort
+        echo "Total files to deploy: $(find deploy-package -type f | wc -l)"
         
-    - name: Deploy everything to public_html
+        # Verify critical files exist
+        echo "🔍 Verifying critical files..."
+        [ -f deploy-package/index.html ] && echo "✅ index.html" || echo "❌ index.html MISSING!"
+        [ -f deploy-package/logo.png ] && echo "✅ logo.png" || echo "❌ logo.png MISSING!"
+        [ -f deploy-package/vite.svg ] && echo "✅ vite.svg" || echo "❌ vite.svg MISSING!"
+        [ -f deploy-package/.htaccess ] && echo "✅ .htaccess" || echo "❌ .htaccess MISSING!"
+        [ -d deploy-package/locales/tr ] && echo "✅ locales/tr directory" || echo "❌ locales/tr directory MISSING!"
+        [ -f deploy-package/locales/tr/common.json ] && echo "✅ locales/tr/common.json" || echo "❌ locales/tr/common.json MISSING!"
+        
+    - name: Deploy to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.CPANEL_FTP_HOST }}
         username: ${{ secrets.CPANEL_FTP_USER }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-        local-dir: ./unified-deploy/
+        local-dir: ./deploy-package/
         server-dir: public_html/
         dangerous-clean-slate: true
         exclude: |
@@ -134,50 +111,35 @@ jobs:
           **/node_modules/**
           **/.DS_Store
         
-    - name: Deployment Summary
-      run: |
-        echo "🎉 Unified deployment completed!"
-        echo "📂 All files deployed to: public_html/"
-        echo "├── index.html (Frontend)"
-        echo "├── assets/ (Frontend CSS/JS)"
-        echo "├── locales/ (Languages)"
-        echo "├── *.png, *.jpg (Images)"
-        echo "├── .htaccess (URL routing)"
-        echo "└── api/ (Backend API)"
-        echo "    ├── app.js"
-        echo "    ├── .env"
-        echo "    └── package.json"
-        echo ""
-        echo "🌐 Website URL: https://marinemanagementsystem.com"
-        echo "🔗 API URL: https://marinemanagementsystem.com/api/health"
-        echo ""
-        echo "🔧 CPanel Node.js Settings:"
-        echo "   - Application Root: public_html/api"
-        echo "   - Application URL: marinemanagementsystem.com"
-        echo "   - Startup File: app.js"
-        echo "   - Port: 3000 (auto-detected)"
-        echo ""
-        echo "📝 Next Steps:"
-        echo "   1. CPanel → Node.js → Restart App"
-        echo "   2. Run NPM Install"
-        echo "   3. Test: /api/health endpoint"
-        
     - name: Verify Deployment
       run: |
-        echo "🔍 Testing deployed files..."
-        sleep 30  # Wait for deployment to propagate
+        echo "🔍 Waiting for deployment to complete..."
+        sleep 30
         
-        # Test static assets
-        echo "Testing logo.png..."
-        curl -I https://marinemanagementsystem.com/logo.png || echo "❌ logo.png not found"
+        echo "📡 Testing deployed files..."
         
-        echo "Testing vite.svg..."
-        curl -I https://marinemanagementsystem.com/vite.svg || echo "❌ vite.svg not found"
+        # Test with curl and show response
+        echo -e "\n🖼️ Testing logo.png..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://marinemanagementsystem.com/logo.png)
+        [ "$response" = "200" ] && echo "✅ logo.png is accessible (HTTP $response)" || echo "❌ logo.png not found (HTTP $response)"
         
-        echo "Testing translation files..."
-        curl -I https://marinemanagementsystem.com/locales/tr/common.json || echo "❌ tr/common.json not found"
+        echo -e "\n🎨 Testing vite.svg..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://marinemanagementsystem.com/vite.svg)
+        [ "$response" = "200" ] && echo "✅ vite.svg is accessible (HTTP $response)" || echo "❌ vite.svg not found (HTTP $response)"
         
-        echo "Testing API health..."
-        curl -I https://marinemanagementsystem.com/api/health || echo "❌ API not responding"
+        echo -e "\n🌍 Testing translation file..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://marinemanagementsystem.com/locales/tr/common.json)
+        [ "$response" = "200" ] && echo "✅ tr/common.json is accessible (HTTP $response)" || echo "❌ tr/common.json not found (HTTP $response)"
         
-        echo "✅ Verification complete" 
+        echo -e "\n🏥 Testing API health..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://marinemanagementsystem.com/api/health)
+        [ "$response" = "200" ] && echo "✅ API is running (HTTP $response)" || echo "❌ API not responding (HTTP $response)"
+        
+        echo -e "\n📋 Deployment Summary:"
+        echo "🌐 Website: https://marinemanagementsystem.com"
+        echo "🔗 API: https://marinemanagementsystem.com/api/health"
+        echo ""
+        echo "⚠️ If API returns 404, please:"
+        echo "1. Go to CPanel → Setup Node.js App"
+        echo "2. Click 'Restart' on your application"
+        echo "3. Click 'Run NPM Install'" 
