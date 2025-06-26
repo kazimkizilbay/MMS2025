@@ -72,14 +72,14 @@ export function Header() {
                 <img 
                   src="/logo.png" 
                   alt="Marine Management System Logo" 
-                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-base sm:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
+                <span className="text-sm sm:text-base md:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                   Marine Management System
                 </span>
-                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hidden sm:block">
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hidden md:block">
                   AI-Powered Digital Transformation
                 </span>
               </div>
@@ -113,14 +113,14 @@ export function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <div className="flex items-center space-x-1">
+          <div className="md:hidden flex items-center space-x-3">
+            <div className="flex items-center space-x-2 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg p-1 backdrop-blur-sm">
               <ThemeToggle />
               <LanguageSelector />
             </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 ml-2"
+              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg backdrop-blur-sm"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

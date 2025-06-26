@@ -286,6 +286,20 @@
   html, body {
     overflow-x: hidden;
   }
+  
+  /* Mobile header improvements */
+  header .flex.items-center.space-x-1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Ensure theme and language selectors are visible on mobile */
+  header .md\\:hidden .flex.items-center.space-x-1 > * {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 /* Dark mode improvements */
