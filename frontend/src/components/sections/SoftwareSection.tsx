@@ -34,13 +34,13 @@ export function SoftwareSection() {
   };
 
   // Helper function to safely get array from translation
-  const getTranslationArray = (key: string, fallback: string[] = []): string[] => {
+  const getTranslationArray = (key: string, fallback: string[] = []): any[] => {
     const result = t(key, { returnObjects: true });
     return Array.isArray(result) ? result : fallback;
   };
 
   // Helper function to safely get object array from translation
-  const getTranslationObjectArray = (key: string, fallback: Array<{title: string, description: string}> = []): Array<{title: string, description: string}> => {
+  const getTranslationObjectArray = (key: string, fallback: any[] = []): any[] => {
     const result = t(key, { returnObjects: true });
     return Array.isArray(result) ? result : fallback;
   };

@@ -15,7 +15,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   // Helper function to safely get array from translation
-  const getTranslationArray = (key: string, fallback: string[] = []): string[] => {
+  const getTranslationArray = (key: string, fallback: string[] = []): any[] => {
     const result = t(key, { returnObjects: true });
     return Array.isArray(result) ? result : fallback;
   };
