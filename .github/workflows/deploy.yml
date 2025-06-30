@@ -63,10 +63,23 @@ jobs:
       run: |
         cd backend
         npm ci
-        npm run build
-        echo "✅ Backend build completed"
+        echo "🔧 Installing backend dependencies..."
+        
+        # Build TypeScript to JavaScript
+        echo "📦 Compiling TypeScript to JavaScript..."
+        npx tsc
+        echo "✅ TypeScript compilation completed"
+        
+        # Debug: Show compiled files
         echo "📊 Backend dist contents:"
-        ls -la dist/
+        find dist -type f | sort
+        echo "Total backend compiled files: $(find dist -type f | wc -l)"
+        
+        # Verify critical files exist
+        echo "🔍 Verifying critical backend files..."
+        [ -f dist/app-mysql.js ] && echo "✅ app-mysql.js" || echo "❌ app-mysql.js MISSING!"
+        [ -f dist/routes/admin-mysql.js ] && echo "✅ admin-mysql.js" || echo "❌ admin-mysql.js MISSING!"
+        [ -f dist/config/mysql.js ] && echo "✅ mysql.js" || echo "❌ mysql.js MISSING!"
         
     - name: Prepare deployment package
       run: |
@@ -81,13 +94,27 @@ jobs:
         # Create api directory and copy backend files
         echo "📦 Copying backend files..."
         mkdir -p deploy-package/api
+        
+        # Copy compiled JavaScript files (dist directory)
+        echo "📁 Copying compiled backend files..."
         cp -r backend/dist/* deploy-package/api/
+        
+        # Copy package files for npm install
         cp backend/package.json deploy-package/api/
         cp backend/package-lock.json deploy-package/api/
+        
+        # Copy main app.js file (updated to use dist/app-mysql.js)
         cp backend/app.js deploy-package/api/
         
+        # Copy database schema
+        mkdir -p deploy-package/api/database
+        cp backend/database/mysql-schema.sql deploy-package/api/database/
+        
+        # Copy .htaccess for Node.js routing
+        cp backend/.htaccess deploy-package/api/
+        
         # Copy the .htaccess file to the root of the deployment package
-        echo "⚙️ Copying .htaccess file..."
+        echo "⚙️ Copying root .htaccess file..."
         cp .htaccess deploy-package/
         
         # Don't create .env file - use environment variables from cPanel instead
@@ -103,6 +130,9 @@ jobs:
         [ -f deploy-package/logo.png ] && echo "✅ logo.png" || echo "❌ logo.png MISSING!"
         [ -f deploy-package/vite.svg ] && echo "✅ vite.svg" || echo "❌ vite.svg MISSING!"
         [ -f deploy-package/.htaccess ] && echo "✅ .htaccess" || echo "❌ .htaccess MISSING!"
+        [ -f deploy-package/api/app.js ] && echo "✅ API app.js" || echo "❌ API app.js MISSING!"
+        [ -f deploy-package/api/app-mysql.js ] && echo "✅ API app-mysql.js" || echo "❌ API app-mysql.js MISSING!"
+        [ -f deploy-package/api/routes/admin-mysql.js ] && echo "✅ API admin-mysql.js" || echo "❌ API admin-mysql.js MISSING!"
         
     - name: Deploy to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -119,11 +149,35 @@ jobs:
           **/node_modules/**
           **/.DS_Store
           **/api/.env
+          **/*.ts
+          **/tsconfig.json
+          **/src/**
+        
+    - name: Restart CPanel Node.js Application
+      run: |
+        echo "🔄 Attempting to restart cPanel Node.js application..."
+        
+        # Wait for files to be fully uploaded
+        echo "⏱️ Waiting for file upload to complete..."
+        sleep 15
+        
+        # Try to restart via cPanel API (if available)
+        # This step might require cPanel API credentials
+        if [ -n "${{ secrets.CPANEL_API_TOKEN }}" ]; then
+          echo "🔧 Using cPanel API to restart Node.js app..."
+          curl -X POST \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USERNAME }}:${{ secrets.CPANEL_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"module":"NodeJSAPP","function":"restart_app","data":{"app_name":"marinemanagementsystem.com"}}' \
+            "${{ secrets.CPANEL_API_URL }}/execute/NodeJSAPP/restart_app" || echo "⚠️ API restart failed, manual restart may be needed"
+        else
+          echo "⚠️ cPanel API token not configured, manual restart required"
+        fi
         
     - name: Verify Deployment
       run: |
         echo "🔍 Waiting for deployment to complete..."
-        sleep 30
+        sleep 45
         
         echo "📡 Testing deployed files..."
         
@@ -142,13 +196,39 @@ jobs:
         
         echo -e "\n🏥 Testing API health..."
         response=$(curl -s -o /dev/null -w "%{http_code}" https://marinemanagementsystem.com/api/health)
-        [ "$response" = "200" ] && echo "✅ API is running (HTTP $response)" || echo "❌ API not responding (HTTP $response)"
+        if [ "$response" = "200" ]; then
+          echo "✅ API is running (HTTP $response)"
+          # Test API response content
+          api_response=$(curl -s https://marinemanagementsystem.com/api/health)
+          echo "📋 API Response: $api_response"
+        else
+          echo "❌ API not responding (HTTP $response)"
+        fi
+        
+        echo -e "\n🔐 Testing admin login endpoint..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+          -H "Content-Type: application/json" \
+          -d '{"username":"test","password":"test"}' \
+          https://marinemanagementsystem.com/api/admin/login)
+        if [ "$response" = "401" ] || [ "$response" = "400" ]; then
+          echo "✅ Admin login endpoint responding correctly (HTTP $response)"
+        elif [ "$response" = "500" ]; then
+          echo "❌ Admin login still has 500 error - check logs"
+        else
+          echo "⚠️ Admin login unexpected response (HTTP $response)"
+        fi
         
         echo -e "\n📋 Deployment Summary:"
         echo "🌐 Website: https://marinemanagementsystem.com"
-        echo "🔗 API: https://marinemanagementsystem.com/api/health"
+        echo "🔗 API Health: https://marinemanagementsystem.com/api/health"
+        echo "🔐 Admin Login: https://marinemanagementsystem.com/admin"
         echo ""
-        echo "⚠️ If API returns 404, please:"
+        echo "🎯 Admin Login Credentials:"
+        echo "   Username: admin"
+        echo "   Password: admin123"
+        echo ""
+        echo "⚠️ If API still returns 500 error, manually:"
         echo "1. Go to CPanel → Setup Node.js App"
-        echo "2. Click 'Restart' on your application"
-        echo "3. Click 'Run NPM Install'" 
+        echo "2. Click 'STOP APP' then 'START APP'"
+        echo "3. Click 'Run NPM Install'"
+        echo "4. Check error logs in CPanel" 

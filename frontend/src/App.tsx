@@ -1,6 +1,6 @@
 import './lib/i18n';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './components/providers/ThemeProvider';
+import { ThemeProvider } from './lib/theme-context';
 import Layout from './components/layout/Layout';
 import { Hero } from './components/sections/Hero';
 import { AboutSection } from './components/sections/AboutSection';

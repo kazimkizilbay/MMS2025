@@ -31,8 +31,6 @@ export function Header() {
     },
   ];
 
-
-
   const handleNavigation = (href: string) => {
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
@@ -62,24 +60,24 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md dark:bg-slate-900/95 border-b border-gray-200 dark:border-slate-700 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-sm dark:bg-slate-900/98 border-b border-slate-200/60 dark:border-slate-700/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 min-w-0 flex-1 sm:flex-initial">
             <a href="#" className="flex items-center space-x-2 sm:space-x-3">
               <div className="relative">
                 <img 
                   src="/logo.png" 
                   alt="Marine Management System Logo" 
-                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain filter brightness-0 dark:brightness-100 transition-all duration-300"
+                  className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain filter brightness-0 dark:brightness-100 transition-all duration-200"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
+              <div className="flex flex-col min-w-0">
+                <span className="text-xs sm:text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-50 leading-tight truncate">
                   Marine Management System
                 </span>
-                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hidden md:block">
+                <span className="text-xs text-slate-600 dark:text-slate-400 font-normal hidden lg:block">
                   AI-Powered Digital Transformation
                 </span>
               </div>
@@ -87,62 +85,76 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavigation(item.href)}
-                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm relative group"
+                className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 font-medium text-sm relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all duration-200 group-hover:w-full"></span>
               </button>
             ))}
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
-            <LanguageSelector />
+          <div className="hidden md:flex items-center space-x-3">
+            <div className="flex items-center space-x-2 px-3 py-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              <LanguageSelector />
+            </div>
+            <div className="px-2 py-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              <ThemeToggle />
+            </div>
             <button
               onClick={handleDemo}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 px-5 py-2 rounded-lg font-medium transition-all duration-200 text-sm"
             >
               {t('nav.demo')}
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <LanguageSelector />
-            <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center space-x-1 flex-shrink-0">
+            <div className="flex items-center space-x-1 px-2 py-1 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              <LanguageSelector />
+              <div className="w-px h-4 bg-slate-300 dark:bg-slate-600"></div>
+              <ThemeToggle />
+            </div>
+            
+            {/* Hamburger Menu */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg backdrop-blur-sm"
+              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-50/95 backdrop-blur-md dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-700/50 rounded-b-lg shadow-lg">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavigation(item.href)}
-                  className="mobile-nav-item block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  {item.name}
-                </button>
-              ))}
-              <div className="pt-4 border-t border-slate-200/50 dark:border-slate-700/50 mt-4">
+          <div className="md:hidden mobile-menu professional-slide-down">
+            <div className="mx-4 mt-3 mb-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg overflow-hidden">
+              {/* Mobile Navigation Items */}
+              <div className="py-2">
+                {navigation.map((item, index) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.href)}
+                    className="mobile-nav-item w-full text-left px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 font-medium text-sm border-b border-slate-100 dark:border-slate-700 last:border-b-0"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile Demo Button */}
+              <div className="p-3 bg-slate-50 dark:bg-slate-750 border-t border-slate-200 dark:border-slate-700">
                 <button
                   onClick={handleDemo}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                  className="w-full bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 px-4 py-3 rounded-lg font-medium transition-all duration-200 text-sm"
                 >
                   {t('nav.demo')}
                 </button>
