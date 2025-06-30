@@ -149,4 +149,11 @@ const startServer = async () => {
     }
 };
 
-startServer(); 
+// Export the app for cPanel and direct require
+export default app;
+module.exports = app;
+
+// Start server only if this file is run directly (not when required as module)
+if (require.main === module) {
+  startServer();
+} 

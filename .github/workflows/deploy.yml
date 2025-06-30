@@ -84,13 +84,19 @@ jobs:
         cp -r backend/dist/* deploy-package/api/
         cp backend/package.json deploy-package/api/
         cp backend/package-lock.json deploy-package/api/
+        cp backend/app.js deploy-package/api/
         
         # Create production .env file
         cat > deploy-package/api/.env << EOF
         NODE_ENV=production
         PORT=3000
         FRONTEND_URL=https://marinemanagementsystem.com
-        DATABASE_URL="mysql://username:password@localhost:3306/mms_db"
+        # MySQL Database Configuration for cPanel
+        DB_HOST=localhost
+        DB_USER=marinema_superadmin
+        DB_PASS=superadmin123
+        DB_NAME=marinema_admin
+        # Email Configuration (optional - for future use)
         SMTP_HOST=smtp.gmail.com
         SMTP_PORT=587
         SMTP_USER=your-email@gmail.com
@@ -98,8 +104,9 @@ jobs:
         FROM_EMAIL=noreply@marinemanagementsystem.com
         CONTACT_EMAIL=info@marinemanagementsystem.com
         DEMO_EMAIL=demo@marinemanagementsystem.com
+        # Security
         JWT_SECRET=mms-super-secret-jwt-key-2024-production
-        JWT_EXPIRE=30d
+        JWT_EXPIRE=24h
         RATE_LIMIT_WINDOW_MS=900000
         RATE_LIMIT_MAX_REQUESTS=100
         API_KEY=mms-api-key-production
