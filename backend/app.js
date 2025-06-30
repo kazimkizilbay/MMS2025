@@ -1,4 +1,4 @@
-const app = require('./dist/app-mysql.js');
+const app = require('./app-mysql.js');
 
 const PORT = process.env.PORT || 3000;
 
