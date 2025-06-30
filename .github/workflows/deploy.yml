@@ -86,6 +86,10 @@ jobs:
         cp backend/package-lock.json deploy-package/api/
         cp backend/app.js deploy-package/api/
         
+        # Copy the .htaccess file to the root of the deployment package
+        echo "⚙️ Copying .htaccess file..."
+        cp .htaccess deploy-package/
+        
         # Don't create .env file - use environment variables from cPanel instead
         echo "📝 Skipping .env file creation - using cPanel environment variables"
         
@@ -99,8 +103,20 @@ jobs:
         [ -f deploy-package/logo.png ] && echo "✅ logo.png" || echo "❌ logo.png MISSING!"
         [ -f deploy-package/vite.svg ] && echo "✅ vite.svg" || echo "❌ vite.svg MISSING!"
         [ -f deploy-package/.htaccess ] && echo "✅ .htaccess" || echo "❌ .htaccess MISSING!"
-        [ -d deploy-package/locales/tr ] && echo "✅ locales/tr directory" || echo "❌ locales/tr directory MISSING!"
-        [ -f deploy-package/locales/tr/common.json ] && echo "✅ locales/tr/common.json" || echo "❌ locales/tr/common.json MISSING!"
+        
+    - name: Create .htaccess file
+      run: |
+        cat > deploy-package/.htaccess << 'EOF'
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION.
+<IfModule mod_passenger.c>
+    PassengerAppRoot "/home/marinema/public_html/api"
+    PassengerBaseURI "/api"
+    PassengerNodejs "/home/marinema/nodevenv/public_html/api/20/bin/node"
+    PassengerAppType node
+    PassengerStartupFile app.js
+</IfModule>
+EOF
+        echo "✅ .htaccess file created successfully"
         
     - name: Deploy to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -116,6 +132,7 @@ jobs:
           **/.git*/**
           **/node_modules/**
           **/.DS_Store
+          **/api/.env
         
     - name: Verify Deployment
       run: |

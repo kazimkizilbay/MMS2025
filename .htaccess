@@ -1,0 +1,8 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION.
+<IfModule mod_passenger.c>
+    PassengerAppRoot "/home/marinema/public_html/api"
+    PassengerBaseURI "/api"
+    PassengerNodejs "/home/marinema/nodevenv/public_html/api/20/bin/node"
+    PassengerAppType node
+    PassengerStartupFile app.js
+</IfModule> 
