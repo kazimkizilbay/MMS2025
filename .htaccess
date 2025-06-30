@@ -5,4 +5,18 @@
     PassengerNodejs "/home/marinema/nodevenv/public_html/api/20/bin/node"
     PassengerAppType node
     PassengerStartupFile app.js
-</IfModule> 
+</IfModule>
+
+# React Router SPA - Redirect all non-API routes to index.html
+RewriteEngine On
+
+# Handle API routes - don't redirect these
+RewriteRule ^api/ - [L]
+
+# Handle static files - don't redirect these
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# All other routes go to React app
+RewriteRule ^ index.html [L] 
