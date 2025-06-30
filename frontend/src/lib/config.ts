@@ -1,13 +1,14 @@
 // API Configuration
-const isDevelopment = import.meta.env.DEV;
-const isProduction = import.meta.env.PROD;
+const isDevelopment = true; // Will be set to false in production build
+const isProduction = false; // Will be set to true in production build
 
-// Production'da sitenizin domain'ini yazın
-const PRODUCTION_DOMAIN = 'https://kayizer.com'; // CPANEL_FTP_HOST: kayizer.com
+// Production domain
+const PRODUCTION_DOMAIN = 'https://marinemanagementsystem.com';
 
-export const API_URL = isProduction 
-  ? `${PRODUCTION_DOMAIN}/api`
-  : 'http://localhost:3007/api';
+// For development, use localhost. For production, use domain
+export const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3007/api'
+  : `${PRODUCTION_DOMAIN}/api`;
 
 export const config = {
   API_URL,
