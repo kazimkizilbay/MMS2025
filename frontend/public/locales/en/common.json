@@ -387,5 +387,26 @@
         }
       ]
     }
+  },
+  "footer": {
+    "description": "Innovative AI-powered ERP solutions for the shipbuilding industry. Optimize your shipbuilding processes with modern technology.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "services_items": [
+      "AI-Powered ERP Solutions",
+      "Digital Transformation Consulting",
+      "Shipbuilding Software",
+      "Cloud Technology Services",
+      "24/7 Technical Support"
+    ],
+    "newsletter": {
+      "title": "Stay Informed",
+      "subtitle": "Subscribe to our newsletter to stay updated on innovations.",
+      "placeholder": "Your email address",
+      "button": "Subscribe"
+    },
+    "followUs": "Follow Us",
+    "subtitle": "AI-Powered Digital Transformation",
+    "copyright": "© 2024 Marine Management System (MMS). All rights reserved."
   }
 } 

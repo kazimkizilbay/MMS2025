@@ -253,7 +253,7 @@ ${formData.message}
                 return (
                   <div key={index} className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
                     {icons[index]} {feature}
-                  </div>
+              </div>
                 );
               })}
             </div>

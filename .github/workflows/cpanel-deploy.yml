@@ -1,0 +1,96 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies - Frontend
+      working-directory: ./frontend
+      run: |
+        npm ci
+        
+    - name: Install dependencies - Backend
+      working-directory: ./backend
+      run: |
+        npm ci
+        
+    - name: Build Frontend
+      working-directory: ./frontend
+      run: |
+        npm run build
+        
+    - name: Build Backend (MySQL Version)
+      working-directory: ./backend
+      run: |
+        npm run build:mysql
+        
+    - name: Create .htaccess for Frontend
+      run: |
+        cat > ./frontend/dist/.htaccess << 'EOF'
+        <IfModule mod_rewrite.c>
+          RewriteEngine On
+          RewriteBase /
+          RewriteRule ^index\.html$ - [L]
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          RewriteRule . /index.html [L]
+        </IfModule>
+        EOF
+        
+    - name: Deploy Frontend to cPanel
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: 85.235.74.127
+        username: admin@marinemanagementystem.com
+        password: kk197-xJ
+        port: 21
+        local-dir: ./frontend/dist/
+        server-dir: /public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          
+    - name: Deploy Backend to cPanel
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: 85.235.74.127
+        username: admin@marinemanagementystem.com
+        password: kk197-xJ
+        port: 21
+        local-dir: ./backend/dist/
+        server-dir: /api/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          
+    - name: Prepare package files
+      run: |
+        mkdir -p deploy-package
+        cp ./backend/package.json ./deploy-package/
+        cp ./backend/package-lock.json ./deploy-package/
+        
+    - name: Deploy Backend package files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: 85.235.74.127
+        username: admin@marinemanagementystem.com
+        password: kk197-xJ.
+        port: 21
+        local-dir: ./deploy-package/
+        server-dir: /api/ 

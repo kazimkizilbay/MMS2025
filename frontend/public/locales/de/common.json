@@ -387,5 +387,26 @@
         }
       ]
     }
+  },
+  "footer": {
+    "description": "Innovative KI-gestützte ERP-Lösungen für die Schiffbauindustrie. Optimieren Sie Ihre Schiffbauprozesse mit moderner Technologie.",
+    "quickLinks": "Schnelle Links",
+    "services": "Unsere Dienstleistungen",
+    "services_items": [
+      "KI-gestützte ERP-Lösungen",
+      "Digitale Transformationsberatung",
+      "Schiffbausoftware",
+      "Cloud-Technologie-Services",
+      "24/7 Technischer Support"
+    ],
+    "newsletter": {
+      "title": "Bleiben Sie informiert",
+      "subtitle": "Abonnieren Sie unseren Newsletter, um über Innovationen auf dem Laufenden zu bleiben.",
+      "placeholder": "Ihre E-Mail-Adresse",
+      "button": "Abonnieren"
+    },
+    "followUs": "Folgen Sie uns",
+    "subtitle": "KI-gestützte digitale Transformation",
+    "copyright": "© 2024 Marine Management System (MMS). Alle Rechte vorbehalten."
   }
 } 
