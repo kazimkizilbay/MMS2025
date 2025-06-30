@@ -7,7 +7,7 @@
     "dev": "nodemon src/app.ts",
     "dev:mysql": "nodemon src/app-mysql.ts",
     "build": "tsc",
-    "build:mysql": "tsc && cp dist/app-mysql.js dist/app.js",
+    "build:mysql": "tsc",
     "start": "node dist/app.js",
     "start:mysql": "node dist/app-mysql.js",
     "prestart-dev": "npm run build",

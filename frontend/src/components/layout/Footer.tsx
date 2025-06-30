@@ -222,15 +222,15 @@ export function Footer() {
             <div className="text-center md:text-right">
               <h4 className="text-lg font-semibold mb-4">{t('footer.newsletter.title')}</h4>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col space-y-2">
-                <div className="flex max-w-sm">
-                  <input
-                    type="email"
+              <div className="flex max-w-sm">
+                <input
+                  type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t('footer.newsletter.placeholder')}
-                    className="flex-1 px-4 py-2 bg-slate-800 border border-slate-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-50 placeholder-slate-400"
+                  placeholder={t('footer.newsletter.placeholder')}
+                  className="flex-1 px-4 py-2 bg-slate-800 border border-slate-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-50 placeholder-slate-400"
                     disabled={loading}
-                  />
+                />
                   <button 
                     type="submit"
                     disabled={loading}
@@ -241,8 +241,8 @@ export function Footer() {
                     ) : (
                       t('footer.newsletter.button')
                     )}
-                  </button>
-                </div>
+                </button>
+              </div>
                 {message && (
                   <div className={`flex items-center space-x-2 text-sm ${
                     message.type === 'success' ? 'text-green-400' : 'text-red-400'

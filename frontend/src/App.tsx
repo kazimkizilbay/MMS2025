@@ -12,15 +12,15 @@ import { AdminDashboard } from './pages/AdminDashboard';
 
 function HomePage() {
   return (
-    <Layout>
-      <main className="pt-20">
-        <Hero />
-        <AboutSection />
-        <SoftwareSection />
-        <FeaturesSection />
-        <ContactSection />
-      </main>
-    </Layout>
+      <Layout>
+        <main className="pt-20">
+          <Hero />
+          <AboutSection />
+          <SoftwareSection />
+          <FeaturesSection />
+          <ContactSection />
+        </main>
+      </Layout>
   );
 }
 
