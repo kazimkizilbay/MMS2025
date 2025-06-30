@@ -104,20 +104,6 @@ jobs:
         [ -f deploy-package/vite.svg ] && echo "✅ vite.svg" || echo "❌ vite.svg MISSING!"
         [ -f deploy-package/.htaccess ] && echo "✅ .htaccess" || echo "❌ .htaccess MISSING!"
         
-    - name: Create .htaccess file
-      run: |
-        cat > deploy-package/.htaccess << 'EOF'
-# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION.
-<IfModule mod_passenger.c>
-    PassengerAppRoot "/home/marinema/public_html/api"
-    PassengerBaseURI "/api"
-    PassengerNodejs "/home/marinema/nodevenv/public_html/api/20/bin/node"
-    PassengerAppType node
-    PassengerStartupFile app.js
-</IfModule>
-EOF
-        echo "✅ .htaccess file created successfully"
-        
     - name: Deploy to CPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
